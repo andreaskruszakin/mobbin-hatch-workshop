@@ -1,0 +1,272 @@
+<!--
+  Variant B — "Dossier"
+  Combination: 1C · 2E · 3D · 4E · 5D · 6F
+    1C commitment ramp ...... credentials first, application persists against the login
+    2E progress model ....... persistent sidebar checklist, n/N, every stage visible
+    3D input density ........ one coherent section per page
+    4E trust ................ partner-bank and deposit protection explained at the moment of signing
+    5D validation ........... live checklist that ticks off as you type
+    6F post-submit .......... the wait turned into useful pre-approval work
+
+  Structural logic followed from:
+    https://mobbin.com/flows/5fcdc0f3-f4bd-4687-8303-a6129ce532cd  (Mercury, screens 10 + 14 — credentials first, sidebar n/N)
+    https://mobbin.com/flows/f46b27fd-c406-44ec-ab64-d2e0b7219966  (Mercury, screens 4 + 6 — legal at signing, setup tasks while waiting)
+    https://mobbin.com/screens/02dc3d79-c265-4452-b5d6-0af4bb5161bf (HoneyBook — live password checklist)
+    https://mobbin.com/screens/68cf5d5f-8483-4f72-bd12-448c4f75f4f5 (Emergent — confirmed-good state)
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business account application — Meridian</title>
+<style>
+  :root {
+    --ink: #1b1f23;
+    --muted: #667085;
+    --line: #e4e7ec;
+    --accent: #2f4858;
+    --ok: #2e7d5b;
+    --wash: #f7f8f9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink); background: var(--wash); font-size: 14px;
+  }
+  .shell { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+  aside {
+    background: #fff; border-right: 1px solid var(--line); padding: 22px 20px;
+    display: flex; flex-direction: column;
+  }
+  .mark { font-weight: 600; letter-spacing: -0.02em; margin-bottom: 28px; }
+  .count { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 14px; }
+  .count span { color: var(--muted); font-size: 15px; }
+  nav ol { list-style: none; margin: 0; padding: 0; }
+  nav li {
+    display: flex; align-items: center; gap: 10px; padding: 9px 10px;
+    border-radius: 6px; color: var(--muted); font-size: 13.5px;
+  }
+  nav li.current { background: var(--wash); color: var(--ink); font-weight: 500; }
+  nav li.done { color: var(--ink); }
+  .tick {
+    width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid #cdd2d9;
+    flex: none; display: grid; place-items: center; font-size: 10px; color: #fff;
+  }
+  li.done .tick { background: var(--ok); border-color: var(--ok); }
+  .support { margin-top: auto; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+  main { padding: 40px 48px 80px; max-width: 720px; }
+  .panel { display: none; }
+  .panel.on { display: block; }
+  h1 { font-size: 22px; margin: 0 0 6px; letter-spacing: -0.02em; }
+  .sub { color: var(--muted); margin: 0 0 26px; line-height: 1.55; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .full { grid-column: 1 / -1; }
+  label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; }
+  input[type=text], input[type=email], input[type=password], select {
+    width: 100%; padding: 10px 12px; font-size: 14px; font-family: inherit;
+    border: 1px solid #cdd2d9; border-radius: 6px; background: #fff;
+  }
+  input:focus-visible, select:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px;
+  }
+  .rules { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 5px; }
+  .rules li { font-size: 12.5px; color: var(--muted); display: flex; gap: 7px; align-items: center; }
+  .rules li::before { content: "○"; font-size: 11px; }
+  .rules li.met { color: var(--ok); }
+  .rules li.met::before { content: "●"; }
+  .legal {
+    background: #fff; border: 1px solid var(--line); border-radius: 8px;
+    padding: 18px 20px; margin-bottom: 22px; line-height: 1.6;
+  }
+  .legal h2 { font-size: 14px; margin: 0 0 8px; }
+  .legal p { margin: 0 0 10px; color: #414651; }
+  .legal ul { margin: 0; padding-left: 18px; color: var(--muted); }
+  .legal a { color: var(--accent); }
+  .actions { margin-top: 28px; display: flex; gap: 10px; }
+  button {
+    font: inherit; padding: 10px 20px; border-radius: 6px; cursor: pointer;
+    border: 1px solid transparent; font-size: 14px;
+  }
+  .primary { background: var(--accent); color: #fff; }
+  .primary:disabled { background: #c4cad0; cursor: not-allowed; }
+  .ghost { background: #fff; border-color: #cdd2d9; }
+  .tasks { list-style: none; margin: 22px 0 0; padding: 0; }
+  .tasks li {
+    background: #fff; border: 1px solid var(--line); border-radius: 8px;
+    padding: 16px 18px; margin-bottom: 10px; display: flex; gap: 14px; align-items: flex-start;
+  }
+  .num {
+    width: 22px; height: 22px; border-radius: 50%; background: var(--wash);
+    display: grid; place-items: center; font-size: 12px; color: var(--muted); flex: none;
+  }
+  .tasks strong { display: block; font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+  .tasks p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+  .status {
+    display: inline-flex; align-items: center; gap: 7px; background: #fff;
+    border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px;
+    font-size: 12.5px; color: var(--muted); margin-bottom: 18px;
+  }
+  .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); }
+  @media (max-width: 860px) { .shell { grid-template-columns: 1fr; } aside { border-right: 0; border-bottom: 1px solid var(--line); } .grid { grid-template-columns: 1fr; } main { padding: 28px 24px 60px; } }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <aside>
+    <div class="mark">MERIDIAN</div>
+    <div class="count"><b id="n">1</b> <span>/ 5</span></div>
+    <nav>
+      <ol id="nav">
+        <li class="current"><span class="tick">✓</span> Create your login</li>
+        <li><span class="tick">✓</span> Company info</li>
+        <li><span class="tick">✓</span> Ownership</li>
+        <li><span class="tick">✓</span> Expected activity</li>
+        <li><span class="tick">✓</span> Review and sign</li>
+      </ol>
+    </nav>
+    <p class="support">Your progress saves as you go. You can close this and come back from any device.</p>
+  </aside>
+
+  <main>
+    <!-- 1C: a login exists before the application does -->
+    <section class="panel on">
+      <h1>Create your login</h1>
+      <p class="sub">The application takes about 10 minutes and you almost certainly won't finish it in one sitting. A login means you don't have to.</p>
+      <div class="grid">
+        <div class="full">
+          <label for="email">Work email</label>
+          <input id="email" type="email" autocomplete="email">
+        </div>
+        <div class="full">
+          <label for="pw">Password</label>
+          <input id="pw" type="password" autocomplete="new-password">
+          <!-- 5D: rules tick as you type, before anything is submitted -->
+          <ul class="rules" id="rules">
+            <li data-rule="len">At least 10 characters</li>
+            <li data-rule="upper">One uppercase letter</li>
+            <li data-rule="num">One number</li>
+            <li data-rule="sym">One symbol</li>
+          </ul>
+        </div>
+      </div>
+      <div class="actions"><button class="primary" data-next disabled id="startBtn">Start application</button></div>
+    </section>
+
+    <section class="panel">
+      <h1>Company info</h1>
+      <p class="sub">Everything on this page comes off your certificate of incorporation.</p>
+      <div class="grid">
+        <div class="full"><label for="cn">Registered company name</label><input id="cn" type="text"></div>
+        <div><label for="crn">Company number</label><input id="crn" type="text"></div>
+        <div><label for="inc">Country of incorporation</label><select id="inc"><option>United Kingdom</option><option>Netherlands</option><option>France</option></select></div>
+        <div><label for="type">Legal structure</label><select id="type"><option>Private limited company</option><option>Partnership</option><option>Sole trader</option></select></div>
+        <div><label for="site">Company website</label><input id="site" type="text" placeholder="meridian.com"></div>
+      </div>
+      <div class="actions"><button class="ghost" data-back>Back</button><button class="primary" data-next>Continue</button></div>
+    </section>
+
+    <section class="panel">
+      <h1>Ownership</h1>
+      <p class="sub">We're required to identify anyone owning 25% or more. Add them now and they'll each get their own verification link.</p>
+      <div class="grid">
+        <div><label for="o1">Full legal name</label><input id="o1" type="text"></div>
+        <div><label for="o2">Ownership share</label><select id="o2"><option>25–50%</option><option>51–75%</option><option>76–100%</option></select></div>
+        <div class="full"><label for="o3">Their email</label><input id="o3" type="email"></div>
+      </div>
+      <div class="actions"><button class="ghost" data-back>Back</button><button class="primary" data-next>Continue</button></div>
+    </section>
+
+    <section class="panel">
+      <h1>Expected activity</h1>
+      <p class="sub">This sets your initial limits. Estimates are fine — we adjust them once real money moves.</p>
+      <div class="grid">
+        <div><label for="a1">Expected monthly inflow</label><select id="a1"><option>Under €10,000</option><option>€10,000 – €100,000</option><option>Over €100,000</option></select></div>
+        <div><label for="a2">Where do payments come from?</label><select id="a2"><option>Domestic customers</option><option>EU customers</option><option>Worldwide</option></select></div>
+        <div class="full"><label for="a3">What does the business actually do?</label><input id="a3" type="text" placeholder="One sentence is enough"></div>
+      </div>
+      <div class="actions"><button class="ghost" data-back>Back</button><button class="primary" data-next>Continue</button></div>
+    </section>
+
+    <!-- 4E: the legal reality, at the moment it becomes binding -->
+    <section class="panel">
+      <h1>Review and sign</h1>
+      <p class="sub">Before you sign, here is who actually holds your money.</p>
+      <div class="legal">
+        <h2>Who holds your deposits</h2>
+        <p>Meridian is a payments company, not a bank. Your balance is held at our partner bank, Northgate Financial, and is protected up to €100,000 per depositor under the national deposit guarantee scheme.</p>
+        <p>By signing you're agreeing to:</p>
+        <ul>
+          <li><a href="#">Business Deposit Account Agreement</a></li>
+          <li><a href="#">Payment Services Terms</a></li>
+          <li><a href="#">Schedule of Charges</a></li>
+        </ul>
+      </div>
+      <div class="actions"><button class="ghost" data-back>Back</button><button class="primary" data-next>Agree and submit</button></div>
+    </section>
+
+    <!-- 6F: the wait becomes work worth doing -->
+    <section class="panel">
+      <div class="status"><span class="pulse"></span> In review · submitted today · usually 2 working days</div>
+      <h1>While we review, get the account ready</h1>
+      <p class="sub">None of this needs approval. Doing it now means you can move money the hour you're approved instead of starting from an empty dashboard.</p>
+      <ol class="tasks">
+        <li><span class="num">1</span><span><strong>Invite your accountant</strong><p>They get read-only access. Most people forget until the first VAT return.</p></span></li>
+        <li><span class="num">2</span><span><strong>Set up two-factor authentication</strong><p>Required before your first outbound payment anyway.</p></span></li>
+        <li><span class="num">3</span><span><strong>Import your supplier list</strong><p>A CSV now saves retyping IBANs later.</p></span></li>
+        <li><span class="num">4</span><span><strong>Decide who gets a card</strong><p>Cards are printed on approval and arrive in 3 days.</p></span></li>
+      </ol>
+    </section>
+  </main>
+</div>
+
+<script>
+  const panels = [...document.querySelectorAll('.panel')];
+  const navItems = [...document.querySelectorAll('#nav li')];
+  const nEl = document.getElementById('n');
+  let i = 0;
+
+  // 5D — live rules, evaluated on every keystroke
+  const pw = document.getElementById('pw');
+  const email = document.getElementById('email');
+  const startBtn = document.getElementById('startBtn');
+  const rules = {
+    len: v => v.length >= 10,
+    upper: v => /[A-Z]/.test(v),
+    num: v => /\d/.test(v),
+    sym: v => /[^A-Za-z0-9]/.test(v)
+  };
+
+  function checkRules() {
+    const v = pw.value;
+    let all = true;
+    document.querySelectorAll('#rules li').forEach(li => {
+      const met = rules[li.dataset.rule](v);
+      li.classList.toggle('met', met);
+      if (!met) all = false;
+    });
+    startBtn.disabled = !(all && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value));
+  }
+  pw.addEventListener('input', checkRules);
+  email.addEventListener('input', checkRules);
+
+  function render() {
+    panels.forEach((p, n) => p.classList.toggle('on', n === i));
+    navItems.forEach((li, n) => {
+      li.classList.toggle('current', n === i);
+      li.classList.toggle('done', n < i);
+    });
+    nEl.textContent = Math.min(i + 1, navItems.length);
+    window.scrollTo(0, 0);
+  }
+
+  document.addEventListener('click', e => {
+    if (e.target.matches('[data-next]') && i < panels.length - 1) { i++; render(); }
+    if (e.target.matches('[data-back]') && i > 0) { i--; render(); }
+  });
+
+  render();
+</script>
+</body>
+</html>
