@@ -7,20 +7,24 @@ Participants take one mediocre finance screen, break it into design decisions wi
 morphological analysis, ground each decision in real shipped patterns via the Mobbin
 MCP, and generate structurally different interfaces from one brief.
 
-## Run it
+## See it
 
-No install, no build step. The baseline and variants are plain HTML/CSS.
+One brief, one starting screen, three combinations from the matrix:
+
+- [The baseline](https://andreaskruszakin.github.io/mobbin-hatch-workshop/baseline/) — the as-is screen everyone forks
+- [Variant A — Gauntlet](https://andreaskruszakin.github.io/mobbin-hatch-workshop/variants/a/) — eligibility gate first, one question per screen, ends in a status timeline
+- [Variant B — Dossier](https://andreaskruszakin.github.io/mobbin-hatch-workshop/variants/b/) — login first, sectioned, the wait turned into setup work
+- [Variant C — Conversation](https://andreaskruszakin.github.io/mobbin-hatch-workshop/variants/c/) — four card questions, ends in a recommendation rather than an account
+
+## Run it locally
+
+No install, no build step. Everything is plain HTML and CSS.
 
 ```bash
 python3 -m http.server 3160
 ```
 
-Then open:
-
-- `http://localhost:3160/baseline/` — the as-is screen everyone starts from
-- `http://localhost:3160/variants/a/` — matrix row A
-- `http://localhost:3160/variants/b/` — matrix row B
-- `http://localhost:3160/variants/c/` — matrix row C
+Then open `http://localhost:3160/baseline/`.
 
 ## What's here
 

@@ -2,6 +2,13 @@
 
 ## 15-08-2026
 
+- Published the kit to a public GitHub repo (`andreaskruszakin/mobbin-hatch-workshop`) and
+  enabled GitHub Pages from `main`, so Nicolas can click through the baseline and the three
+  variants instead of reading HTML source. `README.md` now leads with the live links.
+- Rewrote `docs/FOR-NICOLAS.md` as a note addressed to Nicolas directly rather than a draft
+  message about him, and removed the private Notion URL, since the repo is public and he
+  will read the file himself.
+
 - Created the facilitator kit for the Mobbin x Hatch Workshop Lab. New project at
   `mobbin-hatch-workshop/`, served statically on port 3160 via `python3 -m http.server`
   with no build step, so participants with no local environment can still take part.
