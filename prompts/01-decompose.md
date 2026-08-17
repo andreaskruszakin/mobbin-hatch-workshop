@@ -1,31 +1,36 @@
-# 01 — Decompose
+# 01 — Read the regions
 
-Goal: turn one screen into a list of **decisions**, not a list of complaints.
+Goal: know what the screen is **made of**, and which three parts are worth changing.
 
-Anyone can say "this form is ugly". Morphological analysis forces you to say *which
-independent choices produced it*, and that is the thing you can then vary.
+The decomposition is already done. Open your baseline and view source — every section carries
+a `data-region` attribute:
 
-Open `baseline/index.html` in your AI tool and run this.
+```html
+<div class="panel" data-region="accounts-table">
+```
+
+That is not a formatting detail. It is the screen telling you its own parts. Your job in this
+step is not to invent a breakdown, it is to read the one that is there and decide where the
+information actually lives.
+
+Takes two minutes, not six. Run this in your AI tool with the baseline file open.
 
 ---
 
 ```
-Read baseline/index.html.
+Read the baseline HTML file I have open.
 
-This is a business bank account application. Do not redesign it and do not give me
-a critique.
+Do not redesign it. Do not give me a critique.
 
-Instead, decompose it into the independent DESIGN DECISIONS it embodies. A design
-decision is a choice that could have been made differently without changing what the
-product does. "Uses a blue button" is not one. "Reveals errors only after submit" is.
+List every element carrying a data-region attribute. For each one, tell me:
+- the region name, exactly as written
+- what component archetype it currently is (table, link list, banner, form,
+  card row, nav bar, and so on)
+- what information or decision it carries for the user, in one line
+- whether that information is the reason someone opened this screen, or chrome
 
-For each decision give me:
-- the dimension (the question being answered)
-- the option this screen picked
-- two or three other options that exist in the world
-
-Aim for 6 to 8 dimensions. They must be independent — if changing one forces a change
-in another, you have merged two dimensions and need to split them.
+Then rank the regions by how much the screen would change if that one region
+became a different component. Highest first.
 
 Output as a markdown table. No preamble.
 ```
@@ -34,14 +39,24 @@ Output as a markdown table. No preamble.
 
 ## What good output looks like
 
-Dimensions that are genuinely orthogonal: commitment ramp, progress model, input density,
-trust placement, validation timing, post-submit state.
+The top of the ranking should be regions holding data or decisions — `accounts-table`,
+`transactions`, `upcoming`, `filters`, `hero`, `projects`. The bottom should be chrome —
+`footer`, `utility-bar`, `legal`, `shortcuts`.
+
+If the ranking puts `footer` above `transactions`, the model ranked by pixel area. Say so and
+re-run: `Rank by how much the user's understanding changes, not by how much of the page moves.`
 
 ## What to push back on
 
-If the model gives you "colour scheme", "typography" or "spacing", reject them. Those are
-styling, not structure, and varying them only produces the same product in different
-clothes. That is exactly the slop we are trying to avoid.
+Reject anything about colour, typography, spacing or "modernising the look". Those vary the
+clothes, not the product. You can restyle every one of these screens and change nothing about
+what the user can find out or do — which is exactly the outcome this workshop exists to avoid.
 
-Re-run with: `Those are surface styling choices. Give me structural decisions only —
-things that change what the user does, in what order, and what they know when.`
+Re-run with: `Those are surface styling choices. Tell me what component each region is and
+what else that component could be.`
+
+## Then pick three
+
+Three regions, from the top of the ranking. Write them down before you search for anything.
+`docs/SWAP-CARD.md` has the full region list for each baseline with seeded alternatives if you
+want a starting point — but a better answer that isn't on the card is a better answer.

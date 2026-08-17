@@ -1,5 +1,43 @@
 # Changelog
 
+## 17-08-2026
+
+- Replaced the invented Meridian account-opening baseline with Nicolas Chatelain's three
+  Crédit Mutuel screens: `baselines/a-homepage/`, `baselines/b-accounts/` and
+  `baselines/c-transactions/`, one folder each so GitHub Pages serves them directly. Deleted
+  `baseline/` and `variants/`. The workshop now starts from a real screen with a real data
+  volume — 24 transactions with raw labels — instead of one written to be criticised.
+- Translated all three baselines to English (`lang="en"`) while keeping French product names
+  as proper nouns (Eurocompte Confort, Livret Bleu, Plan Épargne Logement, Forfait
+  International, Caisse locale), the raw transaction labels untouched
+  (`PRLV SEPA EDF CLIENTS PART 483992017 ECH 220826`), European number and date formats, every
+  `data-region` attribute and each header data contract. Normalising the labels would have
+  handed participants the most obvious available win for free.
+- Added `docs/SWAP-CARD.md` and deleted `docs/MATRIX.md`. The six-dimension matrix is replaced
+  by one question per region — *what component is this, and what else could it be?* — with
+  every region of every baseline listed, seeded alternatives, and a `high`/`low` yield rating
+  that encodes the teaching moment: swap the regions carrying information, not pixels. This
+  fixes the scope failure measured in `docs/DRY-RUN.md`, where grounding six dimensions took
+  19–27 minutes against a 22-minute block.
+- Added `docs/NICOLAS-CHART.md`, preserving Nicolas's ten-line chart, relevance map and
+  calibration rule ("I've seen worse", not "that's a straw man") as credited background, so
+  the compression in the swap card can be checked against what it compressed.
+- Rewrote `prompts/00-setup.md` through `03-generate.md` around regions and components.
+  `01-decompose.md` now reads the `data-region` tags and ranks them instead of deriving a
+  decomposition; `02-ground.md` searches one component per swap and carries Nicolas's ten
+  pre-verified Mobbin URLs as an offline fallback; `03-generate.md` gains the hard constraints
+  that make the result checkable — keep every number, keep the raw labels reachable, keep the
+  region names.
+- Updated `docs/RUN-OF-SHOW.md` with the confirmed date (Hatch Berlin, 18 September 2026) and
+  Nicolas's pick-your-baseline reveal at minutes 16–18, which replaces the four-zone room
+  split. Three starting points make the show-and-tell contrast structural rather than
+  aesthetic without imposing an artificial constraint.
+- Rewrote `README.md` to lead with the three live Pages links and added an
+  educational-reconstruction disclaimer — fictional data, unallocated IBANs, no affiliation or
+  endorsement — since the repo is public and carries a real bank's name.
+- Updated `docs/FOR-NICOLAS.md` and `docs/DRY-RUN.md` so neither argues for a method the repo
+  no longer runs, and updated the Notion workshop page to match.
+
 ## 15-08-2026
 
 - Published the kit to a public GitHub repo (`andreaskruszakin/mobbin-hatch-workshop`) and
