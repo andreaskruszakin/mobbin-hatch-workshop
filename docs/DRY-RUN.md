@@ -6,6 +6,14 @@ happened, including the parts that didn't work.
 **Headline: the method works and produces genuinely different outputs. The scope does not
 fit 22 minutes.** Six dimensions has to come down to three.
 
+> **Status: superseded in part, kept in full.** This was run against an invented
+> account-opening baseline ("Meridian") and a six-dimension matrix, both since retired in
+> favour of Nicolas's three Crédit Mutuel screens and the component swap in
+> `docs/SWAP-CARD.md`. The scope finding below is what drove that change. The MCP timings,
+> failure modes and query-phrasing notes were measured against the live Mobbin MCP and still
+> hold — they are the reason this file stays in the repo. The Meridian screens themselves are
+> gone, so the links to them have been removed rather than left dangling.
+
 ---
 
 ## What was measured
@@ -57,9 +65,12 @@ Revised, and this fits with room to spare:
 
 **Decompose together, on the projector.** It is the step most likely to go sideways alone,
 it is the step where the method actually gets taught, and doing it as a room takes four
-minutes instead of six and produces a shared vocabulary for the rest of the session. The
-full six-dimension matrix is already written up in `docs/MATRIX.md` and goes in the takeaway
-page, so nobody loses the other three — they just don't build them under time pressure.
+minutes instead of six and produces a shared vocabulary for the rest of the session.
+
+*How this was resolved.* The four-minute decompose became zero minutes. Nicolas's baselines
+carry `data-region` tags, so the decomposition ships with the artefact and participants read
+it instead of deriving it. `docs/SWAP-CARD.md` lists the regions per screen with seeded
+alternatives, which is the takeaway that `docs/MATRIX.md` used to be.
 
 ---
 
@@ -112,9 +123,9 @@ Yes, and this is the part I was least sure of. Three combinations, same brief, s
 
 | Variant | Combination | What it became |
 | --- | --- | --- |
-| [A — Gauntlet](../variants/a/index.html) | `1B · 2C · 3C · 4F · 5B · 6B` | Eligibility gate first, one question per screen, top progress bar, ends in a status timeline |
-| [B — Dossier](../variants/b/index.html) | `1C · 2E · 3D · 4E · 5D · 6F` | Login first, persistent 1/5 sidebar, whole sections per page, the wait turned into setup work |
-| [C — Conversation](../variants/c/index.html) | `1F · 2F · 3B · 4B · 5E · 6D` | Four card questions, a customer voice alongside, ends in a recommendation with three exits |
+| A — Gauntlet | `1B · 2C · 3C · 4F · 5B · 6B` | Eligibility gate first, one question per screen, top progress bar, ends in a status timeline |
+| B — Dossier | `1C · 2E · 3D · 4E · 5D · 6F` | Login first, persistent 1/5 sidebar, whole sections per page, the wait turned into setup work |
+| C — Conversation | `1F · 2F · 3B · 4B · 5E · 6D` | Four card questions, a customer voice alongside, ends in a recommendation with three exits |
 
 They do not read as the same product in different clothes. A is a form that respects your
 time, B is a serious application you'll return to across two sittings, C barely reads as a
@@ -126,6 +137,12 @@ the model's defaults.
 decomposed it. Step 01 is therefore the one step in this kit that has not been genuinely
 tested cold. It is also why I want it facilitated from the front rather than left to
 twenty-two solo attempts.
+
+That caveat is now spent rather than answered. Nicolas wrote the current baselines and named
+the regions inside them, so step 01 no longer asks anyone to derive a decomposition under
+time pressure — it asks them to read one. What still needs a cold test is the swap itself:
+whether a participant picks the regions carrying information rather than the ones carrying
+pixels. That is the timed run on baseline B still open on Nicolas's list.
 
 ---
 
