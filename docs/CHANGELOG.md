@@ -1,5 +1,34 @@
 # Changelog
 
+## 06-09-2026
+
+- Removed the `python3 -m http.server` instruction from `README.md` and `prompts/00-setup.md`.
+  Nicolas hit it on a fresh laptop during the 4 September call; nothing in the kit needs a
+  server, the baselines open by double-click and are live on GitHub Pages.
+- Added `.cursor/mcp.json` and `.mcp.json` carrying the Mobbin MCP server
+  (`https://api.mobbin.com/mcp`). Opening the folder in Cursor or Claude Code registers the
+  server, so participants click Connect and sign in instead of pasting JSON.
+- Added `START-HERE.md`: the participant path in four setup steps (zip or clone, open folder,
+  connect Mobbin per tool, warm-up query) plus the three prompts merged into one paste with
+  "stop after each step". `prompts/01`–`03` stay as the steerable version. Solves the
+  "setting up for 30 minutes" risk from the call by moving setup before the room and cutting
+  the in-room work to one paste.
+- Rewrote `prompts/00-setup.md` around the shipped config, with Cursor, Claude Code and Codex
+  steps from the Mobbin docs, and pointed `README.md` at `START-HERE.md`, the zip link
+  (`archive/refs/heads/main.zip`) and the clone command.
+- Added `docs/HATCH-PORTAL.md`: paste-ready copy for the Hatch facilitator portal fields
+  (description, laptop requirements, setup checklist in the portal's markdown subset,
+  pre-assessment, materials, reminder email) with `TODO` markers for the Mobbin invite link and
+  Cursor credits.
+- Re-ran the loop and logged it at the top of `docs/DRY-RUN.md`: fresh clone, configs parse,
+  ten fallback Mobbin URLs all `200`, warm-up succeeded first call, three `deep` searches in
+  44s, generation in 85s, 13/13 regions and all data preserved. Ran the gap test: the naive
+  "make it better" prompt passes the data check and keeps all three `<table>` elements; the
+  one prompt with Mobbin leaves zero. Added the "count the tables" tell to
+  `docs/RUN-OF-SHOW.md`.
+- Updated `docs/FOR-NICOLAS.md` with a section on what changed after the call and struck the
+  closed items (zip, gap test, registration prerequisites) from the open list.
+
 ## 17-08-2026
 
 - Replaced the invented Meridian account-opening baseline with Nicolas Chatelain's three

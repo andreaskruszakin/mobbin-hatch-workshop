@@ -121,7 +121,9 @@ slack. Both of us circulating. Watch for the four known failure modes:
 - **A beautiful reskin.** New typeface, generous spacing, soft shadows, same four-column table
   underneath. This is the most common failure and the most important one to catch. Ask which
   region they think they changed, then open both and show them the table is still a table.
-  That conversation *is* the workshop.
+  That conversation *is* the workshop. The 6 September re-run measured this: the reskin
+  **passes the data check** (every region, every number) and keeps all three `<table>`
+  elements. So give the room the cheap tell: *baseline B has three tables. Count yours.*
 
 Called from the front at the halfway mark: *"if your two versions look like siblings, you
 changed the paint, not the plan."*
@@ -154,8 +156,20 @@ That is morphological analysis. They ran it without the word, which is the point
 
 ## 48–50 · Takeaway
 
-The Notion page: the three baselines, the swap card, the prompts, Nicolas's ten-line chart for
-anyone who wants the longer form, Mobbin code, Cursor credits. Feedback link. Done.
+The repo is the takeaway: `START-HERE.md` with the one prompt, the three baselines, the swap
+card, the three-step prompts, Nicolas's ten-line chart for anyone who wants the longer form.
+Mobbin invite, Cursor credits, feedback link. Done.
+
+## Setup, and why it happens before the room
+
+Participants get `START-HERE.md` and the Hatch portal checklist (`docs/HATCH-PORTAL.md`) in
+advance: one AI tool, Mobbin joined, the folder downloaded or cloned, Mobbin connected, one
+warm-up search. The folder ships its own `.cursor/mcp.json` and `.mcp.json`, so Cursor and
+Claude Code users click Connect rather than paste JSON. Nothing needs Python, Node or git.
+
+28 people had signed up on 4 September against a room that seats about 20. Expect standing
+laptops, and expect a few who did none of the setup. Say the cold-start line at minute 0
+anyway: *if your first search times out, run it again.*
 
 ---
 
