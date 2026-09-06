@@ -1,4 +1,72 @@
-# Dry run — 15 August, 20:38–20:50
+# Dry runs
+
+## 6 September, 10:00–10:05: the simplified setup, re-run
+
+Trigger: Nicolas cloned the repo on a fresh laptop on 4 September and the first thing the
+README asked him for was Python. Nothing in the kit needs it. This run re-tests the loop as a
+participant would meet it after the setup rewrite: folder open, Mobbin connected via the shipped
+`.cursor/mcp.json`, `START-HERE.md`'s one prompt, baseline B.
+
+### What was measured
+
+| Step | Wall clock | Note |
+| --- | --- | --- |
+| Fresh clone, both MCP configs parse, three baselines open by double-click | under a minute | No Python, Node or git needed for the zip path |
+| Ten pre-verified Mobbin URLs in `prompts/02-ground.md` | all `200` | Offline fallback is intact |
+| Warm-up query, `standard`, limit 3 | 10:00:01 → 10:00:19 | **No timeout this time.** First call succeeded. Do not count on that in a room of 28 |
+| Three grounding searches, `deep`, limit 4, run in parallel | 10:00:34 → 10:01:18 | Reading the twelve images included |
+| Generate `variants/mine-1/index.html` | 10:01:18 → 10:02:43 | 85 seconds for the model |
+| Data check plus headless render | ~2 min | Script under `/tmp`, not in the repo |
+| **Whole loop, model time** | **under 5 minutes** | Human deciding time is on top, as before |
+
+### The data check
+
+13 of 13 `data-region` names preserved. 15 of 15 amounts, 3 IBANs, 9 dates and all 9 raw
+transaction labels present in the output. One new number appeared: a `19 145,31` Savings
+subtotal the model derived from two balances. Expect that. Group subtotals are the one kind
+of invented number a grouped layout produces, and they are not a disqualification; a changed or
+missing baseline number is.
+
+### The gap test, finally run
+
+Same baseline, Nicolas's "just make it better" prompt, twice.
+
+**Without Mobbin, no structure in the prompt.** The model restyled the same DOM: Inter, cards
+with rounded corners, more whitespace, a blue tab bar. It **passed the data check completely**:
+13 regions, every number, every label. It also kept all three `<table>` elements. Same
+four-column accounts table, same debit/credit split, same one-row upcoming table. It looks
+enormously better than the baseline and changed nothing about what the user can find out.
+
+**With Mobbin, no structure in the prompt.** A broad query (`modern online banking dashboard`)
+returned YNAB, Mercury, Monarch and Wise. That is the average of the library, and a model
+handed those four images without being told which region to swap produces a Mercury-flavoured
+reskin. Mobbin on its own does not fix the prompt.
+
+**With Mobbin and the one prompt from `START-HERE.md`.** Three swaps, one search each, zero
+`<table>` elements left in the output, and the structure moved: accounts grouped under a net
+figure (Quicken, Monarch), transactions grouped by day with the merchant first and the raw label
+underneath (Wise, Copilot Money), the upcoming payment on a fourteen-day strip with the due date
+marked (Origin, Klarna).
+
+So the claim holds, with a sharper edge than we had written down: **the data check cannot
+catch the beautiful reskin.** It passes it. What catches it is the second question ("could two
+companies have made these?") and one cheap tell to say out loud in the room: *count the tables.*
+Baseline B has three. If your redesign still has three, you changed the paint.
+
+### Smaller things
+
+- Headless screenshots caught the variant's 300ms entrance animation mid-flight and the page
+  looked half-rendered. Irrelevant to participants, relevant to anyone verifying outputs by
+  screenshot: give the page a second first.
+- `standard` mode returned one irrelevant screen in three on the warm-up (a credit-usage panel
+  from an unrelated app). `deep` returned twelve relevant screens out of twelve. The advice
+  stands: `standard` to warm up, `deep` for the searches that matter.
+- The prompt asks the model to stop after each step. In a tool that runs steps autonomously
+  that is the only moment a participant gets to reject a swap before it is built. Keep it.
+
+---
+
+## 15 August, 20:38–20:50: the first run
 
 I ran the exercise end to end before asking thirty people to. What follows is what actually
 happened, including the parts that didn't work.

@@ -1,7 +1,40 @@
 # Nicolas — where the workshop stands
 
-Updated after your baselines landed. Short version: your three screens are in, translated, and
-the method got simpler because of them.
+## After our 4 September call
+
+You hit Python on a fresh laptop. It was never needed; the README asked for it out of habit.
+It is gone from every file. The setup is now the thing you described on the call: HTML, your AI
+tool, Mobbin MCP, one prompt.
+
+What changed:
+
+- **`START-HERE.md`** at the root is the participant page. Download the zip or clone, open the
+  folder, connect Mobbin, warm it up, double-click a baseline, paste one prompt. Written for
+  someone who has never opened a terminal.
+- **The folder carries the Mobbin MCP config.** `.cursor/mcp.json` for Cursor, `.mcp.json` for
+  Claude Code. Opening the folder registers the server; the participant clicks Connect and signs
+  in. Codex users paste two lines. Nothing else to configure, and nothing to send by email.
+- **One prompt instead of three pastes.** `START-HERE.md` merges `01`, `02` and `03` into a
+  single paste with "stop after each step". The three-step prompts stay in `prompts/` for
+  anyone who wants to steer. The method did not change; the number of pastes did.
+- **`docs/HATCH-PORTAL.md`** has the copy for each portal field: description, laptop
+  requirements, the setup checklist in the portal's markdown, pre-assessment questions, and a
+  reminder email. Two `TODO` links in it: Jovan's Mobbin invite and the Cursor credits.
+- **The gap test is done.** `docs/DRY-RUN.md`, top section. Your "just make it better" prompt
+  produces a reskin that passes the data check completely and keeps all three tables. The one
+  prompt with Mobbin produces zero tables and three structural swaps. The tell for the room:
+  count the tables.
+
+Still yours: the Mobbin invite link from Jovan, a timed run of `START-HERE.md` on your machine
+this weekend (tell me where you got confused, that is the point of the run), and t-shirts if you
+can carry them. Still mine: Cursor credits link, then the portal fields.
+
+---
+
+## After your baselines landed
+
+Short version: your three screens are in, translated, and the method got simpler because of
+them.
 
 ## What your baselines changed
 
@@ -91,16 +124,15 @@ I will chase Cursor for participant credits on my side.
 From your list:
 
 - Reconcile B and C against real Espace client captures.
-- Zip the three files for the pre-workshop email.
-- Timed dry run on baseline B, target one full loop under seven minutes.
-- **The gap test** — same baseline, same prompt, once with the Mobbin URLs and once without.
-  This is the one that decides whether the workshop's core claim holds. Worth doing before the
-  slides are finished rather than after.
+- ~~Zip the three files for the pre-workshop email.~~ The zip is the GitHub archive link plus
+  a `git archive` build for the portal; see `docs/HATCH-PORTAL.md`.
+- Timed dry run on baseline B, on your machine, following `START-HERE.md` cold.
+- ~~The gap test.~~ Done 6 September, `docs/DRY-RUN.md`.
 - The Mobbin intro slides.
 
 From mine:
 
 - Whether the room machine can run the live demo. Both browser tools failed on mine, so I would
   rather test on the actual machine than find out live.
-- Prerequisites on the registration page before it goes live. The MCP is slow on first connect
-  and thirty simultaneous cold starts would cost us five minutes we do not have.
+- ~~Prerequisites on the registration page before it goes live.~~ Written, in
+  `docs/HATCH-PORTAL.md`; goes into the portal once the two `TODO` links exist.
