@@ -23,27 +23,38 @@ Each screen tags its sections with `data-region`. That is the decomposition, shi
 the artefact — nobody has to derive it, and "structurally different, same data" becomes
 something you can diff rather than something you assert.
 
-## Run it locally
+## Participants: read `START-HERE.md`
 
-No install, no build step. Everything is plain HTML and CSS in a single file per screen.
+[START-HERE.md](START-HERE.md) is the whole setup: get the folder, open it in your AI tool,
+connect Mobbin, paste one prompt. Five minutes, no terminal required.
 
-```bash
-python3 -m http.server 3160
-```
+## Get the folder
 
-Then open `http://localhost:3160/baselines/b-accounts/`. They also open straight from the file
-system.
+- Zip: [archive/refs/heads/main.zip](https://github.com/andreaskruszakin/mobbin-hatch-workshop/archive/refs/heads/main.zip)
+- Clone: `git clone https://github.com/andreaskruszakin/mobbin-hatch-workshop.git`
+
+## Open it
+
+No install, no server, no build step. Each screen is one HTML file with its CSS inside.
+Double-click `baselines/b-accounts/index.html` and it opens in your browser, or use the live
+links above.
+
+The folder ships a project-level Mobbin MCP config (`.cursor/mcp.json` for Cursor, `.mcp.json`
+for Claude Code), so opening it in either tool registers the server; participants only click
+Connect and sign in.
 
 ## What's here
 
 | Path | What it is |
 | --- | --- |
+| `START-HERE.md` | Participant setup and the one workshop prompt |
 | `baselines/` | The three screens participants fork, one folder each |
 | `docs/SWAP-CARD.md` | The method — every region per screen, with seeded alternatives and a high/low yield rating |
 | `docs/RUN-OF-SHOW.md` | Minute-by-minute facilitation script |
 | `docs/NICOLAS-CHART.md` | The fuller ten-line chart and its relevance map, kept as background |
 | `docs/DRY-RUN.md` | Measured MCP timings, failure modes, and what got cut to fit the slot |
-| `prompts/` | Copy-paste scaffolds that force Mobbin grounding and citation |
+| `docs/HATCH-PORTAL.md` | Paste-ready copy for the Hatch facilitator portal fields |
+| `prompts/` | The three-step version of the prompt, for anyone who wants to steer each step |
 
 ## The method, in one question
 
@@ -62,9 +73,10 @@ new and is identical.
 
 ## Prerequisites we ask of participants
 
-A laptop, an AI coding tool they already use, and the Mobbin MCP connected **before** the
-session starts. Mobbin licences are provided. See `prompts/00-setup.md` for the pre-warm
-query — the MCP cold start is slow and should not happen thirty times at once in the room.
+A laptop, an AI coding tool they already use (Cursor, Claude Code or Codex), a Mobbin account
+from the workshop invite, and this folder opened once with Mobbin connected **before** the
+session starts. `START-HERE.md` has the warm-up query; the MCP cold start is slow and should not
+happen thirty times at once in the room.
 
 ---
 
