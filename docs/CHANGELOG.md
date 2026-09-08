@@ -1,5 +1,19 @@
 # Changelog
 
+## 07-09-2026
+
+- Added three slides to the Mobbin deck in Figma
+  (`https://www.figma.com/design/CjC0LCU6I7fOERqv9rzQYQ/Mobbin?node-id=0-1`): `Who we are`
+  (node `4128:37`, after "Powered by"), `Before we start` (`4130:38`) and `The workshop`
+  (`4130:52`, both after "Mobbin MCP"). Copy comes from `START-HERE.md` and
+  `docs/HATCH-PORTAL.md`, so the room sees the same five setup steps and five workshop steps
+  the portal asks for. The four later slides moved right by one or three slots to keep the
+  canvas in run order. Nicolas's second line is a placeholder for him to fill.
+- Headings on the new slides are set in Inter, not M Saans: the Figma MCP sandbox cannot load
+  M Saans, and the deck's own headings report `hasMissingFont` there. Size, tracking and
+  opacity match the existing slides, so the swap is select the six heading layers and pick
+  M Saans on a machine that has it.
+
 ## 06-09-2026
 
 - Removed the `python3 -m http.server` instruction from `README.md` and `prompts/00-setup.md`.
