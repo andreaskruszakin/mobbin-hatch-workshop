@@ -128,7 +128,8 @@ From your list:
   a `git archive` build for the portal; see `docs/HATCH-PORTAL.md`.
 - Timed dry run on baseline B, on your machine, following `START-HERE.md` cold.
 - ~~The gap test.~~ Done 6 September, `docs/DRY-RUN.md`.
-- The Mobbin intro slides.
+- ~~The Mobbin intro slides.~~ Three added on 7 September: who we are, setup, the workshop
+  step by step. Your line on the "Who we are" slide is a placeholder; write one sentence.
 
 From mine:
 
