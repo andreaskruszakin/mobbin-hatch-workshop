@@ -11,16 +11,19 @@ we'll connect Cursor and Mobbin together in the first few minutes of the session
 If you downloaded the workshop zip from the Hatch portal and unzipped it, you already have
 this folder — skip to step 2.
 
-Looking at this on GitHub instead? The zip is on the portal page. The full repo, including
-facilitator material you don't need for the workshop, is at
-`https://github.com/andreaskruszakin/mobbin-hatch-workshop`.
+Looking at this on GitHub instead? Download
+[mobbin-hatch-workshop-kit.zip](https://github.com/user-attachments/files/32332286/mobbin-hatch-workshop-kit.zip)
+and unzip it. The full repo, including facilitator material you don't need for the workshop, is
+at `https://github.com/andreaskruszakin/mobbin-hatch-workshop`.
 
 Either way you end up with a folder containing `baselines/`, `prompts/` and this file.
 
 ## 2. Open the folder in your AI tool and connect Mobbin
 
-You need a Mobbin account first. The workshop page has the invite link; sign in on
-[mobbin.com](https://mobbin.com) once so the browser remembers you.
+You need to already be on the Mobbin team for this to work. There's no invite link — you're
+added from the email you gave in the Hatch pre-setup form. Sign in on
+[mobbin.com](https://mobbin.com) once, with that same email, so the browser remembers you. If
+sign-in fails, you may not have been added yet; try again closer to the day.
 
 **Cursor**
 
