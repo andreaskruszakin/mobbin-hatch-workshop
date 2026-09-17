@@ -167,8 +167,8 @@ That is morphological analysis. They ran it without the word, which is the point
 ## 48–50 · Takeaway
 
 The repo is the takeaway: `START-HERE.md` with the three prompts, the three baselines, the swap
-card, Nicolas's ten-line chart for anyone who wants the longer form. Mobbin invite, Cursor
-credits, feedback link. Done.
+card, Nicolas's ten-line chart for anyone who wants the longer form. Cursor credits, feedback
+link. Done.
 
 ## Setup — optional in advance, real in the room
 

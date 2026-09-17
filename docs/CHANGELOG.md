@@ -1,5 +1,46 @@
 # Changelog
 
+## 17-09-2026 (direct kit zip, not just the portal)
+
+- `README.md`'s "Get the folder" only had one concrete link — the full-repo GitHub archive —
+  because the `participant-kit/` zip existed solely as a file uploaded to the Hatch portal.
+  Anyone reaching the repo directly on GitHub (a late sign-up, a link shared outside the
+  portal, a future run of this workshop) had no correct download and would have followed the
+  README straight to the facilitator material `participant-kit/` was created to keep separate.
+  Added a direct link to a `participant-kit/`-only zip as the one path in `README.md`; dropped
+  the `git clone` instruction entirely, since `gh` isn't installed everywhere and GitHub's own
+  UI already offers clone/download for anyone who wants the full repo. The same link went into
+  `START-HERE.md` (+ `participant-kit/` copy), replacing the vague "the zip is on the portal
+  page," and into `docs/HATCH-PORTAL.md`'s setup-documentation field, replacing the
+  `TODO-KIT-ZIP` placeholder now that a real link exists.
+- Tried publishing that zip as a GitHub release asset first (a stable URL you can overwrite in
+  place with `gh release upload --clobber`), but `gh` wasn't installed on the machine that
+  needed to run it. Landed on a GitHub user-attachment link instead (drag the zip into any
+  comment box, copy the link) since it needed no tooling and one already existed. Trade-off
+  written down in `docs/HATCH-PORTAL.md`: that link can't be overwritten, so every rebuild of
+  `participant-kit/` makes a new URL that has to be pasted over the old one by hand in
+  `README.md`, `START-HERE.md` and the Hatch portal's setup field — one more hand-synced thing
+  alongside `participant-kit/` itself. Documented the rebuild command
+  (`git archive --format=zip -o mobbin-hatch-workshop-kit.zip HEAD:participant-kit`) so at least
+  that part isn't guesswork. No CI, by choice — the repo's whole approach here is manual
+  duplication, and a workflow would be its first piece of automation.
+
+## 17-09-2026 (portal rendering bug + no Mobbin invite link)
+
+- Fixed `docs/HATCH-PORTAL.md`'s "Setup documentation" and "Stuck?" fields: the portal's
+  renderer floats links and inline code as badges, and a link or `code span` followed by more
+  text on the same line came out visually scrambled (words reordered around a floating badge).
+  Rewrote both fields so every link or code span sits alone at the end of its own line. Added a
+  warning note at the top of the file so future edits to those two fields don't reintroduce it.
+- There is no Mobbin team invite link — attendees are added from the email they submit in the
+  Hatch pre-setup form instead. Reworked the flow around that: renamed "Pre-assessment
+  (optional)" to "Pre-setup form" with a required email question, made the setup checklist
+  explicit that this one step can't be done live in the room (unlike everything else, which
+  stays optional), and updated the reminder email, laptop requirements and workshop description
+  fields to match. Carried the same change into `README.md`, `START-HERE.md` (+
+  `participant-kit/` copy) and `prompts/00-setup.md` (+ copy), and struck the now-moot "chase
+  Jovan for an invite link" item in `docs/FOR-NICOLAS.md`.
+
 ## 17-09-2026 (workshop simulation)
 
 - Ran the room through logically end to end: download the kit, read `START-HERE.md` together,

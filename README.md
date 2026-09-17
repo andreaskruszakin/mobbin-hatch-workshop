@@ -30,11 +30,13 @@ connect Mobbin, run the three prompts. Five minutes, no terminal required.
 
 ## Get the folder
 
-Participants get a zip of `participant-kit/` from the Hatch portal — see
-`docs/HATCH-PORTAL.md`. For the full repo, including facilitator material:
+Download [mobbin-hatch-workshop-kit.zip](https://github.com/user-attachments/files/32332286/mobbin-hatch-workshop-kit.zip) —
+`participant-kit/` zipped, nothing else. Unzip it; `START-HERE.md` is at the top level. This is
+the same file distributed from the Hatch portal — see `docs/HATCH-PORTAL.md` for how it's
+rebuilt.
 
-- Zip: [archive/refs/heads/main.zip](https://github.com/andreaskruszakin/mobbin-hatch-workshop/archive/refs/heads/main.zip)
-- Clone: `git clone https://github.com/andreaskruszakin/mobbin-hatch-workshop.git`
+Want the full repo, including facilitator material? Browse it at
+[github.com/andreaskruszakin/mobbin-hatch-workshop](https://github.com/andreaskruszakin/mobbin-hatch-workshop).
 
 ## Open it
 
@@ -77,10 +79,12 @@ new and is identical.
 
 ## Prerequisites we ask of participants
 
-A laptop, an AI coding tool they already use (Cursor, Claude Code or Codex), and a Mobbin
-account from the workshop invite. Connecting Mobbin and running the warm-up query in
-`START-HERE.md` before the session saves five minutes on the day, since the MCP cold start is
-slow — but it isn't required. We connect stragglers in the first minutes of the room instead.
+A laptop, an AI coding tool they already use (Cursor, Claude Code or Codex), and their email
+submitted in the Hatch pre-setup form — that's how they get added to the Mobbin team, and it's
+the one step that has to happen before the day, not in the room. Connecting Mobbin and running
+the warm-up query in `START-HERE.md` before the session saves five minutes on the day, since
+the MCP cold start is slow — but that part isn't required. We connect stragglers in the first
+minutes of the room instead.
 
 ---
 

@@ -25,9 +25,11 @@ What changed:
   prompt with Mobbin produces zero tables and three structural swaps. The tell for the room:
   count the tables.
 
-Still yours: the Mobbin invite link from Jovan, a timed run of `START-HERE.md` on your machine
-this weekend (tell me where you got confused, that is the point of the run), and t-shirts if you
-can carry them. Still mine: Cursor credits link, then the portal fields.
+Still yours: ~~the Mobbin invite link from Jovan~~ (moot — there's no invite link anymore,
+attendees are added from the email in the Hatch pre-setup form instead, see
+`docs/HATCH-PORTAL.md`), a timed run of `START-HERE.md` on your machine this weekend (tell me
+where you got confused, that is the point of the run), and t-shirts if you can carry them.
+Still mine: Cursor credits link, then the portal fields.
 
 ---
 
