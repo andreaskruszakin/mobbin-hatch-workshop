@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+  BASELINE C - Client area, transaction statement for one account
+  Mobbin Workshop, Hatch Berlin, 2026-09-18
+
+  INSTRUCTIONS FOR THE AI TOOL
+  Preserve the DATA. Do not preserve the VISUAL SYSTEM.
+  All 24 transactions, both balances, the account identity and the filter
+  controls must survive the redesign. Layout, typography, colour, density,
+  grouping and interaction model are all yours to replace.
+
+  DATA CONTRACT
+  Holder            Camille Bertrand, client no. 04 918 2277
+  Account           EUROCOMPTE CONFORT
+  IBAN              FR76 1027 8060 1200 0219 4470 132
+  Period            01/07/2026 to 28/08/2026
+  Opening balance     1 384,00 EUR  (01/07/2026)
+  Closing balance     2 418,62 EUR  (28/08/2026)
+  Transactions      24 rows, raw unnormalised labels, no categories
+
+  NOTE ON THE MISSING CATEGORY COLUMN
+  There is deliberately no category, no merchant name, no icon and no grouping.
+  Labels look like CB FACT 2608 CARREFOUR MARKET 4412 CB*2214. Normalising them
+  is one of the most obvious wins available to a participant. Do not add
+  categories to the baseline. The UI chrome of this screen is translated to
+  English, but the labels are left exactly as a French bank emits them.
+
+  All data is fictional. IBANs are well-formed and unallocated.
+  Regions are tagged with data-region for structural comparison.
+================================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Client area - Transaction statement</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #d9dee5; font-family: Verdana, Geneva, Arial, sans-serif; font-size: 11px; color: #333; }
+  a { color: #00337f; }
+  .shell { width: 980px; margin: 0 auto; background: #fff; border-left: 1px solid #a8b2bf; border-right: 1px solid #a8b2bf; }
+
+  .utility { background: #002454; color: #fff; font-size: 10px; padding: 4px 10px; overflow: hidden; }
+  .utility span { float: right; margin-left: 14px; }
+  .utility a { color: #cdd8e8; text-decoration: none; }
+
+  .head { padding: 10px; border-bottom: 3px solid #002454; overflow: hidden; }
+  .wordmark { float: left; font-family: Arial, sans-serif; font-size: 21px; font-weight: bold; color: #002454; letter-spacing: -.5px; }
+  .wordmark .glyph { display: inline-block; width: 15px; height: 15px; background: #e2001a; margin: 0 3px; vertical-align: -2px; }
+  .whoami { float: right; text-align: right; font-size: 10px; color: #555; line-height: 1.6; }
+  .whoami strong { color: #002454; font-size: 11px; }
+  .btn-out { display: inline-block; margin-top: 3px; padding: 2px 8px; border: 1px solid #8a97a8; background: linear-gradient(#fdfdfd, #dfe4ea); color: #002454; text-decoration: none; font-size: 10px; }
+
+  .nav { background: linear-gradient(#f2f4f7, #dde2e9); border-bottom: 1px solid #a8b2bf; padding: 0 6px; }
+  .nav a { display: inline-block; padding: 7px 13px; font-size: 11px; font-weight: bold; color: #002454; text-decoration: none; border-right: 1px solid #c3cad4; }
+  .nav a.on { background: #002454; color: #fff; }
+  .crumb { padding: 5px 10px; font-size: 10px; color: #666; background: #f7f8fa; border-bottom: 1px solid #e1e5eb; }
+
+  .cols { overflow: hidden; }
+  .side { float: left; width: 186px; padding: 10px; border-right: 1px solid #dde2e9; }
+  .main { float: left; width: 792px; padding: 10px 14px 24px; }
+  .side h3 { margin: 0; padding: 4px 6px; background: #002454; color: #fff; font-size: 10px; text-transform: uppercase; }
+  .side ul { list-style: none; margin: 0 0 14px; padding: 0; border: 1px solid #dde2e9; border-top: 0; }
+  .side li { border-bottom: 1px solid #eef1f4; }
+  .side li a { display: block; padding: 5px 7px; font-size: 10px; text-decoration: none; color: #00337f; }
+  .side li.on a { background: #eef1f6; font-weight: bold; }
+
+  .panel { border: 1px solid #b7c0cc; margin-bottom: 14px; }
+  .panel > h2 { margin: 0; padding: 5px 9px; font-size: 11px; text-transform: uppercase; color: #fff; background: linear-gradient(#28527f, #002454); border-bottom: 1px solid #001b3f; }
+  .panel .body { padding: 9px; }
+
+  /* ---------- account identity strip ---------- */
+  .ident { overflow: hidden; font-size: 10px; line-height: 1.7; }
+  .ident .left { float: left; }
+  .ident .right { float: right; text-align: right; }
+  .ident b { color: #002454; }
+  .mono { font-family: "Courier New", Courier, monospace; }
+  .bal { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #002454; }
+
+  /* ---------- filters ---------- */
+  .filters label { display: inline-block; font-size: 10px; color: #444; margin-right: 4px; }
+  .filters input[type=text], .filters select {
+    font-family: Verdana, Arial, sans-serif; font-size: 10px; padding: 2px 4px;
+    border: 1px solid #9aa5b4; background: #fff; margin-right: 12px;
+  }
+  .filters input[size="9"] { width: 74px; }
+  .filters .go {
+    font-family: Verdana, Arial, sans-serif; font-size: 10px; padding: 3px 12px; color: #002454;
+    border: 1px solid #8a97a8; background: linear-gradient(#fdfdfd, #dfe4ea); cursor: pointer;
+  }
+  .filters .row { padding: 2px 0; }
+  .hint { font-size: 9px; color: #888; padding-top: 4px; }
+
+  /* ---------- table ---------- */
+  table { width: 100%; border-collapse: collapse; font-size: 10px; }
+  th { background: #e8ecf1; color: #002454; text-align: left; padding: 4px 6px; border: 1px solid #cfd6df; }
+  th a { color: #002454; text-decoration: none; }
+  td { padding: 3px 6px; border: 1px solid #e4e8ee; vertical-align: top; }
+  tr.alt td { background: #f6f8fa; }
+  td.lib { font-family: "Courier New", Courier, monospace; font-size: 10px; letter-spacing: -.2px; }
+  .num { text-align: right; font-family: "Courier New", Courier, monospace; font-size: 11px; white-space: nowrap; }
+  .neg { color: #b00016; }
+  .pos { color: #00662e; }
+  tfoot th { background: #dde3ea; }
+
+  /* ---------- pagination ---------- */
+  .pager { padding: 7px 0 0; font-size: 10px; color: #555; overflow: hidden; }
+  .pager .p { float: right; }
+  .pager .p a, .pager .p span { display: inline-block; padding: 1px 6px; border: 1px solid #c3cad4; margin-left: 3px; text-decoration: none; }
+  .pager .p span { background: #002454; color: #fff; border-color: #002454; }
+
+  .export { padding: 8px 0 0; font-size: 10px; }
+
+  .legal { font-size: 9px; color: #777; line-height: 1.6; padding: 10px; border-top: 1px solid #dde2e9; }
+  .legal sup { color: #b00016; }
+  .foot { background: #002454; color: #b9c6da; font-size: 9px; padding: 9px 10px; line-height: 1.8; }
+  .foot a { color: #dbe4f0; text-decoration: none; margin-right: 12px; }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <div class="utility" data-region="utility-bar">
+    <span><a href="#">Log out</a></span>
+    <span><a href="#">Contact us</a></span>
+    <span><a href="#">Help</a></span>
+    <span><a href="#">Accessibility</a></span>
+    <span><a href="#">Site map</a></span>
+    Client area, Personal banking
+  </div>
+
+  <div class="head" data-region="header">
+    <div class="wordmark">Crédit<span class="glyph"></span>Mutuel</div>
+    <div class="whoami">
+      <strong>Camille BERTRAND</strong> &nbsp;|&nbsp; Client no. 04 918 2277<br>
+      Last login on 26/08/2026 at 08:14
+      <a class="btn-out" href="#">Secure log out</a>
+    </div>
+  </div>
+
+  <div class="nav" data-region="nav">
+    <a class="on" href="#">Accounts</a><a href="#">Transfers</a><a href="#">Cards</a><a href="#">Loans</a><a href="#">Savings</a><a href="#">Insurance</a><a href="#">Investments</a><a href="#">Documents</a><a href="#">Messages</a>
+  </div>
+  <div class="crumb">Home &gt; Accounts &gt; Your accounts overview &gt; Transaction statement</div>
+
+  <div class="cols">
+
+    <div class="side" data-region="side-nav">
+      <h3>Your transactions</h3>
+      <ul>
+        <li><a href="#">Your accounts overview</a></li>
+        <li class="on"><a href="#">Transaction statements</a></li>
+        <li><a href="#">Search for a transaction</a></li>
+        <li><a href="#">Download your data</a></li>
+        <li><a href="#">Issue a RIB (account details slip)</a></li>
+      </ul>
+      <h3>Your accounts</h3>
+      <ul>
+        <li class="on"><a href="#">Eurocompte Confort</a></li>
+        <li><a href="#">Livret Bleu</a></li>
+        <li><a href="#">Plan Épargne Logement</a></li>
+      </ul>
+      <h3>Your branch</h3>
+      <ul>
+        <li><a href="#">Caisse de Strasbourg Centre</a></li>
+        <li><a href="#">Book an appointment</a></li>
+        <li><a href="#">Write to your adviser</a></li>
+      </ul>
+    </div>
+
+    <div class="main">
+
+      <div class="panel" data-region="account-identity">
+        <h2>Selected account</h2>
+        <div class="body ident">
+          <div class="left">
+            <b>EUROCOMPTE CONFORT</b> &nbsp; Current account<br>
+            IBAN <span class="mono">FR76 1027 8060 1200 0219 4470 132</span><br>
+            BIC <span class="mono">CMCIFR2A</span> &nbsp;|&nbsp; Holder: BERTRAND CAMILLE
+          </div>
+          <div class="right">
+            Book balance as at 28/08/2026 at 06:00<br>
+            <span class="bal">2 418,62 EUR</span><br>
+            Opening balance for the period on 01/07/2026: <span class="mono">1 384,00</span><sup>(1)</sup>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" data-region="filters">
+        <h2>Search criteria</h2>
+        <div class="body filters">
+          <div class="row">
+            <label for="d1">Period from</label>
+            <input id="d1" type="text" size="9" value="01/07/2026">
+            <label for="d2">to</label>
+            <input id="d2" type="text" size="9" value="28/08/2026">
+            <label for="mt">Amount between</label>
+            <input id="mt" type="text" size="6">
+            <label for="mt2">and</label>
+            <input id="mt2" type="text" size="6">
+          </div>
+          <div class="row">
+            <label for="lb">Description contains</label>
+            <input id="lb" type="text" size="24">
+            <label for="ty">Transaction type</label>
+            <select id="ty">
+              <option>All transactions</option>
+              <option>Debits only</option>
+              <option>Credits only</option>
+              <option>Card transactions</option>
+              <option>Direct debits</option>
+              <option>Transfers</option>
+            </select>
+            <button class="go" type="button">Search</button>
+          </div>
+          <div class="hint">The search covers the last 90 days. For an earlier period, please consult the Documents section, then Account statements in PDF format.</div>
+        </div>
+      </div>
+
+      <div class="panel" data-region="transactions">
+        <h2>Transaction statement - 24 transactions from 01/07/2026 to 28/08/2026</h2>
+        <div class="body">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:9%"><a href="#">Date</a></th>
+                <th style="width:9%"><a href="#">Value date</a></th>
+                <th><a href="#">Transaction description</a></th>
+                <th style="width:13%"><a href="#">Debit</a></th>
+                <th style="width:13%"><a href="#">Credit</a></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>27/08/2026</td><td>27/08/2026</td><td class="lib">CB FACT 2608 CARREFOUR MARKET 4412 CB*2214</td><td class="num neg">67,43</td><td class="num"></td></tr>
+              <tr class="alt"><td>26/08/2026</td><td>26/08/2026</td><td class="lib">PRLV SEPA ORANGE SA 0000012947733 ECH 260826</td><td class="num neg">38,99</td><td class="num"></td></tr>
+              <tr><td>26/08/2026</td><td>26/08/2026</td><td class="lib">RETRAIT DAB 2508 21H47 STRASBOURG GARE CB*2214</td><td class="num neg">80,00</td><td class="num"></td></tr>
+              <tr class="alt"><td>25/08/2026</td><td>25/08/2026</td><td class="lib">VIR SEPA RECU SALAIRE AOUT 2026 REF PAY082026</td><td class="num"></td><td class="num pos">2 334,01</td></tr>
+              <tr><td>24/08/2026</td><td>25/08/2026</td><td class="lib">CB FACT 2208 SNCF CONNECT PARIS 75 CB*2214</td><td class="num neg">114,00</td><td class="num"></td></tr>
+              <tr class="alt"><td>22/08/2026</td><td>22/08/2026</td><td class="lib">PRLV SEPA EDF CLIENTS PART 483992017 ECH 220826</td><td class="num neg">126,50</td><td class="num"></td></tr>
+              <tr><td>21/08/2026</td><td>21/08/2026</td><td class="lib">CB FACT 2008 AMAZON EU SARL LUXEMBOURG CB*8802</td><td class="num neg">41,27</td><td class="num"></td></tr>
+              <tr class="alt"><td>20/08/2026</td><td>20/08/2026</td><td class="lib">COTIS EUROCOMPTE CONFORT AOUT 2026<sup>(2)</sup></td><td class="num neg">8,90</td><td class="num"></td></tr>
+              <tr><td>19/08/2026</td><td>19/08/2026</td><td class="lib">CB FACT 1808 BOULANGERIE HELFER 6621 CB*2214</td><td class="num neg">12,40</td><td class="num"></td></tr>
+              <tr class="alt"><td>18/08/2026</td><td>18/08/2026</td><td class="lib">PRLV SEPA SPOTIFY AB 5512094471 ECH 180826</td><td class="num neg">11,99</td><td class="num"></td></tr>
+              <tr><td>17/08/2026</td><td>17/08/2026</td><td class="lib">VIR SEPA EMIS BERTRAND LUCIE REF AOUT 2026</td><td class="num neg">450,00</td><td class="num"></td></tr>
+              <tr class="alt"><td>14/08/2026</td><td>14/08/2026</td><td class="lib">CB FACT 1308 TOTALENERGIES 4471 STRASBOURG CB*2214</td><td class="num neg">72,18</td><td class="num"></td></tr>
+              <tr><td>12/08/2026</td><td>12/08/2026</td><td class="lib">CB FACT 1108 FNAC DARTY 2299 CB*8802</td><td class="num neg">89,90</td><td class="num"></td></tr>
+              <tr class="alt"><td>10/08/2026</td><td>10/08/2026</td><td class="lib">PRLV SEPA MUTUELLE GEN 771290034 ECH 100826</td><td class="num neg">64,30</td><td class="num"></td></tr>
+              <tr><td>07/08/2026</td><td>07/08/2026</td><td class="lib">CB FACT 0608 MONOPRIX 1174 CB*2214</td><td class="num neg">54,66</td><td class="num"></td></tr>
+              <tr class="alt"><td>05/08/2026</td><td>05/08/2026</td><td class="lib">PRLV CREDIT IMMOBILIER PRET 0271194 ECH 08/2026</td><td class="num neg">894,17</td><td class="num"></td></tr>
+              <tr><td>03/08/2026</td><td>03/08/2026</td><td class="lib">CB FACT 0208 DECATHLON 8830 CB*2214</td><td class="num neg">39,99</td><td class="num"></td></tr>
+              <tr class="alt"><td>31/07/2026</td><td>31/07/2026</td><td class="lib">VIR SEPA RECU SALAIRE JUILLET 2026 REF PAY072026</td><td class="num"></td><td class="num pos">2 334,00</td></tr>
+              <tr><td>29/07/2026</td><td>29/07/2026</td><td class="lib">RETRAIT DAB 2807 12H03 COLMAR PLACE RAPP CB*2214</td><td class="num neg">60,00</td><td class="num"></td></tr>
+              <tr class="alt"><td>27/07/2026</td><td>27/07/2026</td><td class="lib">CB FACT 2607 LECLERC DRIVE 3390 CB*2214</td><td class="num neg">103,74</td><td class="num"></td></tr>
+              <tr><td>22/07/2026</td><td>22/07/2026</td><td class="lib">PRLV SEPA EDF CLIENTS PART 483992017 ECH 220726</td><td class="num neg">126,50</td><td class="num"></td></tr>
+              <tr class="alt"><td>18/07/2026</td><td>18/07/2026</td><td class="lib">CB FACT 1707 HOTEL DU PARC OBERNAI CB*8802</td><td class="num neg">218,00</td><td class="num"></td></tr>
+              <tr><td>10/07/2026</td><td>10/07/2026</td><td class="lib">PRLV SEPA MUTUELLE GEN 771290034 ECH 100726</td><td class="num neg">64,30</td><td class="num"></td></tr>
+              <tr class="alt"><td>05/07/2026</td><td>05/07/2026</td><td class="lib">PRLV CREDIT IMMOBILIER PRET 0271194 ECH 07/2026</td><td class="num neg">894,17</td><td class="num"></td></tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="3" style="text-align:right">Total movements for the period</th>
+                <th class="num neg">3 633,39</th>
+                <th class="num pos">4 668,01</th>
+              </tr>
+            </tfoot>
+          </table>
+
+          <div class="pager" data-region="pagination">
+            Transactions 1 to 24 of 24
+            <span class="p">
+              Previous <span>1</span> Next
+            </span>
+          </div>
+
+          <div class="export" data-region="export">
+            Download the statement in
+            <a href="#">CSV</a> &nbsp;|&nbsp; <a href="#">TXT</a> &nbsp;|&nbsp; <a href="#">QIF</a> &nbsp;|&nbsp; <a href="#">PDF</a>
+            &nbsp;&nbsp;·&nbsp;&nbsp; <a href="#">Print this page</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="legal" data-region="legal">
+        <sup>(1)</sup> The opening balance for the period is reconstructed from posted entries. It may differ from the balance shown on your periodic statement.<br>
+        <sup>(2)</sup> Monthly fee charged in accordance with the pricing conditions in force as at 1 January 2026, available at your Caisse locale and on the corporate website.<br>
+        Transactions currently being processed do not appear in this statement. Only the periodic statement issued by your Caisse locale is authoritative.
+      </div>
+
+    </div>
+  </div>
+
+  <div class="foot" data-region="footer">
+    <a href="#">Legal notice</a><a href="#">Data protection</a><a href="#">Cookie settings</a><a href="#">Fee schedule</a><a href="#">Security</a><a href="#">Accessibility</a><a href="#">Site map</a><br>
+    Crédit Mutuel Alliance Fédérale, cooperative society with variable capital. Credit institution and insurance brokerage company.<br>
+    © 2026 Crédit Mutuel. All rights reserved.
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+  BASELINE A - Public homepage, logged out
+  Mobbin Workshop, Hatch Berlin, 2026-09-18
+
+  INSTRUCTIONS FOR THE AI TOOL
+  Preserve the CONTENT INVENTORY. Do not preserve the VISUAL SYSTEM or the
+  section order. Every offer, claim, source footnote, link group and legal
+  mention below must still be reachable after the redesign. Layout, hierarchy,
+  typography, colour, density and interaction model are yours to replace.
+
+  CONTENT INVENTORY
+  Audience segments   6, shown before any content
+  Sections            14 stacked blocks
+  Source footnotes    4 sourced claims
+  Product families    4
+  Promotional blocks  4
+  Project links       6
+  Footer link groups  4 groups, 23 links
+  Legal row           8 links
+  Personalisation     none
+  Motion              none
+  Account data        none, this screen is logged out
+
+  CALIBRATION NOTE
+  This page is not ugly. It was recently refreshed. Its problem is ACCUMULATION:
+  six audience segments before any content, fourteen stacked sections, a sourced
+  footnote on every claim, a blocking consent card, and no personalisation at
+  all. Frame it that way out loud, otherwise the room will contest the premise.
+
+  The consent card is rendered in-flow rather than as a blocking overlay, so the
+  page stays fully readable for the exercise. It is part of the artefact, not an
+  accident. Keep it in scope.
+
+  All figures are reproduced from the public page as captured on 2026-08-16.
+  The copy is translated to English; product names stay in French as proper
+  nouns. Regions are tagged with data-region for structural comparison.
+================================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crédit Mutuel: the mutual bank owned by its customers</title>
+<style>
+  :root {
+    --navy: #002454;
+    --navy-2: #00337f;
+    --red: #e2001a;
+    --ink: #22272e;
+    --grey: #5c6672;
+    --line: #dfe3e9;
+    --wash: #f4f6f9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #fff; color: var(--ink);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px; line-height: 1.55;
+  }
+  a { color: var(--navy-2); }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 40px 0; }
+  h2 { font-size: 26px; line-height: 1.2; color: var(--navy); margin: 0 0 22px; font-weight: 700; }
+  h3 { font-size: 17px; color: var(--navy); margin: 0 0 8px; font-weight: 700; }
+  p { margin: 0 0 12px; }
+  .src { display: block; font-size: 11px; color: #8a939e; margin-top: 8px; }
+  .kicker { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); font-weight: 700; margin-bottom: 8px; }
+
+  /* ---------- pills ---------- */
+  .pill { display: inline-block; padding: 11px 24px; border-radius: 999px; font-size: 14px; font-weight: 700; text-decoration: none; }
+  .pill-solid { background: var(--navy); color: #fff; }
+  .pill-ghost { border: 2px solid var(--navy); color: var(--navy); }
+  .lnk { font-weight: 700; text-decoration: none; color: var(--navy-2); }
+  .lnk:after { content: " \203A"; }
+
+  /* ---------- utility bar ---------- */
+  .utility { border-bottom: 1px solid var(--line); font-size: 12px; }
+  .utility .wrap { display: flex; justify-content: space-between; align-items: center; }
+  .segs a { display: inline-block; padding: 12px 14px 10px; color: var(--grey); text-decoration: none; }
+  .segs a.on { color: var(--navy); font-weight: 700; box-shadow: inset 0 -3px 0 var(--navy); }
+  .utility .aux a { color: var(--grey); text-decoration: none; margin-left: 18px; }
+
+  /* ---------- header ---------- */
+  header .wrap { display: flex; align-items: center; flex-wrap: wrap; gap: 14px 28px; padding-top: 14px; padding-bottom: 14px; }
+  .wordmark { font-size: 25px; font-weight: 800; color: var(--navy); letter-spacing: -.5px; white-space: nowrap; }
+  .wordmark .glyph { display: inline-block; width: 19px; height: 19px; margin: 0 4px; vertical-align: -3px; background: var(--red); border-radius: 3px; }
+  header nav { flex: 1 1 320px; }
+  header nav a { display: inline-block; color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; margin-right: 22px; white-space: nowrap; }
+  .pill { white-space: nowrap; }
+
+  /* ---------- alert ---------- */
+  .alert { background: #f7e3e3; border-top: 1px solid #e3c4c4; border-bottom: 1px solid #e3c4c4; }
+  .alert .wrap { display: flex; gap: 16px; padding-top: 16px; padding-bottom: 16px; }
+  .alert .mark { width: 34px; height: 34px; flex: 0 0 34px; border: 2px solid #a33; border-radius: 4px; color: #a33; font-weight: 800; text-align: center; line-height: 30px; }
+  .alert b { color: #8a2020; }
+  .alert p { font-size: 13px; margin: 0; }
+
+  /* ---------- consent ---------- */
+  .consent { background: var(--wash); border-bottom: 1px solid var(--line); }
+  .consent .box { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 22px 26px; margin: 26px 0; }
+  .consent .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+  .consent .top > .lnk { flex: 0 0 auto; white-space: nowrap; }
+  .consent h3 { margin-bottom: 12px; }
+  .consent p { font-size: 13px; color: var(--grey); }
+  .consent .acts { margin-top: 16px; text-align: center; }
+  .consent .acts .pill { margin: 0 5px; }
+  .consent .acts .fine { display: block; margin-top: 12px; font-size: 12px; }
+
+  /* ---------- hero ---------- */
+  .hero { background: var(--wash); }
+  .hero .wrap { display: flex; align-items: center; gap: 48px; }
+  .hero .copy { flex: 1 1 52%; }
+  .hero h1 { font-size: 40px; line-height: 1.12; color: var(--navy); margin: 0 0 16px; font-weight: 800; }
+  .hero .art { flex: 1 1 48%; height: 260px; border-radius: 8px; background:
+      radial-gradient(circle at 30% 35%, #cfd9e8 0 58px, transparent 59px),
+      radial-gradient(circle at 68% 62%, #e5cfcf 0 44px, transparent 45px),
+      linear-gradient(135deg, #e7ecf3, #dbe2ec); }
+
+  /* ---------- generic grids ---------- */
+  .g3 { display: flex; gap: 26px; }
+  .g3 > div { flex: 1; }
+  .g2 { display: flex; gap: 34px; align-items: center; }
+  .g2 > div { flex: 1; }
+  .band { background: var(--navy); color: #fff; }
+  .band h2, .band h3 { color: #fff; }
+  .band .src { color: #9db0cc; }
+
+  .card { border: 1px solid var(--line); border-radius: 6px; padding: 22px; }
+  .thumb { height: 120px; border-radius: 5px; margin-bottom: 14px; background: linear-gradient(135deg, #e7ecf3, #d3dbe6); }
+
+  /* ---------- projects ---------- */
+  .projects ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; }
+  .projects li { width: 33.333%; }
+  .projects li a { display: block; padding: 15px 18px 15px 0; margin-right: 18px; border-bottom: 1px solid var(--line); color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; }
+  .projects li a:after { content: " \203A"; color: var(--red); }
+
+  /* ---------- app ---------- */
+  .app ul { margin: 0 0 16px; padding-left: 20px; font-size: 14px; }
+  .app li { margin-bottom: 6px; }
+  .rating { display: inline-block; border: 1px solid var(--line); border-radius: 5px; padding: 7px 14px; margin-right: 10px; font-size: 13px; }
+  .rating b { color: var(--navy); font-size: 16px; }
+
+  /* ---------- missions ---------- */
+  .missions .slot { border: 1px solid #2c4a77; border-radius: 6px; padding: 24px; }
+  .missions .idx { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #9db0cc; margin-bottom: 10px; }
+  .missions .slot p { font-size: 18px; line-height: 1.4; margin: 0 0 18px; }
+  .missions .nav-next { color: #fff; font-size: 13px; text-decoration: none; border-bottom: 1px solid #6f8bb5; }
+  .missions .dots { margin-top: 16px; }
+  .missions .dots i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #3c5d8f; margin-right: 6px; }
+  .missions .dots i.on { background: #fff; }
+
+  /* ---------- advice ---------- */
+  .advice .meta { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--grey); margin-bottom: 8px; }
+
+  /* ---------- footer ---------- */
+  footer { background: var(--navy); color: #c3cfe0; font-size: 13px; margin-top: 10px; }
+  footer .cols { display: flex; gap: 30px; padding: 40px 0 26px; }
+  footer .cols > div { flex: 1; }
+  footer h4 { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #fff; margin: 0 0 12px; }
+  footer ul { list-style: none; margin: 0; padding: 0; }
+  footer li { margin-bottom: 7px; }
+  footer a { color: #c3cfe0; text-decoration: none; }
+  footer .country { border-top: 1px solid #16385f; padding: 16px 0; font-size: 12px; }
+  footer .legalrow { border-top: 1px solid #16385f; padding: 16px 0; font-size: 12px; }
+  footer .legalrow a { margin-right: 16px; display: inline-block; }
+  footer .fine { border-top: 1px solid #16385f; padding: 16px 0 32px; font-size: 11px; color: #92a4bd; }
+</style>
+</head>
+<body>
+
+<div class="utility" data-region="utility-bar">
+  <div class="wrap">
+    <div class="segs">
+      <a class="on" href="#">Personal</a><a href="#">Sole traders</a><a href="#">Professionals</a><a href="#">Businesses</a><a href="#">Farmers</a><a href="#">Associations</a>
+    </div>
+    <div class="aux">
+      <a href="#">Corporate site</a><a href="#">Help centre</a><a href="#">EN</a>
+    </div>
+  </div>
+</div>
+
+<header data-region="header">
+  <div class="wrap">
+    <div class="wordmark">Crédit<span class="glyph"></span>Mutuel</div>
+    <nav>
+      <a href="#">Our offers</a><a href="#">Our services</a><a href="#">Our branches</a><a href="#">Our commitments</a><a href="#">Search</a>
+    </nav>
+    <a class="pill pill-ghost" href="#">Open an account</a>
+    <a class="pill pill-solid" href="#">Client area</a>
+  </div>
+</header>
+
+<div class="alert" data-region="alert">
+  <div class="wrap">
+    <div class="mark">!</div>
+    <p><b>ALERT | Wildfires: fraud warning | AUGUST 2026.</b> Malicious individuals are exploiting the emotion caused by the wildfires to circulate fake fundraising pages. Always verify the source before making any payment, and never act under pressure. Our teams are mobilised to support the victims.</p>
+  </div>
+</div>
+
+<div class="consent" data-region="cookie-consent">
+  <div class="wrap">
+    <div class="box">
+      <div class="top">
+        <div>
+          <h3>Crédit Mutuel respects your privacy.</h3>
+          <p><b>This site uses cookies.</b> They ensure that it functions correctly and allow us, together with our partners, to measure its audience, compile statistics and offer you information and advertising personalised to your profile and your browsing.</p>
+          <p>We keep your choices for 6 months. You may change your mind at any time by clicking the "Cookie settings" link in the site footer.</p>
+        </div>
+        <a class="lnk" href="#">Continue without accepting</a>
+      </div>
+      <div class="acts">
+        <a class="pill pill-ghost" href="#">Manage preferences</a>
+        <a class="pill pill-solid" href="#">Accept and close</a>
+        <a class="fine" href="#">Read our Cookie policy</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="hero" data-region="hero">
+  <div class="wrap">
+    <div class="copy">
+      <div class="kicker">Featured at Crédit Mutuel</div>
+      <h1>Financial education: decoding money is already deciding</h1>
+      <p>We all learn about money however we can. With Décode, discover clear advice designed for every age.</p>
+      <a class="pill pill-solid" href="#">Watch the videos</a>
+    </div>
+    <div class="art"></div>
+  </div>
+</section>
+
+<section data-region="promo-welcome">
+  <div class="wrap g2">
+    <div>
+      <div class="kicker">Welcome offer</div>
+      <h2>6 months of account fees waived when you open an account</h2>
+      <a class="pill pill-solid" href="#">Open an account</a>
+      <span class="src">Offer subject to conditions, reserved for new personal banking customers. See conditions at your Caisse locale.</span>
+    </div>
+    <div class="thumb" style="height:180px"></div>
+  </div>
+</section>
+
+<section style="background:var(--wash)" data-region="proof">
+  <div class="wrap">
+    <h2>Why choose Crédit Mutuel?</h2>
+    <div class="g3">
+      <div>
+        <h3>A different bank</h3>
+        <p>Crédit Mutuel, a cooperative bank, is owned by its 9 million customer-members.</p>
+      </div>
+      <div>
+        <h3>A solid bank</h3>
+        <p>Best French banking group.</p>
+        <span class="src">Source: World Finance, July 2025.</span>
+      </div>
+      <div>
+        <h3>A local bank</h3>
+        <p>More than 96% of credit decisions are taken at the Caisse locale. You have a dedicated adviser who works on no commission.</p>
+        <span class="src">Source: Crédit Mutuel Alliance Fédérale commercial department, figures as at 10/02/2025 for the 2024 total.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-region="offers">
+  <div class="wrap">
+    <div class="kicker">Right now</div>
+    <h2>Our offers not to be missed</h2>
+    <div class="g2">
+      <div>
+        <div class="kicker">0 fees anywhere in the world</div>
+        <h3>Your fees abroad are on us</h3>
+        <p>Plan your trip and travel with peace of mind, without thinking about the payment and withdrawal fees that come with using your card abroad, because they are waived. Bonus: this also covers your child's card.</p>
+        <ul style="font-size:14px">
+          <li>Stay in control of your budget: no extra fees, no unpleasant surprises</li>
+          <li>Travel with confidence: pay and withdraw anywhere your card is accepted, without restriction</li>
+        </ul>
+        <a class="lnk" href="#">Discover the Forfait International</a>
+        <span class="src">See conditions. Offer subject to taking out the Forfait International plan.</span>
+      </div>
+      <div class="thumb" style="height:220px"></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--wash)" data-region="promo-award">
+  <div class="wrap g2">
+    <div class="thumb" style="height:150px"></div>
+    <div>
+      <div class="kicker">Euromoney Awards for Excellence 2026</div>
+      <h2>Crédit Mutuel named best retail bank in France</h2>
+      <a class="lnk" href="#">Find out more</a>
+      <span class="src">Source: Euromoney Awards for Excellence, Best Bank for Retail category, France, 2026.</span>
+    </div>
+  </div>
+</section>
+
+<section data-region="promo-homji">
+  <div class="wrap g2">
+    <div>
+      <h2>Homji, our trusted solution for energy renovation</h2>
+      <p>Does energy renovation work seem complicated? Grants, paperwork, energy audits... We created Homji, a support solution to guide you through it.</p>
+      <p><b>Free advice.</b> Choosing the work and putting together quotes.</p>
+      <a class="pill pill-ghost" href="#">Discover Homji</a>
+      <a class="pill pill-solid" href="#">Contact an adviser</a>
+    </div>
+    <div class="thumb" style="height:180px"></div>
+  </div>
+</section>
+
+<section class="projects" style="background:var(--wash)" data-region="projects">
+  <div class="wrap">
+    <h2>Got a plan? Got a project?</h2>
+    <p style="margin-bottom:20px">Buying a home, buying a car, changing your life...</p>
+    <ul>
+      <li><a href="#">Buying and insuring a vehicle</a></li>
+      <li><a href="#">Building and managing your assets</a></li>
+      <li><a href="#">Supporting your children's projects</a></li>
+      <li><a href="#">Housing and home improvement</a></li>
+      <li><a href="#">Our advice on preparing for retirement</a></li>
+      <li><a href="#">Protecting and insuring your family</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="app" data-region="app">
+  <div class="wrap g2">
+    <div class="thumb" style="height:230px"></div>
+    <div>
+      <h2>The Crédit Mutuel mobile app</h2>
+      <ul>
+        <li>Change the withdrawal limit on your bank card</li>
+        <li>Manage your budget and your spending</li>
+        <li>Make instant transfers</li>
+        <li>Stay in touch with your adviser</li>
+      </ul>
+      <span class="rating"><b>4,7/5</b> App Store</span>
+      <span class="rating"><b>4,5/5</b> Google Play</span>
+      <p style="margin-top:16px"><a class="lnk" href="#">Discover the app in detail</a></p>
+      <span class="src">Ratings recorded on 01/08/2026. App subject to taking out a remote banking contract.</span>
+    </div>
+  </div>
+</section>
+
+<section class="band missions" data-region="missions">
+  <div class="wrap">
+    <h2>Discover the 5 missions of Crédit Mutuel Alliance Fédérale</h2>
+    <p style="max-width:760px;color:#c3cfe0">Crédit Mutuel Alliance Fédérale has given itself a purpose, "Together, listen and act", in keeping with its mutualist values. Building on this, Crédit Mutuel Alliance Fédérale has defined 5 missions applicable from 2022 that put its customers at the heart of its day-to-day action.</p>
+    <p style="margin-bottom:24px"><a class="missions nav-next" href="#" style="color:#fff">See the missions in detail</a></p>
+    <div class="slot">
+      <div class="idx">Mission 1</div>
+      <p>As a cooperative and mutualist organisation, we support our customers and members in their own best interests.</p>
+      <a class="nav-next" href="#">Show the next mission</a>
+      <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</section>
+
+<section class="advice" data-region="advice">
+  <div class="wrap">
+    <h2>Our practical advice</h2>
+    <div class="g3">
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="meta">Loans · 2 min read</div>
+        <h3>Home loans: the documents to provide</h3>
+        <p style="font-size:14px">Here is a checklist to help you prepare your application so that it is as strong as possible.</p>
+        <a class="lnk" href="#">Read the article</a>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="meta">Accounts · 3 min read</div>
+        <h3>Connect Origine: one account, one card, one app</h3>
+        <p style="font-size:14px">Connect Origine brings together the essential tools to meet the need for independence and trust.</p>
+        <a class="lnk" href="#">Read the article</a>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="meta">Savings · 4 min read</div>
+        <h3>Livret, PEL, life insurance: which savings product to choose?</h3>
+        <p style="font-size:14px">Compare the main families of savings products according to your time horizon and your tolerance for risk.</p>
+        <a class="lnk" href="#">Read the article</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer data-region="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">The Crédit Mutuel group</a></li>
+          <li><a href="#">Our mutualist commitments</a></li>
+          <li><a href="#">Press room</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Become a member</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Products and services</h4>
+        <ul>
+          <li><a href="#">Accounts and cards</a></li>
+          <li><a href="#">Savings and investments</a></li>
+          <li><a href="#">Loans</a></li>
+          <li><a href="#">Insurance</a></li>
+          <li><a href="#">Telephony and connected devices</a></li>
+          <li><a href="#">Mobile app</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Useful links</h4>
+        <ul>
+          <li><a href="#">Find a Caisse locale</a></li>
+          <li><a href="#">Block a bank card</a></li>
+          <li><a href="#">Fee schedule</a></li>
+          <li><a href="#">Report a fraud</a></li>
+          <li><a href="#">Complaints and mediation</a></li>
+          <li><a href="#">Help and FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Additional information</h4>
+        <ul>
+          <li><a href="#">Financial education</a></li>
+          <li><a href="#">Understanding credit</a></li>
+          <li><a href="#">Security of your transactions</a></li>
+          <li><a href="#">Digital accessibility</a></li>
+          <li><a href="#">Banking glossary</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="country">France &nbsp;·&nbsp; <a href="#">Change country</a> &nbsp;&nbsp;|&nbsp;&nbsp; Follow us: <a href="#">Facebook</a> <a href="#">X</a> <a href="#">Instagram</a> <a href="#">LinkedIn</a> <a href="#">YouTube</a></div>
+    <div class="legalrow">
+      <a href="#">Legal notice</a><a href="#">Data protection</a><a href="#">Cookie settings</a><a href="#">Cookie policy</a><a href="#">Security</a><a href="#">Fee schedule</a><a href="#">Accessibility</a><a href="#">Site map</a>
+    </div>
+    <div class="fine">
+      All users of our online services are subject to our Privacy Policy and agree to be bound by our Terms of Use. Please read them.<br>
+      Crédit Mutuel Alliance Fédérale, cooperative society with variable capital. Credit institution and insurance brokerage company.<br>
+      © 2026 Crédit Mutuel. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,5 +1,30 @@
 # Dry runs
 
+## 17 September: the gap test, again — and this time it didn't hold
+
+Trigger: a solo dry run generated variants from baseline B with Mobbin and without, back to
+back. The outputs came back close enough that treating the 6 September result (below) as
+settled was premature.
+
+The variant files from that run (`variants/mine-1` and `variants/no-mobbin-1`, not committed)
+show why: two of the three swaps converge even without a Mobbin search. Both land on an
+activity feed grouped by day for `transactions`, and both land on a headline-plus-secondary-
+figure treatment for `account-summary`. Neither needs a shipped reference — they're common
+enough that a model reaches for them unprompted.
+
+**What this means.** The 6 September result isn't wrong; it used the full three-step prompt,
+which forces a search per swap and a citation of structural logic. This run's prompt didn't
+force a swap to actually differ from what the model would produce blind — the Mobbin citation
+got attached after the fact rather than changing the answer.
+
+**The fix.** `prompts/02-ground.md` now asks for a blind guess before the search, and for one
+concrete thing the shipped pattern has that the guess didn't. `prompts/03-generate.md` requires
+that difference in the header comment, and names "matches the blind guess" as its own failure
+mode alongside the beautiful reskin. This entry stays open until the gap test is re-run against
+the revised prompts, before 18 September.
+
+---
+
 ## 6 September, 10:00–10:05: the simplified setup, re-run
 
 Trigger: Nicolas cloned the repo on a fresh laptop on 4 September and the first thing the

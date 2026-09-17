@@ -26,9 +26,12 @@ something you can diff rather than something you assert.
 ## Participants: read `START-HERE.md`
 
 [START-HERE.md](START-HERE.md) is the whole setup: get the folder, open it in your AI tool,
-connect Mobbin, paste one prompt. Five minutes, no terminal required.
+connect Mobbin, run the three prompts. Five minutes, no terminal required.
 
 ## Get the folder
+
+Participants get a zip of `participant-kit/` from the Hatch portal — see
+`docs/HATCH-PORTAL.md`. For the full repo, including facilitator material:
 
 - Zip: [archive/refs/heads/main.zip](https://github.com/andreaskruszakin/mobbin-hatch-workshop/archive/refs/heads/main.zip)
 - Clone: `git clone https://github.com/andreaskruszakin/mobbin-hatch-workshop.git`
@@ -49,12 +52,13 @@ Connect and sign in.
 | --- | --- |
 | `START-HERE.md` | Participant setup and the one workshop prompt |
 | `baselines/` | The three screens participants fork, one folder each |
-| `docs/SWAP-CARD.md` | The method — every region per screen, with seeded alternatives and a high/low yield rating |
-| `docs/RUN-OF-SHOW.md` | Minute-by-minute facilitation script |
-| `docs/NICOLAS-CHART.md` | The fuller ten-line chart and its relevance map, kept as background |
-| `docs/DRY-RUN.md` | Measured MCP timings, failure modes, and what got cut to fit the slot |
-| `docs/HATCH-PORTAL.md` | Paste-ready copy for the Hatch facilitator portal fields |
 | `prompts/` | The three-step version of the prompt, for anyone who wants to steer each step |
+| `docs/SWAP-CARD.md` | The method — every region per screen, with seeded alternatives and a high/low yield rating |
+| `participant-kit/` | The zip source: a copy of everything above plus the MCP configs, nothing else. Kept in sync by hand — see its own note if you edit the source files |
+| `docs/RUN-OF-SHOW.md` | Minute-by-minute facilitation script (facilitator only) |
+| `docs/NICOLAS-CHART.md` | The fuller ten-line chart, its relevance map and the calibration check (facilitator only) |
+| `docs/DRY-RUN.md` | Measured MCP timings, failure modes, and what got cut to fit the slot (facilitator only) |
+| `docs/HATCH-PORTAL.md` | Paste-ready copy for the Hatch facilitator portal fields (facilitator only) |
 
 ## The method, in one question
 
@@ -73,10 +77,10 @@ new and is identical.
 
 ## Prerequisites we ask of participants
 
-A laptop, an AI coding tool they already use (Cursor, Claude Code or Codex), a Mobbin account
-from the workshop invite, and this folder opened once with Mobbin connected **before** the
-session starts. `START-HERE.md` has the warm-up query; the MCP cold start is slow and should not
-happen thirty times at once in the room.
+A laptop, an AI coding tool they already use (Cursor, Claude Code or Codex), and a Mobbin
+account from the workshop invite. Connecting Mobbin and running the warm-up query in
+`START-HERE.md` before the session saves five minutes on the day, since the MCP cold start is
+slow — but it isn't required. We connect stragglers in the first minutes of the room instead.
 
 ---
 

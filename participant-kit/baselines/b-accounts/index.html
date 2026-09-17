@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+  BASELINE B - Client area, accounts overview
+  Mobbin Workshop, Hatch Berlin, 2026-09-18
+
+  INSTRUCTIONS FOR THE AI TOOL
+  Preserve the DATA. Do not preserve the VISUAL SYSTEM.
+  Every number, label, account name and transaction below must survive the
+  redesign. The layout, typography, colour, density and interaction model are
+  all yours to replace.
+
+  DATA CONTRACT
+  Holder            Camille Bertrand, client no. 04 918 2277
+  Last login        26/08/2026 08:14
+  Total balance     21 563,93 EUR
+  Accounts          Eurocompte Confort      FR76 1027 8060 1200 0219 4470 132   2 418,62
+                    Livret Bleu             FR76 1027 8060 1200 0219 4470 244  11 240,00
+                    Plan Epargne Logement   FR76 1027 8060 1200 0219 4470 351   7 905,31
+  Cards             Mastercard Gold 4979 .. .. 2214  exp 09/28  limit 3000/30d
+                    Carte Bleue Nationale 5137 .. .. 8802  exp 03/27  limit 800/7d
+  Upcoming          Prelevement credit immobilier  894,17 EUR  05/09/2026
+  Transactions      8 most recent, raw unnormalised labels
+
+  ON THE RAW TRANSACTION LABELS
+  Labels look like CB FACT 2608 CARREFOUR MARKET 4412 CB*2214. The UI chrome of
+  this screen is translated to English, but the labels are left exactly as a
+  French bank emits them, because normalising them is one of the most obvious
+  wins available to a participant. Do not clean them up in the baseline.
+
+  All data is fictional. IBANs are well-formed and unallocated.
+  Regions are tagged with data-region for structural comparison.
+================================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Client area - Your accounts overview</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #d9dee5;
+    font-family: Verdana, Geneva, Arial, sans-serif;
+    font-size: 11px;
+    color: #333;
+  }
+  a { color: #00337f; }
+  .shell { width: 980px; margin: 0 auto; background: #fff; border-left: 1px solid #a8b2bf; border-right: 1px solid #a8b2bf; }
+
+  /* ---------- utility bar ---------- */
+  .utility { background: #002454; color: #fff; font-size: 10px; padding: 4px 10px; overflow: hidden; }
+  .utility span { float: right; margin-left: 14px; }
+  .utility a { color: #cdd8e8; text-decoration: none; }
+
+  /* ---------- header ---------- */
+  .head { padding: 10px; border-bottom: 3px solid #002454; overflow: hidden; }
+  .wordmark { float: left; font-family: Arial, sans-serif; font-size: 21px; font-weight: bold; color: #002454; letter-spacing: -.5px; }
+  .wordmark .glyph { display: inline-block; width: 15px; height: 15px; background: #e2001a; margin: 0 3px; vertical-align: -2px; }
+  .whoami { float: right; text-align: right; font-size: 10px; color: #555; line-height: 1.6; }
+  .whoami strong { color: #002454; font-size: 11px; }
+  .btn-out { display: inline-block; margin-top: 3px; padding: 2px 8px; border: 1px solid #8a97a8; background: linear-gradient(#fdfdfd, #dfe4ea); color: #002454; text-decoration: none; font-size: 10px; }
+
+  /* ---------- nav ---------- */
+  .nav { background: linear-gradient(#f2f4f7, #dde2e9); border-bottom: 1px solid #a8b2bf; padding: 0 6px; }
+  .nav a { display: inline-block; padding: 7px 13px; font-size: 11px; font-weight: bold; color: #002454; text-decoration: none; border-right: 1px solid #c3cad4; }
+  .nav a.on { background: #002454; color: #fff; }
+  .crumb { padding: 5px 10px; font-size: 10px; color: #666; background: #f7f8fa; border-bottom: 1px solid #e1e5eb; }
+
+  /* ---------- layout ---------- */
+  .cols { overflow: hidden; }
+  .side { float: left; width: 186px; padding: 10px; border-right: 1px solid #dde2e9; }
+  .main { float: left; width: 792px; padding: 10px 14px 24px; }
+
+  .side h3 { margin: 0 0 0; padding: 4px 6px; background: #002454; color: #fff; font-size: 10px; text-transform: uppercase; font-weight: bold; }
+  .side ul { list-style: none; margin: 0 0 14px; padding: 0; border: 1px solid #dde2e9; border-top: 0; }
+  .side li { border-bottom: 1px solid #eef1f4; }
+  .side li a { display: block; padding: 5px 7px; font-size: 10px; text-decoration: none; color: #00337f; }
+
+  /* ---------- alert ---------- */
+  .alert { border: 1px solid #d9b400; background: #fffbe4; padding: 7px 9px; margin-bottom: 12px; font-size: 10px; line-height: 1.5; }
+  .alert strong { color: #8a6d00; }
+
+  /* ---------- panels ---------- */
+  .panel { border: 1px solid #b7c0cc; margin-bottom: 14px; }
+  .panel > h2 {
+    margin: 0; padding: 5px 9px; font-size: 11px; text-transform: uppercase;
+    color: #fff; background: linear-gradient(#28527f, #002454);
+    border-bottom: 1px solid #001b3f;
+  }
+  .panel .body { padding: 9px; }
+
+  /* ---------- global balance ---------- */
+  .globalbal { overflow: hidden; }
+  .globalbal .lbl { font-size: 10px; color: #555; }
+  .globalbal .amt { font-size: 15px; font-weight: bold; color: #002454; font-family: Arial, sans-serif; }
+  .globalbal .asof { font-size: 9px; color: #777; }
+
+  /* ---------- tables ---------- */
+  table { width: 100%; border-collapse: collapse; font-size: 10px; }
+  th { background: #e8ecf1; color: #002454; text-align: left; padding: 4px 6px; border: 1px solid #cfd6df; font-size: 10px; }
+  td { padding: 4px 6px; border: 1px solid #e4e8ee; vertical-align: top; }
+  tr.alt td { background: #f6f8fa; }
+  .num { text-align: right; font-family: "Courier New", Courier, monospace; font-size: 11px; white-space: nowrap; }
+  .neg { color: #b00016; }
+  .pos { color: #00662e; }
+  .iban { font-family: "Courier New", Courier, monospace; font-size: 9px; color: #666; }
+  td a { text-decoration: none; }
+
+  /* ---------- cards ---------- */
+  .cardrow { overflow: hidden; border-bottom: 1px dotted #cfd6df; padding: 6px 0; }
+  .cardrow:last-child { border-bottom: 0; }
+  .chip { float: left; width: 42px; height: 27px; margin-right: 8px; background: linear-gradient(135deg, #b0b8c4, #7d8797); border: 1px solid #6c7683; }
+  .chip i { display: block; width: 12px; height: 9px; margin: 9px 0 0 6px; background: #e8d089; border: 1px solid #b9a25f; }
+  .cardmeta { float: left; line-height: 1.6; }
+  .cardmeta b { color: #002454; }
+  .cardlim { float: right; text-align: right; color: #555; line-height: 1.6; }
+
+  /* ---------- shortcuts ---------- */
+  .sc { list-style: none; margin: 0; padding: 0; overflow: hidden; }
+  .sc li { float: left; width: 25%; }
+  .sc a {
+    display: block; margin: 0 6px 0 0; padding: 6px 7px; font-size: 10px; text-decoration: none;
+    color: #002454; border: 1px solid #b7c0cc; background: linear-gradient(#fdfdfd, #e6eaf0);
+  }
+
+  /* ---------- legal ---------- */
+  .legal { font-size: 9px; color: #777; line-height: 1.6; padding: 10px; border-top: 1px solid #dde2e9; }
+  .legal sup { color: #b00016; }
+
+  /* ---------- footer ---------- */
+  .foot { background: #002454; color: #b9c6da; font-size: 9px; padding: 9px 10px; line-height: 1.8; }
+  .foot a { color: #dbe4f0; text-decoration: none; margin-right: 12px; }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <div class="utility" data-region="utility-bar">
+    <span><a href="#">Log out</a></span>
+    <span><a href="#">Contact us</a></span>
+    <span><a href="#">Help</a></span>
+    <span><a href="#">Accessibility</a></span>
+    <span><a href="#">Site map</a></span>
+    Client area, Personal banking
+  </div>
+
+  <div class="head" data-region="header">
+    <div class="wordmark">Crédit<span class="glyph"></span>Mutuel</div>
+    <div class="whoami">
+      <strong>Camille BERTRAND</strong> &nbsp;|&nbsp; Client no. 04 918 2277<br>
+      Last login on 26/08/2026 at 08:14
+      <a class="btn-out" href="#">Secure log out</a>
+    </div>
+  </div>
+
+  <div class="nav" data-region="nav">
+    <a class="on" href="#">Accounts</a><a href="#">Transfers</a><a href="#">Cards</a><a href="#">Loans</a><a href="#">Savings</a><a href="#">Insurance</a><a href="#">Investments</a><a href="#">Documents</a><a href="#">Messages</a>
+  </div>
+  <div class="crumb">Home &gt; Accounts &gt; Your accounts overview</div>
+
+  <div class="cols">
+
+    <div class="side" data-region="side-nav">
+      <h3>Your transactions</h3>
+      <ul>
+        <li><a href="#">Your accounts overview</a></li>
+        <li><a href="#">Transaction statements</a></li>
+        <li><a href="#">Search for a transaction</a></li>
+        <li><a href="#">Download your data</a></li>
+        <li><a href="#">Issue a RIB (account details slip)</a></li>
+      </ul>
+      <h3>Your services</h3>
+      <ul>
+        <li><a href="#">Manage your card limits</a></li>
+        <li><a href="#">Block a card</a></li>
+        <li><a href="#">SMS alerts</a></li>
+        <li><a href="#">Contact details</a></li>
+        <li><a href="#">Contracts and mandates</a></li>
+      </ul>
+      <h3>Your branch</h3>
+      <ul>
+        <li><a href="#">Caisse de Strasbourg Centre</a></li>
+        <li><a href="#">Book an appointment</a></li>
+        <li><a href="#">Write to your adviser</a></li>
+      </ul>
+    </div>
+
+    <div class="main">
+
+      <div class="alert" data-region="alert">
+        <strong>Security information.</strong> Crédit Mutuel will never ask you for your access codes by telephone, email or SMS. If you have any doubt about a request, contact your Caisse locale before validating anything. Please read the recommendations available in the Security section.
+      </div>
+
+      <div class="panel" data-region="account-summary">
+        <h2>Overall position of your holdings</h2>
+        <div class="body globalbal">
+          <div class="lbl">Total of your account balances, as at 28/08/2026 at 06:00</div>
+          <div class="amt">21 563,93 EUR</div>
+          <div class="asof">This total is provided for information purposes only. It does not include transactions currently being processed, nor outstanding amounts on deferred debit cards.<sup>(1)</sup></div>
+        </div>
+      </div>
+
+      <div class="panel" data-region="accounts-table">
+        <h2>Your accounts</h2>
+        <div class="body">
+          <table>
+            <tr>
+              <th style="width:34%">Account name</th>
+              <th style="width:31%">Identifier / IBAN</th>
+              <th style="width:13%">Currency</th>
+              <th style="width:22%">Book balance</th>
+            </tr>
+            <tr>
+              <td><a href="#">EUROCOMPTE CONFORT</a><br><span class="iban">Current account</span></td>
+              <td><span class="iban">FR76 1027 8060 1200 0219 4470 132</span></td>
+              <td>EUR</td>
+              <td class="num">2 418,62</td>
+            </tr>
+            <tr class="alt">
+              <td><a href="#">LIVRET BLEU</a><br><span class="iban">Regulated savings</span></td>
+              <td><span class="iban">FR76 1027 8060 1200 0219 4470 244</span></td>
+              <td>EUR</td>
+              <td class="num">11 240,00</td>
+            </tr>
+            <tr>
+              <td><a href="#">PLAN EPARGNE LOGEMENT</a><br><span class="iban">Term savings</span></td>
+              <td><span class="iban">FR76 1027 8060 1200 0219 4470 351</span></td>
+              <td>EUR</td>
+              <td class="num">7 905,31</td>
+            </tr>
+            <tr>
+              <th colspan="3" style="text-align:right">Total</th>
+              <th class="num">21 563,93</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel" data-region="transactions">
+        <h2>Latest transactions on the Eurocompte Confort account</h2>
+        <div class="body">
+          <table>
+            <tr>
+              <th style="width:11%">Date</th>
+              <th style="width:11%">Value date</th>
+              <th>Transaction description</th>
+              <th style="width:14%">Debit</th>
+              <th style="width:14%">Credit</th>
+            </tr>
+            <tr>
+              <td>27/08/2026</td><td>27/08/2026</td>
+              <td>CB FACT 2608 CARREFOUR MARKET 4412 CB*2214</td>
+              <td class="num neg">67,43</td><td class="num"></td>
+            </tr>
+            <tr class="alt">
+              <td>26/08/2026</td><td>26/08/2026</td>
+              <td>PRLV SEPA ORANGE SA 0000012947733 ECH 260826</td>
+              <td class="num neg">38,99</td><td class="num"></td>
+            </tr>
+            <tr>
+              <td>26/08/2026</td><td>26/08/2026</td>
+              <td>RETRAIT DAB 2508 21H47 STRASBOURG GARE CB*2214</td>
+              <td class="num neg">80,00</td><td class="num"></td>
+            </tr>
+            <tr class="alt">
+              <td>25/08/2026</td><td>25/08/2026</td>
+              <td>VIR SEPA RECU SALAIRE AOUT 2026 REF PAY082026</td>
+              <td class="num"></td><td class="num pos">2 334,01</td>
+            </tr>
+            <tr>
+              <td>24/08/2026</td><td>25/08/2026</td>
+              <td>CB FACT 2208 SNCF CONNECT PARIS 75 CB*2214</td>
+              <td class="num neg">114,00</td><td class="num"></td>
+            </tr>
+            <tr class="alt">
+              <td>22/08/2026</td><td>22/08/2026</td>
+              <td>PRLV SEPA EDF CLIENTS PART 483992017 ECH 220826</td>
+              <td class="num neg">126,50</td><td class="num"></td>
+            </tr>
+            <tr>
+              <td>21/08/2026</td><td>21/08/2026</td>
+              <td>CB FACT 2008 AMAZON EU SARL LUXEMBOURG CB*8802</td>
+              <td class="num neg">41,27</td><td class="num"></td>
+            </tr>
+            <tr class="alt">
+              <td>20/08/2026</td><td>20/08/2026</td>
+              <td>COTIS EUROCOMPTE CONFORT AOUT 2026<sup>(2)</sup></td>
+              <td class="num neg">8,90</td><td class="num"></td>
+            </tr>
+          </table>
+          <div style="padding-top:7px;font-size:10px">
+            <a href="#">View all 24 transactions on the statement</a> &nbsp;|&nbsp;
+            <a href="#">Search</a> &nbsp;|&nbsp;
+            <a href="#">Download as CSV</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" data-region="cards">
+        <h2>Your bank cards</h2>
+        <div class="body">
+          <div class="cardrow">
+            <span class="chip"><i></i></span>
+            <span class="cardmeta"><b>MASTERCARD GOLD</b><br>4979 •• •• 2214 &nbsp; Expires 09/28 &nbsp; Deferred debit</span>
+            <span class="cardlim">Payment limit<br><b>3 000,00 EUR</b> over 30 rolling days</span>
+          </div>
+          <div class="cardrow">
+            <span class="chip"><i></i></span>
+            <span class="cardmeta"><b>CARTE BLEUE NATIONALE</b><br>5137 •• •• 8802 &nbsp; Expires 03/27 &nbsp; Immediate debit</span>
+            <span class="cardlim">Withdrawal limit<br><b>800,00 EUR</b> over 7 rolling days</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" data-region="upcoming">
+        <h2>Upcoming payment</h2>
+        <div class="body">
+          <table>
+            <tr><th style="width:14%">Date</th><th>Nature of the payment</th><th style="width:18%">Amount</th></tr>
+            <tr><td>05/09/2026</td><td>PRELEVEMENT CREDIT IMMOBILIER PRET 0271194 ECH 09/2026</td><td class="num neg">894,17</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel" data-region="shortcuts">
+        <h2>Quick access</h2>
+        <div class="body">
+          <ul class="sc">
+            <li><a href="#">Make a transfer</a></li>
+            <li><a href="#">Issue a RIB</a></li>
+            <li><a href="#">Manage card limits</a></li>
+            <li><a href="#">Block a card</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="legal" data-region="legal">
+        <sup>(1)</sup> The book balance does not take into account transactions recorded after the stated cut-off time. The available balance may differ from the book balance.<br>
+        <sup>(2)</sup> Monthly fee charged in accordance with the pricing conditions in force as at 1 January 2026, available at your Caisse locale and on the corporate website.<br>
+        The information displayed is provided for information purposes only and does not constitute an account statement. Only the periodic statement is authoritative.
+      </div>
+
+    </div>
+  </div>
+
+  <div class="foot" data-region="footer">
+    <a href="#">Legal notice</a><a href="#">Data protection</a><a href="#">Cookie settings</a><a href="#">Fee schedule</a><a href="#">Security</a><a href="#">Accessibility</a><a href="#">Site map</a><br>
+    Crédit Mutuel Alliance Fédérale, cooperative society with variable capital. Credit institution and insurance brokerage company.<br>
+    © 2026 Crédit Mutuel. All rights reserved.
+  </div>
+
+</div>
+</body>
+</html>

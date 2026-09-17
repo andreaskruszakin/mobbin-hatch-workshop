@@ -34,21 +34,26 @@ the phrase to run the method.
 
 ## 5–9 · Mobbin, and the MCP live
 
-Assume a third of the room has never opened it. Four minutes, no feature tour.
+Assume a third of the room has never opened Mobbin, and assume some of the room hasn't
+connected the MCP yet either. Four minutes of content; connection runs in the background at
+the same time.
 
+- Open with the ask: "if you haven't connected Mobbin yet, do it now — Settings > Tools & MCPs
+  > Mobbin > Connect in Cursor, or the Claude Code / Codex steps on your handout." Keep talking
+  through the points below while that finishes.
 - What is in there: real shipped screens, curated, searchable by pattern and flow.
 - The MCP: the same library, inside the tool you already write in.
-- One live search on the projector. Something that returns immediately — do not gamble on a
-  cold connection in front of the room.
+- One live search on the projector, from a machine already connected. Something that returns
+  immediately — do not gamble on a cold connection in front of the room.
 
 Say the honest part out loud: the MCP returns **stills**, not motion, and it returns almost no
 metadata. It is a reference feed, not a design system. That framing buys credibility with a
 senior room and saves you from the question later.
 
-The search worth doing live is the absent one. `Crédit Mutuel online banking account screen`
-returns Wise, Mercury, Square and Monarch — no Crédit Mutuel at all. The "before" is from a
-bank the library does not index; the "after" comes from patterns it does. That gap is the
-whole workshop in one search.
+Worth stating, not re-searching live: `Crédit Mutuel online banking account screen` returns no
+Crédit Mutuel screens in Mobbin — Wise, Mercury, Square and Monarch instead. Already checked;
+no need to run it again in front of the room. The bank the "before" comes from isn't in the
+library; the patterns the "after" draws on are. That gap is the whole workshop in one search.
 
 ## 9–13 · Read the regions, together
 
@@ -86,6 +91,11 @@ Then the one that decides whether this works: **pick the regions carrying the mo
 information, not the most pixels.** Anyone who swaps the footer, the utility bar and the
 shortcut buttons will produce something that looks new and is identical. Name that failure
 now, from the front, so they recognise it in their own output at minute 30.
+
+Say the disclaimer once, before anyone opens their tool: **a more opinionated request produces
+a better result** — name the component you want, name the reference, say why, and be ready to
+explain that why afterward, the same as for a design brief. Then let them off the leash: *"but
+it's also fine to have fun with this — try your own thing with Mobbin MCP and your AI tool."*
 
 ## 16–18 · The reveal — pick your screen
 
@@ -156,20 +166,25 @@ That is morphological analysis. They ran it without the word, which is the point
 
 ## 48–50 · Takeaway
 
-The repo is the takeaway: `START-HERE.md` with the one prompt, the three baselines, the swap
-card, the three-step prompts, Nicolas's ten-line chart for anyone who wants the longer form.
-Mobbin invite, Cursor credits, feedback link. Done.
+The repo is the takeaway: `START-HERE.md` with the three prompts, the three baselines, the swap
+card, Nicolas's ten-line chart for anyone who wants the longer form. Mobbin invite, Cursor
+credits, feedback link. Done.
 
-## Setup, and why it happens before the room
+## Setup — optional in advance, real in the room
 
-Participants get `START-HERE.md` and the Hatch portal checklist (`docs/HATCH-PORTAL.md`) in
-advance: one AI tool, Mobbin joined, the folder downloaded or cloned, Mobbin connected, one
-warm-up search. The folder ships its own `.cursor/mcp.json` and `.mcp.json`, so Cursor and
-Claude Code users click Connect rather than paste JSON. Nothing needs Python, Node or git.
+Participants get `START-HERE.md` and the Hatch portal checklist (`docs/HATCH-PORTAL.md`) framed
+as optional prep, not a requirement: one AI tool, Mobbin joined, the folder downloaded, Mobbin
+connected, one warm-up search. The folder ships its own `.cursor/mcp.json` and `.mcp.json`, so
+Cursor and Claude Code users click Connect rather than paste JSON. Nothing needs Python, Node
+or git.
+
+Expect most of the room not to have done it. Budget the 5–9 block above to actually get people
+connected, not just to explain Mobbin, and expect a few connections still finishing after
+minute 9 — that's what the floating time in 18–38 is for. Say the cold-start line at minute 0
+anyway: *if your first search times out, run it again.*
 
 28 people had signed up on 4 September against a room that seats about 20. Expect standing
-laptops, and expect a few who did none of the setup. Say the cold-start line at minute 0
-anyway: *if your first search times out, run it again.*
+laptops.
 
 ---
 
