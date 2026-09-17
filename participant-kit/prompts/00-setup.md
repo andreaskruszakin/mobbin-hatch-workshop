@@ -27,8 +27,10 @@ The folder ships the server config, so there is nothing to paste for Cursor or C
 - **Anything else**: an HTTP MCP server named `Mobbin` at `https://api.mobbin.com/mcp`.
   Per-client steps at [docs.mobbin.com/mcp/clients/overview](https://docs.mobbin.com/mcp/clients/overview).
 
-Authorisation is OAuth in the browser. No API key, no token to paste. You need a Mobbin account
-with MCP access; the workshop page has the invite link.
+Authorisation is OAuth in the browser. No API key, no token to paste. You need to already be on
+the Mobbin team for this to work — that comes from the email you gave in the Hatch pre-setup
+form, not from a link here. If sign-in fails, you may not have been added yet; try again closer
+to the day or ask on the Hatch Slack.
 
 ## 2. Warm it up
 
