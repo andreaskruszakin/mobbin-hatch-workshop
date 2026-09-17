@@ -1,5 +1,83 @@
 # Changelog
 
+## 17-09-2026 (workshop simulation)
+
+- Ran the room through logically end to end: download the kit, read `START-HERE.md` together,
+  run the three prompts one at a time. Confirmed removing the merged prompt (earlier today)
+  fixed a real inconsistency, not just a duplication risk — the merged version let the model
+  propose the target component at step 2, which directly contradicted
+  `prompts/03-generate.md`'s "pick your three swaps on paper first... if you let the model
+  choose, it will choose the average." The three-file flow now applies that rule everywhere.
+- Added a paragraph to `START-HERE.md`'s free-form section: the query phrasing in
+  `prompts/02-ground.md` and the two checks in `prompts/03-generate.md` are worth using even
+  for someone skipping the structured prompts entirely — that know-how was locked inside the
+  structured framing with no pointer to it for a free-form path.
+
+## 17-09-2026 (review pass on `participant-kit/`)
+
+- Added `participant-kit/README.md`: a short, kit-only file (not a copy of the root
+  facilitator `README.md`) pointing to `START-HERE.md` first and `prompts/00-setup.md` for
+  anyone who wants the setup reasoning. A dezipped folder with no README at all was the gap;
+  AI tools often read it first when a folder is opened, before a participant thinks to open
+  `START-HERE.md` themselves.
+- Fixed `docs/SWAP-CARD.md`: its closing line pointed at `docs/NICOLAS-CHART.md`, which is
+  deliberately excluded from `participant-kit/`. Since the file is shared byte-for-byte between
+  the facilitator repo and the kit, reworded it to describe the longer form as "on the
+  facilitator side" instead of naming a path that doesn't exist for kit-only readers.
+- Gave `prompts/00-setup.md` an actual entry point (linked from the new
+  `participant-kit/README.md`) — nothing referenced it before, in the kit or the full repo.
+
+## 17-09-2026 (later the same day)
+
+- Fixed `START-HERE.md` (and its `participant-kit/` copy): "Get this folder" still pointed at
+  the full-repo GitHub zip and `git clone`, left over from before `participant-kit/` existed —
+  following it would have handed a participant `docs/FOR-NICOLAS.md`, `audit-nico.md` and
+  `variants/` along with the workshop files. Now it says "you already have this folder" for the
+  portal-zip path, with the full repo as a named fallback only.
+- Removed the merged three-step prompt from `START-HERE.md` ("In the room: the one prompt").
+  It duplicated `prompts/01-03.md`, and this rework already had to hand-sync a change across
+  both copies once. `START-HERE.md` now points straight at the three files, run one at a time,
+  which is also the single source of truth for that prompt text going forward. Updated the
+  "one prompt" wording in `README.md`, `docs/RUN-OF-SHOW.md` and `docs/HATCH-PORTAL.md` to
+  match. Left `docs/DRY-RUN.md` and `docs/FOR-NICOLAS.md` alone — they're dated logs of a past
+  state, not current documentation.
+
+## 17-09-2026
+
+- Added `participant-kit/`: a copy of `START-HERE.md`, `baselines/`, `prompts/`,
+  `docs/SWAP-CARD.md` and the two MCP configs, and nothing else. This is the zip source for the
+  Hatch portal now, replacing `git archive` on the whole repo — the repo mixed participant and
+  facilitator files in `docs/` with no way to zip one without the other. Kept in sync by hand;
+  see the note in `README.md` and `docs/HATCH-PORTAL.md`.
+- Rewrote `docs/HATCH-PORTAL.md`: the pre-session checklist is now optional ("saves five minutes
+  on the day" instead of "please do this at home"), since participants reliably don't do
+  homework before a workshop. Setup is folded into the first minutes of the room instead.
+  Updated `README.md` and `docs/RUN-OF-SHOW.md`'s "Setup" section to match, and folded the live
+  Mobbin-connect time into the existing 5–9 block rather than adding a new one, to keep the
+  50-minute budget intact.
+- Rewrote `prompts/01-decompose.md` to move its two guardrails (rank by understanding not
+  pixels, ignore styling entirely) inside the pasted prompt block itself — they lived below the
+  fence before, so a participant pasting only the code block never sent them to the model.
+  Trimmed throwaway lines ("Takes two minutes, not six.") from `prompts/01-03` and
+  `prompts/00-setup.md`.
+- Added a blind-guess step to `prompts/02-ground.md` and `prompts/03-generate.md`: for each
+  swap, write down what you'd design with no reference before searching Mobbin, then require
+  one concrete difference between the shipped pattern and that guess. Answers the "mobbin vs. no
+  mobbin gave near-identical output" finding logged in `docs/DRY-RUN.md` (17 September entry) —
+  the model reaches for the same common patterns (card stacks, feeds grouped by day) with or
+  without a citation unless something forces the citation to change the answer. Added "the
+  convergent default" as a named failure mode alongside the beautiful reskin.
+- Reframed the Crédit Mutuel Mobbin search in `prompts/02-ground.md` and
+  `docs/RUN-OF-SHOW.md` from a search to relaunch live to a fact already established on 16
+  August — the result doesn't change, so re-running it live only costs time.
+- Added an operational calibration check to `docs/NICOLAS-CHART.md`: before locking a baseline,
+  run one no-Mobbin, no-structure pass on it; if that alone reads as a real redesign, the
+  baseline is too easy. Turns "I've seen worse, not a straw man" into something you can test
+  rather than only assert.
+- Added the "opinionated request" disclaimer (from Nicolas's notes) as a facilitator line in
+  `docs/RUN-OF-SHOW.md`'s assignment block, and a short version plus the region-vs-free-form
+  note in `START-HERE.md`.
+
 ## 07-09-2026
 
 - Added three slides to the Mobbin deck in Figma

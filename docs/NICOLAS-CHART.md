@@ -72,6 +72,12 @@ Say that from the front, or the room will contest the premise and be right to.
 Baselines B and C carry the genuine visual lag. That is where the gap against Mobbin's library
 is widest.
 
+**How to check this, not just assert it.** Before locking a baseline, run one pass with no
+Mobbin and no swap-card structure — just "make this better" into an AI tool. If that pass alone
+already reads as a real, professional redesign, the rule has failed: go add density or
+accumulation, not more ugliness. This is the gap test below, run one level up — against the
+baseline itself, not against a single swap.
+
 ---
 
 ## Two constraints that look like bugs
@@ -95,6 +101,8 @@ of the most obvious available wins for free. Baseline A is fluid, because the re
   download — that removes the risk of thirty people hitting venue wifi at once.
 - Timed dry run on baseline B. Target: one full loop under seven minutes.
 - **The gap test.** Same baseline, same prompt, run twice: once with the Mobbin URLs and once
-  without. If the outputs look alike, the references are not pulling their weight. This is the
-  one that decides whether the workshop's core claim holds, and it is worth doing before the
-  slides are finished rather than after.
+  without. If the outputs look alike, the references are not pulling their weight. Run 6
+  September with a positive result (`docs/DRY-RUN.md`), run again around 17 September with a
+  near-identical result on two of three swaps — see the 17 September entry in `docs/DRY-RUN.md`.
+  The fix is the blind-guess step now built into `prompts/02-ground.md` and
+  `prompts/03-generate.md`. Re-run against the revised prompts before 18 September.

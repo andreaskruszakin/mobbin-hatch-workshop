@@ -6,10 +6,13 @@ exactly that subset. Replace the two `TODO` links before publishing; everything 
 
 - `TODO-MOBBIN-INVITE`: the team invite link from Jovan (back Wednesday 9 September)
 - `TODO-CURSOR-CREDITS`: the $50 Cursor credits link, Andreas
+- `TODO-KIT-ZIP`: the uploaded `mobbin-hatch-workshop-kit.zip` link (see "Field: Materials")
 
-Live copies of everything linked below: repo
-`https://github.com/andreaskruszakin/mobbin-hatch-workshop`, zip
-`https://github.com/andreaskruszakin/mobbin-hatch-workshop/archive/refs/heads/main.zip`.
+The participant download is a zip of the `participant-kit/` folder in the repo, not the whole
+repo — that folder holds participant files only (baselines, prompts, `START-HERE.md`, the MCP
+configs). Keep it in sync by hand if `baselines/`, `prompts/` or `START-HERE.md` change. Full
+repo, for anyone who wants the facilitator material too:
+`https://github.com/andreaskruszakin/mobbin-hatch-workshop`.
 
 ---
 
@@ -24,10 +27,11 @@ real products ship today (found through the Mobbin MCP inside your own AI tool),
 You leave with two versions of one screen that could plausibly come from two different
 companies, and you can say why you chose each.
 
-Bring a laptop with the AI coding tool you already use (Cursor, Claude Code or Codex). Five
-minutes of setup before the session; the steps are on this page. Mobbin access is provided for
-the day. No coding experience needed: the screens are plain HTML files that open by
-double-click, and the AI does the writing.
+Bring a laptop with the AI coding tool you already use (Cursor, Claude Code or Codex). Setup
+takes five minutes; do it before the session if you'd like, or we'll help you connect in the
+first few minutes of the room. Mobbin access is provided for the day. No coding experience
+needed: the screens are plain HTML files that open by double-click, and the AI does the
+writing.
 
 Hosted by Andreas Kruszakin (Cursor and Mobbin Ambassador, Netherlands) and Nicolas Chatelain
 (Mobbin Ambassador).
@@ -47,14 +51,14 @@ Hosted by Andreas Kruszakin (Cursor and Mobbin Ambassador, Netherlands) and Nico
 
 ## Field: Setup documentation
 
-## Before the session (5 minutes)
+## Setup — optional, before you arrive
 
-Please do this at home, not in the room. The first Mobbin connection is slow and thirty people
-doing it at once costs us the hands-on time.
+Five minutes now saves five minutes on the day. If you'd rather not, that's fine: we set up
+Cursor and Mobbin MCP together at the start of the session.
 
 - [ ] Install one AI coding tool and sign in: [Cursor](https://cursor.com), [Claude Code](https://claude.com/claude-code) or [Codex](https://openai.com/codex). Cursor if you have none.
 - [ ] Join Mobbin through the workshop invite: TODO-MOBBIN-INVITE. Sign in once at [mobbin.com](https://mobbin.com).
-- [ ] Get the workshop folder. Either [download the zip](https://github.com/andreaskruszakin/mobbin-hatch-workshop/archive/refs/heads/main.zip) and unzip it, or clone `https://github.com/andreaskruszakin/mobbin-hatch-workshop.git`.
+- [ ] Get the workshop folder: download it from TODO-KIT-ZIP and unzip it.
 - [ ] Open the folder in your AI tool (Cursor: File > Open Folder).
 - [ ] Connect Mobbin. In Cursor the folder brings its own config: enable it when asked, or Settings > Tools & MCPs > **Mobbin** > **Connect**, then sign in when the browser opens. Claude Code and Codex steps are in `START-HERE.md` inside the folder.
 - [ ] Paste this into your AI tool and wait for three results with links:
@@ -66,9 +70,10 @@ doing it at once costs us the hands-on time.
 
 ## In the room
 
-Everything else is in `START-HERE.md` in the folder, including the one prompt you will paste.
-We reveal three screens and you pick one. Optional Cursor credits if you need them:
-TODO-CURSOR-CREDITS.
+Everything else is in `START-HERE.md` in the folder, including the three prompts you will run.
+We reveal three screens and you pick one. Didn't get to the setup above? Arrive five minutes
+early, or we'll connect you in the first minutes of the session. Optional Cursor credits if you
+need them: TODO-CURSOR-CREDITS.
 
 ## Stuck?
 
@@ -92,24 +97,23 @@ email and budget two extra minutes at the top of the session for Connect.
 
 ## Field: Materials
 
-Upload `mobbin-hatch-workshop.zip` (built from `main` with `git archive`; the same bytes as the
-GitHub zip link, for people who would rather download from the portal). Nothing else needs
-uploading: the slides link is shared on the day and the takeaway is the repo itself.
+Upload `mobbin-hatch-workshop-kit.zip`: zip the `participant-kit/` folder from the repo, not
+the whole repo. Nothing else needs uploading: the slides link is shared on the day.
 
 ---
 
 ## Reminder email, two days before (if the portal sends one)
 
-Subject: Friday's workshop: five minutes of setup, please
+Subject: Friday's workshop: five minutes of setup, if you want them
 
-Hi, two things before Friday's "Stop Designing From Vibes" session.
+Hi, one thing before Friday's "Stop Designing From Vibes" session.
 
-First, please run the setup on the workshop page before you arrive. It takes five minutes: one
-AI coding tool installed, Mobbin joined through the invite link, the workshop folder downloaded
-and opened once with Mobbin connected. The first Mobbin connection is slow and we would rather
-spend our fifty minutes designing than connecting.
+If you'd like to save five minutes on the day, run the setup on the workshop page before you
+arrive: one AI coding tool installed, Mobbin joined through the invite link, the workshop
+folder downloaded and opened once with Mobbin connected. If you don't get to it, no problem —
+we'll set it up together in the room.
 
-Second, if you do not have an AI coding tool yet, install Cursor; the credits link on the page
-covers the session. Any questions, reply here or find us on the Hatch Slack.
+If you do not have an AI coding tool yet, install Cursor; the credits link on the page covers
+the session. Any questions, reply here or find us on the Hatch Slack.
 
 See you Friday. Andreas and Nicolas
