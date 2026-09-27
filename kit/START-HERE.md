@@ -21,9 +21,11 @@ below cover Cursor, Claude Code and Codex.
    block MCP servers. If your work account is locked down, sign in with a personal one.
 2. **Sign in on [mobbin.com](https://mobbin.com)** with the email you gave when you registered.
 3. **Open this folder in your AI tool** and connect Mobbin:
-   - **Cursor.** File > Open Folder, pick this folder. When Cursor asks to enable the Mobbin MCP,
-     say yes. If it does not ask, go to Settings > Tools & MCPs, find **Mobbin**, click
-     **Connect**. Sign in when the browser opens.
+   - **Cursor.** Install the Mobbin plugin from the Cursor Marketplace (mobbin.com/mcp > Cursor,
+     or Customize > Browse Marketplace > Mobbin), then Customize > Installed > Mobbin >
+     **Authenticate** and sign in. Then File > Open Folder and pick this folder. The folder also
+     ships its own Mobbin config: if you'd rather skip the plugin, press Cmd+Shift+P, type
+     `MCP`, open **Cursor Settings: Tools & MCPs** and connect **Mobbin**.
    - **Claude Code.** `cd` into this folder, run `claude`, trust the project's `.mcp.json`, then
      type `/mcp`, pick **mobbin**, choose **Authenticate**.
    - **Codex.** Run `codex mcp add mobbin --url https://api.mobbin.com/mcp`, then

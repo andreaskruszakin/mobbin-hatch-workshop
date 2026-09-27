@@ -2,6 +2,28 @@
 
 ## 27-09-2026
 
+- Moved everything to the Luma facts: "Research Fast and Design Live with Mobbin MCP", Friday
+  9 October, 7:00 to 8:30 KST (Thursday 8 October, 3:00 PM PT), 90 minutes. The kit, emails, run
+  of show and board said Thursday 7:00 KST and 60 minutes, which was a day early in Korea.
+- Published `kit.zip` as the GitHub release `designed-minds-2026-10`, so there's a real download
+  link for the emails, the board and `kit/START-HERE.md`.
+- `kit/prompts.md`: added step 5, share. People paste their before and after into their lane,
+  and for extra points deploy `mine/` to Vercel and paste the link. `kit/START-HERE.md`: added
+  mobbin.com/mcp up front, the release link, and the official Cursor route (the Marketplace
+  plugin), plus the invented-prices and Vercel-login edge cases.
+- Rebuilt the FigJam board at Designed Minds scale. Hatch feedback was that steps were unclear
+  and nobody saw each other's work.
+  - Hosts from Luma get photo cards.
+  - Setup is five steps, each with a real screenshot: the release page, a Finder view of the
+    unzipped kit, Cursor with the kit open, mobbin.com/mcp's "Connect tool", Cursor's Tools &
+    MCPs, the Mobbin docs for Cursor, Claude Code and Codex, and a green warm-up result.
+  - 40 lanes (34 signups) have Before, After, picks and a Vercel live-link slot, with lane 1 as
+    a worked example.
+  - "If something breaks" is its own station with nine cases, including Mobbin's "Upgrade"
+    screen for people who aren't on the workshop team.
+- Rewrote `docs/RUN-OF-SHOW-VIRTUAL.md` for 90 minutes and `docs/EMAILS.md` with the corrected
+  times and real links.
+
 - Rebuilt the FigJam board (https://www.figma.com/board/uQdulniCnQzptKeFiGs1Vg) in the Designed
   Minds visual system, taken from their reference board (`x7z1du240DH08LfJsCx7Pe`) and
   designedminds.co. The first version used generic FigJam defaults and read as a different
