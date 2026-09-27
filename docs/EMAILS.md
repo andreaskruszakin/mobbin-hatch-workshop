@@ -38,7 +38,7 @@ failed).** That tells us who needs help before we start.
 During the session everything happens on this board, so keep it open: [BOARD LINK]
 
 See you tomorrow,
-Andreas and the Design Minds team
+Andreas and the Designed Minds team
 
 ---
 

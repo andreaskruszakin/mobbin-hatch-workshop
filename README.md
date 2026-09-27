@@ -1,6 +1,6 @@
 # Mobbin x Hatch — Workshop Lab
 
-## Next run: Design Minds, virtual, Thursday 8 October 2026, 7:00 KST
+## Next run: Designed Minds, virtual, Thursday 8 October 2026, 7:00 KST
 
 One template (the real KORAIL ticket booking page), four prompts, one FigJam board that doubles
 as the slides. It is the dry run for the in-person Seoul workshop on 24 October.

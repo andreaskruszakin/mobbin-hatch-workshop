@@ -1,8 +1,8 @@
 # Dry runs
 
-## 27 September, 12:16–12:19: the KORAIL template, Design Minds kit
+## 27 September, 12:16–12:19: the KORAIL template, Designed Minds kit
 
-Trigger: the virtual Design Minds run on 8 October replaces three fictional baselines with one
+Trigger: the virtual Designed Minds run on 8 October replaces three fictional baselines with one
 scraped page, korail.com/ticket/main, and replaces the three prompt files with four
 paste-one-at-a-time steps in `kit/prompts.md`. This run checks the template works offline and
 that the four steps produce a structurally different page inside the 26-minute block.
