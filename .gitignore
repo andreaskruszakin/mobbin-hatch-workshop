@@ -6,5 +6,5 @@ node_modules/
 variants/
 mobbin-hatch-workshop-kit.zip
 kit/template/
-kit.zip
+kit*.zip
 mobbin-hatch-workshop-kit-revised/

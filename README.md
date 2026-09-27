@@ -1,16 +1,16 @@
 # Mobbin x Hatch — Workshop Lab
 
-## Next run: Designed Minds, virtual, Thursday 8 October 2026, 7:00 KST
+## Next run: Designed Minds, virtual, Friday 9 October 2026, 7:00 to 8:30 KST (Thursday 8 October, 3:00 PM PT)
 
 One template (the real KORAIL ticket booking page), four prompts, one FigJam board that doubles
 as the slides. It is the dry run for the in-person Seoul workshop on 24 October.
 
 | Path | What it is |
 | --- | --- |
-| `kit/` | Participant kit: `START-HERE.md`, `prompts.md`, MCP configs. Zip it with `scripts/build-kit.sh` |
+| `kit/` | Participant kit: `START-HERE.md`, `prompts.md` (five steps), MCP configs. Zip it with `scripts/build-kit.sh`; download from the [release](https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/tag/designed-minds-2026-10) |
 | `kit/template/` | Scraped copy of korail.com/ticket/main. Not in git (KORAIL's markup and imagery); the build script regenerates it |
-| [FigJam board](https://www.figma.com/board/uQdulniCnQzptKeFiGs1Vg) | The session itself: eight timed stations and 20 participant lanes |
-| `docs/RUN-OF-SHOW-VIRTUAL.md` | Minute-by-minute script for the 60 minutes |
+| [FigJam board](https://www.figma.com/board/uQdulniCnQzptKeFiGs1Vg) | The session itself: hosts, five visual setup steps, the hands-on with 40 participant lanes, and an edge-case station |
+| `docs/RUN-OF-SHOW-VIRTUAL.md` | Minute-by-minute script for the 90 minutes |
 | `docs/EMAILS.md` | The two pre-session emails (one day before, two hours before) |
 
 Everything below this section is the Hatch Berlin run, kept as the record.
