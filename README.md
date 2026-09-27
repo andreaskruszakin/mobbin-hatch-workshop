@@ -1,5 +1,22 @@
 # Mobbin x Hatch — Workshop Lab
 
+## Next run: Design Minds, virtual, Thursday 8 October 2026, 7:00 KST
+
+One template (the real KORAIL ticket booking page), four prompts, one FigJam board that doubles
+as the slides. It is the dry run for the in-person Seoul workshop on 24 October.
+
+| Path | What it is |
+| --- | --- |
+| `kit/` | Participant kit: `START-HERE.md`, `prompts.md`, MCP configs. Zip it with `scripts/build-kit.sh` |
+| `kit/template/` | Scraped copy of korail.com/ticket/main. Not in git (KORAIL's markup and imagery); the build script regenerates it |
+| [FigJam board](https://www.figma.com/board/uQdulniCnQzptKeFiGs1Vg) | The session itself: eight timed stations and 20 participant lanes |
+| `docs/RUN-OF-SHOW-VIRTUAL.md` | Minute-by-minute script for the 60 minutes |
+| `docs/EMAILS.md` | The two pre-session emails (one day before, two hours before) |
+
+Everything below this section is the Hatch Berlin run, kept as the record.
+
+---
+
 Facilitator kit for **"Stop Designing From Vibes"**, a 50-minute hands-on workshop at
 **Hatch Berlin, 18 September 2026**. Andreas Kruszakin + Nicolas Chatelain.
 

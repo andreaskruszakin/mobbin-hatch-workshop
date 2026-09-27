@@ -1,5 +1,27 @@
 # Changelog
 
+## 27-09-2026
+
+- Added `kit/`, the participant kit for the Design Minds virtual run on 8 October:
+  `START-HERE.md` (one page), `prompts.md` (four blocks: warm up, search, pick, redesign, plus
+  backup Mobbin links), and the MCP configs from `participant-kit/`. It answers the Hatch retro:
+  three baselines and four prompt files were too much, and people asked what they were supposed
+  to do.
+- Added `scripts/build-kit.sh` and `scripts/extract-data-uris.py`. The script scrapes
+  korail.com/ticket/main with SingleFile, moves the inlined base64 images and fonts into
+  `kit/template/assets/` so `index.html` drops from 5.6 MB to about 75 KB (small enough for an
+  AI tool to read), screenshots the live page to `kit/template/preview.png`, and zips `kit/`.
+- `.gitignore`: added `kit/template/` and `kit.zip`, because the scraped page is KORAIL's markup
+  and imagery and this repo is public. Also added `mobbin-hatch-workshop-kit-revised/`, a local
+  duplicate of the Hatch zip.
+- Added `docs/RUN-OF-SHOW-VIRTUAL.md` (60 minutes, eight stations, what to do when the check-in
+  comes back mostly red) and `docs/EMAILS.md` (one day before, two hours before, enterprise
+  warning, green/red reply).
+- Added a dry-run entry to `docs/DRY-RUN.md`: loop timings, the 5.6 MB finding, the unreachable
+  results page, and the invented-fares risk that tightened block 4.
+- `README.md`: a "next run" block at the top pointing at `kit/`, the FigJam board and the new
+  docs. The Hatch material below it is unchanged.
+
 ## 17-09-2026 (direct kit zip, not just the portal)
 
 - `README.md`'s "Get the folder" only had one concrete link — the full-repo GitHub archive —
