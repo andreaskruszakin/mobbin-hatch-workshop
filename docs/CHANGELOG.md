@@ -2,7 +2,20 @@
 
 ## 27-09-2026
 
-- Added `kit/`, the participant kit for the Design Minds virtual run on 8 October:
+- Rebuilt the FigJam board (https://www.figma.com/board/uQdulniCnQzptKeFiGs1Vg) in the Designed
+  Minds visual system, taken from their reference board (`x7z1du240DH08LfJsCx7Pe`) and
+  designedminds.co. The first version used generic FigJam defaults and read as a different
+  organiser's workshop. It now uses their pieces:
+  - their timer chips (pink `#F849C1` for talks, blue `#488CFC` for activities), black rule and
+    bold title on every station;
+  - saturated pastel sections with a light rounded card inside, and yellow part banners;
+  - black instruction boxes and numbered lanes (`#DBF0FF`, numbers in `#4968BC`);
+  - the pink "Let's get started!" block with its circle, people illustration and star;
+  - a cream hero with the Designed Minds mark and the site illustration, and a "Keep building!"
+    close with their line illustration.
+- Fixed the organiser's name everywhere from "Design Minds" to "Designed Minds".
+
+- Added `kit/`, the participant kit for the Designed Minds virtual run on 8 October:
   `START-HERE.md` (one page), `prompts.md` (four blocks: warm up, search, pick, redesign, plus
   backup Mobbin links), and the MCP configs from `participant-kit/`. It answers the Hatch retro:
   three baselines and four prompt files were too much, and people asked what they were supposed

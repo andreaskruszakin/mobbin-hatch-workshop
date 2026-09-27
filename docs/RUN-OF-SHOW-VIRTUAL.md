@@ -1,6 +1,6 @@
 # Run of show: virtual, 60 minutes
 
-**Design Minds monthly workshop. Thursday 8 October 2026, 7:00 to 8:00 KST**
+**Designed Minds monthly workshop. Thursday 8 October 2026, 7:00 to 8:00 KST**
 (Wednesday 7 October, 22:00 UTC / midnight in Amsterdam).
 
 Facilitator: Andreas. The call is for voice and screen share. All content lives on the
