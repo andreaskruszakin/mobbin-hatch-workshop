@@ -1,6 +1,6 @@
 # Prompts
 
-Paste one block at a time. Read what comes back before you paste the next one.
+Five steps. Paste one block at a time. Read what comes back before you paste the next one.
 
 ## 1. Warm up
 
@@ -71,6 +71,23 @@ When you are done, list which parts of the page moved and which KORAIL labels yo
 
 Open `mine/index.html` next to `template/index.html`. If they look like the same page in new
 colours, you changed the paint, not the plan. Go back to step 3.
+
+## 5. Share
+
+Put your work on the board so everyone can see it. Screenshot `template/index.html` and
+`mine/index.html` in the browser (Cmd+Shift+4 on Mac, Win+Shift+S on Windows) and paste both into
+your lane: Before on the left, After on the right. Your picks go on stickies next to them.
+
+**Extra points: put it online.** Paste this:
+
+```
+Deploy the mine/ folder to Vercel as a static site. It needs ../template/assets/, so first copy
+the images it uses into mine/assets/ and update the paths. Then run npx vercel deploy mine --prod
+and give me the live URL.
+```
+
+Paste the URL into the "Live link" slot in your lane. If Vercel asks you to log in and you can't,
+or the deploy fails, skip it. The screenshots are enough.
 
 ## More prompts to try
 

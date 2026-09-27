@@ -1,13 +1,22 @@
 # Start here
 
+**Research Fast and Design Live with Mobbin MCP.** Designed Minds, Friday 9 October 2026,
+7:00 to 8:30 KST (Thursday 8 October, 3:00 to 4:30 PM PT).
+
 Today you redesign one real screen, the KORAIL ticket booking page, with your AI tool and real
 product screens from Mobbin. You don't need a terminal, Node or Python. Just the AI tool you
 already use.
+
+How to add Mobbin MCP to your tool: **[mobbin.com/mcp](https://mobbin.com/mcp)**. The steps
+below cover Cursor, Claude Code and Codex.
 
 ![The template: KORAIL ticket booking page](template/preview.png)
 
 ## Before the session (5 minutes)
 
+0. **Get the kit.** You're reading this, so you probably have it. If not:
+   [download kit.zip](https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/download/designed-minds-2026-10/kit.zip)
+   and unzip it.
 1. **Use a personal account if you can.** Company (enterprise) Cursor or Claude accounts often
    block MCP servers. If your work account is locked down, sign in with a personal one.
 2. **Sign in on [mobbin.com](https://mobbin.com)** with the email you gave when you registered.
@@ -33,7 +42,7 @@ always works.
 | --- | --- |
 | `template/index.html` | The screen you redesign. Double-click it to open it in your browser. |
 | `template/preview.png` | A screenshot of the same page. |
-| `prompts.md` | Four prompts. Paste one at a time. |
+| `prompts.md` | Five prompts. Paste one at a time. |
 
 The template is a saved copy of [korail.com/ticket/main](https://www.korail.com/ticket/main),
 captured on 27 September 2026. Its images and fonts sit in `template/assets/`, so it works
@@ -41,14 +50,14 @@ offline.
 
 ## In the session
 
-Follow the board. We run the four prompts in `prompts.md` together, one step at a time:
+Follow the board. We run the five prompts in `prompts.md` together, one step at a time:
 
 1. **Warm up.** Your AI tool reads the template and Mobbin wakes up.
 2. **Search.** Mobbin shows you real screens that could improve the template.
 3. **Pick.** You choose one to three of them and say why. Post your picks on the board.
 4. **Redesign.** Your AI tool builds `mine/index.html` from your picks.
-
-Then open `mine/index.html` next to `template/index.html` and compare them.
+5. **Share.** Paste your before and after into your lane on the board so everyone can see it.
+   Extra points: deploy `mine/` to Vercel and paste the live link.
 
 ## If something breaks
 
@@ -58,5 +67,7 @@ Then open `mine/index.html` next to `template/index.html` and compare them.
   and paste those into your AI tool.
 - **The AI describes screens it did not look at.** Ask it to cite each `mobbin_url` and say
   what is actually in the image.
+- **The AI invents prices or routes.** KORAIL's page has none. Tell it to keep only KORAIL's content.
+- **Vercel asks you to log in, or the deploy fails.** Skip it. The screenshot in your lane is enough.
 - **The redesign looks like the same page with new colours.** Ask which parts of the page it
   moved. If the layout is the same, send it back to your picks.
