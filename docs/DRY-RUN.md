@@ -1,5 +1,57 @@
 # Dry runs
 
+## 27 September, 12:16–12:19: the KORAIL template, Design Minds kit
+
+Trigger: the virtual Design Minds run on 8 October replaces three fictional baselines with one
+scraped page, korail.com/ticket/main, and replaces the three prompt files with four
+paste-one-at-a-time steps in `kit/prompts.md`. This run checks the template works offline and
+that the four steps produce a structurally different page inside the 26-minute block.
+
+### What was measured
+
+| Step | Wall clock | Note |
+| --- | --- | --- |
+| Scrape with `scripts/build-kit.sh` | 1 min 35 s | SingleFile never reaches network idle on korail.com and captures at interactive time after 60 s. The render still matches the live page |
+| Offline render of `kit/template/index.html` | instant | Same 2,579 px height as live, 0 scripts, 0 external requests, 0 console errors |
+| Warm-up search, `standard`, limit 3 | 12:16:33 | Returned GetYourGuide, Sweatpals, Perplexity. Off topic, as in every run so far. Fine for waking the connection |
+| Three `deep` searches, limit 4 | 12:16:33 → 12:17:32 | Klook trains, Klook popular routes, KAYAK, TravelPerk, Navan and Kiwi.com were on target. The third query (service shortcuts next to announcements) was the weakest |
+| Build `mine/index.html` from three picks | 12:17:32 → 12:18:43 | Search moved into the hero, the floating quick menu became one row, the discount carousel became a card grid |
+| **Whole loop, model time** | **about 2 min 10 s** | Human reading and picking time comes on top. The 26-minute block has room for two loops |
+
+### What the content check found
+
+66 of the template's 76 visible labels survived. The 10 missing were all controls the new
+structure removed: carousel Previous and Next, the popup opener, four "select…" input hints,
+the full-menu button and the skip link. That's the right kind of loss, and a good share-out
+answer to "what did it cost?"
+
+### Findings that changed the kit
+
+- **The template was 5.6 MB.** SingleFile inlines every image and font as base64, and 98% of the
+  file was data URIs. No AI tool reads that into context. `scripts/extract-data-uris.py` moves
+  them into `template/assets/` with relative paths. `index.html` is now about 75 KB and renders
+  pixel-identical offline.
+- **The results page is unreachable.** `/ticket/search/list` loads but reports no trains for any
+  date from this machine, and no train API call fires. It's probably a bot or region block. The
+  booking home is the template instead, and it has more to fix anyway.
+- **Klook "popular routes" invites invented data.** KORAIL's page has no routes or fares, so
+  copying that pattern means making up prices. Block 4 now says "do not invent prices, routes or
+  numbers the template does not have".
+- **Nine Korean labels in one row wrap mid-word.** It's a real cost of that change, and the run
+  of show keeps it for the share-outs instead of fixing it.
+- **Re-scrapes vary.** Two scrapes an hour apart gave 64 and 51 assets. The second dropped
+  hidden mobile-only images. Desktop rendering is identical. Rebuild the kit a few days out, not
+  months.
+
+### Not tested
+
+The steps ran through this machine's authorised Mobbin connection, not by pasting the prompt
+blocks into a fresh tool. Claude Code and `cursor-agent` both need an interactive browser login
+first, which is the same step a participant does. Before 8 October, one person should unzip
+`kit.zip` on a clean laptop, follow `START-HERE.md` word for word, and time it.
+
+---
+
 ## 17 September: the gap test, again — and this time it didn't hold
 
 Trigger: a solo dry run generated variants from baseline B with Mobbin and without, back to
