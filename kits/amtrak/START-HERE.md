@@ -13,9 +13,10 @@ How to add Mobbin MCP to your tool: **[mobbin.com/mcp](https://mobbin.com/mcp)**
 
 ## Before the session (5 minutes)
 
-0. **Get Mobbin Pro.** Mobbin MCP needs a Pro plan. With code **DESIGNEDMINDS** you get
-   3 months of Mobbin Pro: go to [mobbin.com/pricing](https://mobbin.com/pricing), pick Pro,
-   and enter DESIGNEDMINDS as the promotion code at checkout.
+0. **Get Mobbin Pro.** Mobbin MCP needs a Pro plan, and code **DESIGNEDMINDS** gets you
+   3 months of it. Go to [mobbin.com/pricing](https://mobbin.com/pricing), switch the toggle to
+   **Quarterly**, click **Get Pro** on the Pro card, and create a free account or log in. At
+   checkout, enter DESIGNEDMINDS as the promotion code.
 1. **Get the kit.** You're reading this, so you probably have it. If not:
    [download kit.zip](https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/download/designed-minds-2026-10/kit.zip)
    and unzip it.
@@ -27,9 +28,11 @@ How to add Mobbin MCP to your tool: **[mobbin.com/mcp](https://mobbin.com/mcp)**
      **Authenticate** and sign in. Then File > Open Folder and pick this folder. The folder also
      ships its own Mobbin config: if you'd rather skip the plugin, press Cmd+Shift+P, type
      `MCP`, open **Cursor Settings: Tools & MCPs** and connect **Mobbin**.
-   - **Claude Desktop.** Settings > Connectors > search "Mobbin" > **Install**, then sign in
-     with your Mobbin account. Claude Desktop can't open a folder, so drag
-     `template/index.html` and `prompts.md` into the chat instead.
+   - **Claude Desktop.** Open [claude.ai/directory/mobbin](https://claude.ai/directory/mobbin)
+     and add it, or in the app go to Customize > Connectors > Add > Browse
+     connectors and search "Mobbin". Sign in with your Mobbin account. The listing shows the
+     three tools you get: `search_screens`, `search_flows`, `search_sections`. Claude Desktop
+     can't open a folder, so drag `template/index.html` and `prompts.md` into the chat instead.
    - **Claude Code.** If you connected Mobbin in Claude Desktop or on claude.ai, Claude Code
      already has it. Otherwise: `cd` into this folder, run `claude`, trust the project's
      `.mcp.json`, then type `/mcp`, pick **mobbin**, choose **Authenticate**.
@@ -48,7 +51,7 @@ always works.
 | --- | --- | --- |
 | `search_screens` | One screen, like a home page or a checkout | "train booking home page where the search form is the main element" |
 | `search_flows` | A journey across several screens | "train ticket booking flow from search to seat selection" |
-| `search_sections` | One part of a screen, like a form or a header | "journey search form with from, to, dates and passengers" |
+| `search_sections` | One section of a website, like a hero or a pricing block | "hero section with a booking search form" |
 
 Every result is a real screen from an app that shipped, with a `mobbin_url` you can open.
 
@@ -77,7 +80,8 @@ Follow the board. We run the five prompts in `prompts.md` together, one step at 
 ## If something breaks
 
 - **Mobbin says "Upgrade".** MCP needs Pro. Use code DESIGNEDMINDS for 3 months of Mobbin Pro.
-- **Mobbin times out.** Run it again.
+- **Mobbin times out, or says "Failed to execute search".** Wait a few seconds and run it
+  again. If it keeps failing, reconnect Mobbin (Cursor: Authenticate again; Claude Code: `/mcp`).
 - **Mobbin is blocked (enterprise account).** Switch to a personal account. If you can't, use
   the backup links at the bottom of `prompts.md`: open them in the browser, take screenshots,
   and paste those into your AI tool.

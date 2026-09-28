@@ -1,15 +1,17 @@
 # Mobbin x Hatch — Workshop Lab
 
-## Next run: Designed Minds, virtual, Friday 9 October 2026, 7:00 to 8:30 KST (Thursday 8 October, 3:00 PM PT)
+## Next runs: Designed Minds online, Thursday 8 October 2026, 3:00 to 4:30 PM PT, and Seoul in person, Saturday 24 October
 
-One template (the real KORAIL ticket booking page), four prompts, one FigJam board that doubles
-as the slides. It is the dry run for the in-person Seoul workshop on 24 October.
+One template, five prompts, one FigJam board that doubles as the slides. The online session is
+international and mostly US, so it redesigns the Amtrak booking home page. Seoul redesigns the
+KORAIL ticket booking page. Participants get 3 months of Mobbin Pro with code DESIGNEDMINDS.
 
 | Path | What it is |
 | --- | --- |
-| `kit/` | Participant kit: `START-HERE.md`, `prompts.md` (five steps), MCP configs. Zip it with `scripts/build-kit.sh`; download from the [release](https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/tag/designed-minds-2026-10) |
-| `kit/template/` | Scraped copy of korail.com/ticket/main. Not in git (KORAIL's markup and imagery); the build script regenerates it |
-| [FigJam board](https://www.figma.com/board/uQdulniCnQzptKeFiGs1Vg) | The session itself: hosts, five visual setup steps, the hands-on with 40 participant lanes, and an edge-case station |
+| `kits/amtrak/` | Online kit: `START-HERE.md`, `prompts.md` (five steps), MCP configs. Download from the [designed-minds-2026-10 release](https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/tag/designed-minds-2026-10) |
+| `kits/korail/` | Seoul kit, same format. Download from the [seoul-2026-10-24 release](https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/tag/seoul-2026-10-24) |
+| `kits/*/template/` | Scraped copies of amtrak.com and korail.com/ticket/main. Not in git (the site owners' markup and imagery); `scripts/build-kit.sh amtrak` (or `korail`) regenerates them and packs `dist/<name>/kit.zip` |
+| [FigJam board](https://www.figma.com/board/uQdulniCnQzptKeFiGs1Vg) | The online session: hosts, five visual setup steps, the three Mobbin MCP tools, the hands-on with 40 participant lanes, and an edge-case station |
 | `docs/RUN-OF-SHOW-VIRTUAL.md` | Minute-by-minute script for the 90 minutes |
 | `docs/EMAILS.md` | The two pre-session emails (one day before, two hours before) |
 

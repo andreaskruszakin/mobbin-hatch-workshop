@@ -29,8 +29,8 @@ platform web, limit 4 each:
    how its parts relate. Good examples:
    - "train booking home page where the journey search form is the main element above the fold"
    - "travel booking home page showing deals as cards with who each deal is for"
-2. search_flows, once: "train ticket booking flow from search to seat selection".
-3. search_sections, once: "journey search form with from, to, dates and passengers".
+2. search_flows, once: "train ticket booking flow from journey search to results to seat selection".
+3. search_sections, once: "hero section with a booking search form".
 Change the queries to match what you found weak in step 1.
 
 For every result, give me the app name, the mobbin_url, and one sentence about what is
@@ -113,3 +113,5 @@ Open these in the browser, screenshot what you like, and paste the screenshots i
 - [TravelPerk, train search with swap, time and traveller discount cards](https://mobbin.com/screens/c81a60ad-a8c7-437a-9dcd-04da75da98a3)
 - [Navan, travel booking tabs with one search row](https://mobbin.com/screens/aae111e3-8a44-4e15-9a09-65549a4108df)
 - [Kiwi.com, upcoming trip with service shortcuts](https://mobbin.com/screens/84199f37-f637-4ebf-bbf7-cf87ebd8de05)
+- [TravelPerk flow, searching trains in seven screens](https://mobbin.com/flows/6452558b-044f-4a0f-b673-6177f6af2eea)
+- [OpenTable section, hero with a date, time and party-size search bar](https://mobbin.com/sites/sections/65d3c9ef-1e92-487a-a7c5-48c166bd63c0)
