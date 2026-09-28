@@ -28,7 +28,7 @@ if [[ "${2:-}" != "--skip-scrape" ]]; then
     --browser-executable-path="$chrome" \
     --browser-width=1440 --browser-height=900 \
     --browser-wait-until=networkidle0 --browser-wait-delay=3000 \
-    --block-scripts=true --load-deferred-content-max-idle-time=5000 \
+    --block-scripts=true --load-deferred-images-max-idle-time=5000 \
     ${remove:+--removed-elements-selector="$remove"}
 
   rm -rf "$kit/template"
