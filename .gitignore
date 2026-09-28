@@ -5,6 +5,7 @@ node_modules/
 *.log
 variants/
 mobbin-hatch-workshop-kit.zip
-kit/template/
+kits/*/template/
+dist/
 kit*.zip
 mobbin-hatch-workshop-kit-revised/

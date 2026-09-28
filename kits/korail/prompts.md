@@ -10,25 +10,28 @@ KORAIL ticket booking page. It is the only screen we redesign today.
 
 1. Read template/index.html and tell me, in five short bullets, what is weak about it for
    someone who just wants to book a train. Think about what the page makes you do first.
-2. Then search Mobbin for "train ticket booking home page with a journey search form",
+2. List the Mobbin MCP tools you have access to, with one line each on what they search.
+3. Search Mobbin for "train ticket booking home page with a journey search form",
    platform web, mode standard, limit 3. Show the app name and mobbin_url for each result.
 
 Stop after that.
 ```
 
-Three results with links means you are green. If Mobbin times out, paste the block again.
+Three results with links means you're ready. If Mobbin times out, paste the block again.
 
 ## 2. Search
 
 ```
-Using Mobbin MCP, find real screens that would improve this template.
+Using Mobbin MCP, find real references that would improve this template. Use all three tools,
+platform web, limit 4 each:
 
-Run three searches, mode deep, platform web, limit 4 each. Describe each screen in one
-sentence: what it shows and how its parts relate. Good examples:
-- "train ticket booking home page where the journey search form is the main element above the fold"
-- "travel booking home page showing discounted fares or passes as cards"
-- "travel home page with a compact row of service shortcuts like manage booking and refunds"
-Change them to match what you found weak in step 1.
+1. search_screens, mode deep, twice. Describe each screen in one sentence: what it shows and
+   how its parts relate. Good examples:
+   - "train booking home page where the journey search form is the main element above the fold"
+   - "travel booking home page showing discounted fares or passes as cards"
+2. search_flows, once: "train ticket booking flow from search to seat selection".
+3. search_sections, once: "journey search form with from, to, dates and passengers".
+Change the queries to match what you found weak in step 1.
 
 For every result, give me the app name, the mobbin_url, and one sentence about what is
 actually in the image. Do not describe a screen from the app's reputation. Look at it.
@@ -38,8 +41,8 @@ Do not redesign anything yet. Stop after the list.
 
 ## 3. Pick
 
-This step is yours, not the AI's. Choose one to three screens from step 2. For each one, write
-one sentence: which part of the KORAIL page it fixes, and why. Post your picks on the board.
+This step is yours, not the AI's. Choose one to three references from step 2. For each one,
+write one sentence: which part of the KORAIL page it fixes, and why. Post your picks on the board.
 
 Then paste this, with your picks filled in:
 
