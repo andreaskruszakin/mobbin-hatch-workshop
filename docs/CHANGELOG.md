@@ -1,5 +1,26 @@
 # Changelog
 
+## 28-09-2026
+
+- Split the kit in two. The online session is international and mostly US, so it redesigns the
+  Amtrak booking home page (`kits/amtrak/`, release `designed-minds-2026-10`). Seoul keeps KORAIL
+  in the same format (`kits/korail/`, new release `seoul-2026-10-24`). `scripts/build-kit.sh`
+  takes the kit name, strips overlays per site, and packs `dist/<name>/kit.zip`;
+  `scripts/extract-data-uris.py` re-encodes large photos as JPEG and removes `loading=lazy`,
+  which had left the Amtrak destination photos blank offline.
+- Both kits: step 0 is Mobbin Pro with code DESIGNEDMINDS (3 months of Pro, Quarterly at
+  checkout). Claude Desktop has its own setup line (claude.ai/directory/mobbin, or Customize >
+  Connectors). Block 2 now uses all three tools: `search_screens`, `search_flows` and
+  `search_sections`, with a sections query that returns results. "Failed to execute search" is a
+  new edge case. Pairing lines are gone.
+- Board: hero is PT first with a DESIGNEDMINDS badge. Setup is five steps (Mobbin Pro, download,
+  unzip, add Mobbin MCP in four tools including Claude Desktop, warm up) with fresh Amtrak
+  screenshots. The MCP station grew from 7 to 15 minutes, with a card per tool that pairs the
+  mobbin.com page with the real MCP result, plus deep versus standard. The template, lane 1
+  example, share-out and edge cases are Amtrak. The section timers now add up to 90 minutes.
+- Rewrote `docs/RUN-OF-SHOW-VIRTUAL.md` and `docs/EMAILS.md` for Amtrak, PT first, with the code
+  and without the green/red check-in. Added a dry run entry to `docs/DRY-RUN.md`.
+
 ## 27-09-2026
 
 - Moved everything to the Luma facts: "Research Fast and Design Live with Mobbin MCP", Friday

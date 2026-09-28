@@ -1,5 +1,45 @@
 # Dry runs
 
+## 28 September: the Amtrak template and the three Mobbin MCP tools
+
+Trigger: the online session is mostly US, so it moves to the Amtrak booking home page, and the
+MCP station now shows all three tools. This run checks the new queries in `kits/amtrak/prompts.md`
+return train references, and produces the lane 1 example.
+
+### What the searches returned
+
+| Tool | Query | Result |
+| --- | --- | --- |
+| `search_screens`, deep | "train ticket booking home page with a journey search form as the main focus..." | TravelPerk train search (three screens) and Klook trains (three screens). All relevant |
+| `search_screens`, standard | "train ticket booking home page with a journey search form" (the warm-up) | GetYourGuide, a Klaviyo helpdesk, Sweatpals. Fine as a connection check, useless as references |
+| `search_flows` | "train ticket booking flow from journey search to results to seat selection" | TravelPerk "Adding a train to trip" (4 screens), Klook "Transport" (5), TravelPerk "Searching trains" (7) |
+| `search_sections` | "hero section with a booking search form" | Tripadvisor, TravelPerk, OpenTable, Trawelt, Fresha, KOBU |
+
+### Findings that changed the kit
+
+- **"Failed to execute search" comes and goes.** Every tool failed until the connection was
+  re-authenticated. After that, `search_sections` failed on three different queries, including
+  the exact one that had just worked. It's the server, not the wording. Added to the edge cases
+  in the kit and on the board: wait, run it again, reconnect if it keeps failing.
+- **The sections query in the kit changed** from "journey search form with from, to, dates and
+  passengers" to "hero section with a booking search form". The old one failed both times it
+  ran, and `search_sections` covers website sections (heroes, pricing, footers), not form parts.
+- **Standard versus deep is visible in one query.** That comparison is now a card on the board.
+
+### The redesign
+
+A hand-built version from three picks (TravelPerk train search, Klook trains, OpenTable's hero)
+lives in `variants/amtrak-mine/` (not committed). The search form became the hero with one blue
+Find Trains button, Track-A-Train moved up as a quick task, and the credit card offer left the
+train deals. Every Amtrak label and number stayed. The obvious trap when simplifying the form is
+dropping "Passenger with Disability or Assistance Needed?". That became edge case 7.
+
+### Not tested
+
+- The checkout with DESIGNEDMINDS applied. The pricing page's Get Pro goes to sign-up, and this
+  run had no Mobbin login in the browser.
+- The Claude Desktop connector inside the app. The board uses the public directory listing.
+
 ## 27 September, 12:16–12:19: the KORAIL template, Designed Minds kit
 
 Trigger: the virtual Designed Minds run on 8 October replaces three fictional baselines with one

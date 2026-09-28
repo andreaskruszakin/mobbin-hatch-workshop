@@ -6,29 +6,32 @@ Five steps. Paste one block at a time. Read what comes back before you paste the
 
 ```
 This folder is the Mobbin MCP workshop. The file template/index.html is a saved copy of the
-KORAIL ticket booking page. It is the only screen we redesign today.
+Amtrak booking home page. It is the only screen we redesign today.
 
 1. Read template/index.html and tell me, in five short bullets, what is weak about it for
    someone who just wants to book a train. Think about what the page makes you do first.
-2. Then search Mobbin for "train ticket booking home page with a journey search form",
+2. List the Mobbin MCP tools you have access to, with one line each on what they search.
+3. Search Mobbin for "train ticket booking home page with a journey search form",
    platform web, mode standard, limit 3. Show the app name and mobbin_url for each result.
 
 Stop after that.
 ```
 
-Three results with links means you are green. If Mobbin times out, paste the block again.
+Three results with links means you're ready. If Mobbin times out, paste the block again.
 
 ## 2. Search
 
 ```
-Using Mobbin MCP, find real screens that would improve this template.
+Using Mobbin MCP, find real references that would improve this template. Use all three tools,
+platform web, limit 4 each:
 
-Run three searches, mode deep, platform web, limit 4 each. Describe each screen in one
-sentence: what it shows and how its parts relate. Good examples:
-- "train ticket booking home page where the journey search form is the main element above the fold"
-- "travel booking home page showing discounted fares or passes as cards"
-- "travel home page with a compact row of service shortcuts like manage booking and refunds"
-Change them to match what you found weak in step 1.
+1. search_screens, mode deep, twice. Describe each screen in one sentence: what it shows and
+   how its parts relate. Good examples:
+   - "train booking home page where the journey search form is the main element above the fold"
+   - "travel booking home page showing deals as cards with who each deal is for"
+2. search_flows, once: "train ticket booking flow from journey search to results to seat selection".
+3. search_sections, once: "hero section with a booking search form".
+Change the queries to match what you found weak in step 1.
 
 For every result, give me the app name, the mobbin_url, and one sentence about what is
 actually in the image. Do not describe a screen from the app's reputation. Look at it.
@@ -38,8 +41,8 @@ Do not redesign anything yet. Stop after the list.
 
 ## 3. Pick
 
-This step is yours, not the AI's. Choose one to three screens from step 2. For each one, write
-one sentence: which part of the KORAIL page it fixes, and why. Post your picks on the board.
+This step is yours, not the AI's. Choose one to three references from step 2. For each one,
+write one sentence: which part of the Amtrak page it fixes, and why. Post your picks on the board.
 
 Then paste this, with your picks filled in:
 
@@ -59,14 +62,15 @@ Do not start building yet.
 Build mine/index.html from template/index.html using my picks.
 
 Rules:
-- Keep KORAIL's content: every label, discount name, notice title, date and footer line.
-  Do not invent prices, routes or numbers the template does not have.
+- Keep Amtrak's content: every label, deal, destination, link and footer line. Keep every
+  number exactly as it is (like "up to 60% off" or "20,000 bonus points").
+  Do not invent prices, routes, times or numbers the template does not have.
 - Change how the page is arranged, not only the colours and fonts.
 - Reuse images from template/assets/ with relative paths (../template/assets/...).
 - One HTML file, no build step, it must open by double-click.
 - Put my picks as mobbin_url links in an HTML comment at the top.
 
-When you are done, list which parts of the page moved and which KORAIL labels you removed, if any.
+When you are done, list which parts of the page moved and which Amtrak labels you removed, if any.
 ```
 
 Open `mine/index.html` next to `template/index.html`. If they look like the same page in new
@@ -91,11 +95,13 @@ or the deploy fails, skip it. The screenshots are enough.
 
 ## More prompts to try
 
-- Make "열차 조회하기" (search trains) the one thing the page asks you to do. Demote everything else.
-- The discount products are nine names with no explanation. Show who each one is for.
-- Make the notices scannable in three seconds. Which one would a traveller need today?
+- Make "Find Trains" the one thing the page asks you to do. The booking form has about a dozen
+  controls: which ones can wait until after the search?
+- The Deals section mixes a credit card offer with train fares. Separate them and say who each
+  deal is for.
+- Track-A-Train is the most useful thing on the page and it sits at the bottom. Where should it go?
 - Compare two of your picks. Build a second version at `mine-2/index.html` with the other one.
-- Rebuild the page for a first-time visitor who does not read Korean.
+- Rebuild the page for someone planning a first weekend trip by train.
 
 ## Backup links (if Mobbin MCP is blocked)
 
@@ -107,3 +113,5 @@ Open these in the browser, screenshot what you like, and paste the screenshots i
 - [TravelPerk, train search with swap, time and traveller discount cards](https://mobbin.com/screens/c81a60ad-a8c7-437a-9dcd-04da75da98a3)
 - [Navan, travel booking tabs with one search row](https://mobbin.com/screens/aae111e3-8a44-4e15-9a09-65549a4108df)
 - [Kiwi.com, upcoming trip with service shortcuts](https://mobbin.com/screens/84199f37-f637-4ebf-bbf7-cf87ebd8de05)
+- [TravelPerk flow, searching trains in seven screens](https://mobbin.com/flows/6452558b-044f-4a0f-b673-6177f6af2eea)
+- [OpenTable section, hero with a date, time and party-size search bar](https://mobbin.com/sites/sections/65d3c9ef-1e92-487a-a7c5-48c166bd63c0)
