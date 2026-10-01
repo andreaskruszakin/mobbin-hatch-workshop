@@ -1,5 +1,26 @@
 # Changelog
 
+## 01-10-2026
+
+- Board setup station reads top to bottom, one card per screen, with hand-drawn arrows between
+  cards, pink circles and yellow highlighter on the one thing to act on, and star stickers.
+  Step 4 is now two cards. 4a has the Mobbin page, Cursor and Claude Desktop. 4b has Claude Code,
+  Codex and the bare server URL as FigJam code blocks, so people copy the commands instead of
+  retyping them. Step 5 is two cards too. 5a puts block 1 in a code block next to what each line
+  does and why, and 5b shows what a working result looks like with the two fixes. A new "What's
+  in prompts.md" card explains all five blocks before anyone pastes one.
+- Board hands-on station starts at Search, since block 1 already ran in setup. Four tall cards
+  hold Search, Pick, Redesign and Share at 10, 5, 15 and 10 minutes, still 40 in total. Each has
+  its prompt as a code block plus what it does and why. Three short callouts replace the
+  one-line "Watch for" disclaimer, which read as boilerplate and was hard to follow. The lanes
+  moved down under them.
+- `kits/amtrak/prompts.md` and `kits/korail/prompts.md`: block 1 is marked as the setup step.
+  Block 2 opens with "Stay in this chat" and searches for fixes to the warm-up's weak spots.
+  Block 4 builds from the picks and the search results above it. Before, the hands-on read as
+  a fresh start and repeated the warm-up. Both release zips are repacked.
+- `docs/RUN-OF-SHOW-VIRTUAL.md`: setup is walked top to bottom, and the hands-on table has four
+  steps.
+
 ## 28-09-2026
 
 - Split the kit in two. The online session is international and mostly US, so it redesigns the

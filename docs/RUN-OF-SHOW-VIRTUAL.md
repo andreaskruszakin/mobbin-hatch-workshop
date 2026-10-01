@@ -48,7 +48,7 @@ Each change answers something the Hatch retro recorded, or a comment from Inès 
 | 5 to 15 | Setup, five steps | Mobbin Pro, download, unzip, add Mobbin MCP, warm up |
 | 15 to 30 | How Mobbin MCP works | The three tools, website versus MCP, deep versus standard |
 | 30 to 35 | The template | Walk the five weak spots on the Amtrak page |
-| 35 to 75 | Hands-on, five steps | Warm up, search, pick, redesign, share into the lanes |
+| 35 to 75 | Hands-on, four steps | Search, pick, redesign, share into the lanes |
 | 75 to 85 | Share-outs | Five or six people, 90 seconds each |
 | 85 to 88 | Why this works | Three reasons, roadmap ideas |
 | 88 to 90 | Keep building | One sticky each, Seoul teaser |
@@ -68,18 +68,27 @@ and move on. No redemption counts, no expiry date.
 
 ### 5 to 15, Setup, five steps
 
-Walk the five cards in order. Each has a screenshot of what people should see.
+Walk the cards top to bottom, one card per screen, following the arrows. Each has a screenshot of
+what people should see, and every command and prompt sits in a code block people can copy:
+double-click it, select the text, copy.
 
 1. **Get Mobbin Pro.** mobbin.com/pricing, switch to Quarterly, Get Pro, create a free account or
    log in, then enter DESIGNEDMINDS at checkout.
 2. **Download the kit** from the release page. Point at kit.zip under Assets.
 3. **Unzip and open the folder.** The Finder and Cursor screenshots show what to expect.
-4. **Add Mobbin MCP.** Four columns: Cursor (Marketplace plugin, or Tools & MCPs), Claude Desktop
-   (claude.ai/directory/mobbin, or Customize > Connectors > Browse connectors), Claude Code and
-   Codex. Claude Desktop can't open a folder, so those people drag `template/index.html` and
-   `prompts.md` into the chat.
-5. **Warm up.** Block 1 of `prompts.md`. Three results with links means ready. Standard mode is
-   loose, so the results won't all be trains. That's fine here.
+4. **Add Mobbin MCP.** Card 4a covers mobbin.com/mcp, Cursor (Marketplace plugin, or Tools &
+   MCPs) and Claude Desktop (claude.ai/directory/mobbin, or Customize > Connectors > Browse
+   connectors). Claude Desktop can't open a folder, so those people drag `template/index.html` and
+   `prompts.md` into the chat. Card 4b has the terminal tools as code blocks: Claude Code
+   (`claude`, then `/mcp`), Codex (`codex mcp add`, `codex mcp login`, `codex`) and the bare server
+   URL for any other client.
+5. **Warm up.** Card 5a has block 1 as a code block, with what each line does and why. Say the
+   last line out loud: keep this chat open, the hands-on continues in it. Card 5b shows what ready
+   looks like: three results with links. Standard mode is loose, so they won't all be trains.
+   That's fine here.
+
+The last setup card, "What's in prompts.md", lists all five blocks with what each does and why it
+comes where it does. Give the room 30 seconds on it before the MCP station.
 
 The two fixes on the step 5 card cover most trouble:
 - **Timed out, or "Failed to execute search":** wait a few seconds and run it again. Still failing?
@@ -120,18 +129,22 @@ accumulated things: a dozen form controls, a pale Find Trains button, a promo bi
 a credit card ad inside the train deals, and Track-A-Train at the very bottom. "This is the only
 screen we redesign today."
 
-### 35 to 75, Hands-on, five steps
+### 35 to 75, Hands-on, four steps
 
-You are the clock. Call each step as it starts.
+You are the clock. Call each step as it starts. Block 1 already ran in setup, so everyone stays in
+that chat: their AI already knows the weak spots and the Mobbin tools. Anyone who lost the chat
+pastes block 1 again first.
 
 | Start | Step | Say |
 | --- | --- | --- |
-| 35 | 1. Warm up | "Paste block 1. Read what your AI said was weak, and which Mobbin tools it lists." |
-| 38 | 2. Search | "Paste block 2. Screens, a flow and a section. Read them. Nobody builds yet." |
-| 45 | 3. Pick | "Choose one to three. Write why on a sticky in your lane, then paste block 3." |
-| 50 | 4. Redesign | "Paste block 4. Open mine next to the template." |
-| 58 | Halfway check | "Same page in new colours? You changed the paint, not the plan. Back to step 3." |
-| 65 | 5. Share | "Screenshot before and after into your lane. Bonus: block 5 deploys to Vercel. Paste the link." |
+| 35 | 1. Search | "Same chat. Paste block 2. Screens, a flow and a section that fix your weak spots. Read them. Nobody builds yet." |
+| 45 | 2. Pick | "Choose one to three. Write why on a sticky in your lane, then fill in block 3 and paste it." |
+| 50 | 3. Redesign | "Paste block 4. Open mine next to the template." |
+| 58 | Halfway check | "Same page in new colours? You changed the paint, not the plan. Back to Pick." |
+| 65 | 4. Share | "Screenshot before and after into your lane. Bonus: block 5 deploys to Vercel. Paste the link." |
+
+The three callouts under the cards ("Same page, new colours?", invented fares, screens it never
+opened) replace the old "Watch for" line. Point at them at the halfway check.
 
 Lane 1 holds a worked example: three picks (TravelPerk, Klook, OpenTable) and a before and after
 where the search form became the hero.
