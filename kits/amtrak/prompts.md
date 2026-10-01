@@ -2,7 +2,10 @@
 
 Five steps. Paste one block at a time. Read what comes back before you paste the next one.
 
-## 1. Warm up
+Block 1 runs during setup. Blocks 2 to 5 run in the hands-on, in the same chat, so your AI still
+has the weak spots and the Mobbin tools from the warm-up.
+
+## 1. Warm up (during setup)
 
 ```
 This folder is the Mobbin MCP workshop. The file template/index.html is a saved copy of the
@@ -22,7 +25,9 @@ Three results with links means you're ready. If Mobbin times out, paste the bloc
 ## 2. Search
 
 ```
-Using Mobbin MCP, find real references that would improve this template. Use all three tools,
+Stay in this chat. Use the weak spots you listed in the warm-up.
+
+Using Mobbin MCP, find real references that fix those weak spots. Use all three tools,
 platform web, limit 4 each:
 
 1. search_screens, mode deep, twice. Describe each screen in one sentence: what it shows and
@@ -31,7 +36,7 @@ platform web, limit 4 each:
    - "travel booking home page showing deals as cards with who each deal is for"
 2. search_flows, once: "train ticket booking flow from journey search to results to seat selection".
 3. search_sections, once: "hero section with a booking search form".
-Change the queries to match what you found weak in step 1.
+Change the queries to match the weak spots from the warm-up.
 
 For every result, give me the app name, the mobbin_url, and one sentence about what is
 actually in the image. Do not describe a screen from the app's reputation. Look at it.
@@ -59,7 +64,8 @@ Do not start building yet.
 ## 4. Redesign
 
 ```
-Build mine/index.html from template/index.html using my picks.
+Build mine/index.html from template/index.html using my picks and the search results above.
+Every part you move should fix one of the weak spots from the warm-up.
 
 Rules:
 - Keep Amtrak's content: every label, deal, destination, link and footer line. Keep every
