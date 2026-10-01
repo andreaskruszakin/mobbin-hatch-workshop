@@ -13,7 +13,8 @@
   hold Search, Pick, Redesign and Share at 10, 5, 15 and 10 minutes, still 40 in total. Each has
   its prompt as a code block plus what it does and why. Three short callouts replace the
   one-line "Watch for" disclaimer, which read as boilerplate and was hard to follow. The lanes
-  moved down under them.
+  moved down under them. The hero agenda says four steps, edge case 5 sends people back to
+  Pick, and the closing card says Seoul uses the KORAIL page rather than the same template.
 - `kits/amtrak/prompts.md` and `kits/korail/prompts.md`: block 1 is marked as the setup step.
   Block 2 opens with "Stay in this chat" and searches for fixes to the warm-up's weak spots.
   Block 4 builds from the picks and the search results above it. Before, the hands-on read as
