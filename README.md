@@ -4,14 +4,14 @@
 
 One template, five prompts, one FigJam board that doubles as the slides. The online session is
 international and mostly US, so it redesigns the Amtrak booking home page. Seoul redesigns the
-KORAIL ticket booking page. Participants get 3 months of Mobbin Pro with code DESIGNEDMINDS.
+KORAIL ticket booking page. Participants join the Designed Minds team on Mobbin through https://mobbin.com/team/join/0fba9939-3fe3-4f87-adfe-c29ee0211caf, and an admin approves them.
 
 | Path | What it is |
 | --- | --- |
 | `kits/amtrak/` | Online kit: `START-HERE.md`, `prompts.md` (five steps), MCP configs. Download from the [designed-minds-2026-10 release](https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/tag/designed-minds-2026-10) |
 | `kits/korail/` | Seoul kit, same format. Download from the [seoul-2026-10-24 release](https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/tag/seoul-2026-10-24) |
 | `kits/*/template/` | Scraped copies of amtrak.com and korail.com/ticket/main. Not in git (the site owners' markup and imagery); `scripts/build-kit.sh amtrak` (or `korail`) regenerates them and packs `dist/<name>/kit.zip` |
-| [FigJam board](https://www.figma.com/board/uQdulniCnQzptKeFiGs1Vg) | The online session: hosts, five visual setup steps, the three Mobbin MCP tools, the hands-on with 40 participant lanes, and an edge-case station |
+| [FigJam board](https://www.figma.com/board/uQdulniCnQzptKeFiGs1Vg) | The online session: hosts, five visual setup steps, the three Mobbin MCP tools, the hands-on with 100 participant lanes, and an edge-case station |
 | `docs/RUN-OF-SHOW-VIRTUAL.md` | Minute-by-minute script for the 90 minutes |
 | `docs/EMAILS.md` | The two pre-session emails (one day before, two hours before) |
 

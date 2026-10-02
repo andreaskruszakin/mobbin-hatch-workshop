@@ -1,5 +1,26 @@
 # Changelog
 
+## 02-10-2026
+
+- Mobbin access moves from the DESIGNEDMINDS promo code to the Designed Minds team link
+  (https://mobbin.com/team/join/0fba9939-3fe3-4f87-adfe-c29ee0211caf). An admin approves each
+  request, and Mobbin MCP then works on that account; Enterprise users join with a personal or
+  test account. Changed step 0 and the "Upgrade" fix in `kits/amtrak/START-HERE.md` and
+  `kits/korail/START-HERE.md`, both emails in `docs/EMAILS.md`, `docs/RUN-OF-SHOW-VIRTUAL.md`
+  (new task: one host approves join requests during setup), `README.md` and `AGENTS.md`. On the
+  board, setup step 1 now shows a screenshot of the join page, the link in a copyable code block,
+  and circles on the "Designed Minds" team bar and the sign-in buttons. The step 5 fix and edge
+  case 2 say what "Upgrade" now means. Both release zips carry the new START-HERE.
+- Board: 100 participant lanes instead of 40, in four columns of 25. The hands-on section is
+  12,200 wider, and the stations after it moved right by the same amount. The run of show and
+  `AGENTS.md` say 100.
+- Board: the Amtrak template screenshot has pink circles on the five weak spots, numbered to
+  match the list, and four handwritten questions with arrows ("Where does your eye land
+  first?"). They hint at the problem and leave the answer to the room.
+- Board: "How Mobbin MCP works" has doodles. A circle marks Connect MCP and mobbin.com/mcp, a
+  handwritten tag list (app, flow, section, elements) points at the Klook search form to show what
+  the metadata means, sketch icons sit beside the three tools, and a note points at deep mode.
+
 ## 01-10-2026
 
 - Board setup station reads top to bottom, one card per screen, with hand-drawn arrows between

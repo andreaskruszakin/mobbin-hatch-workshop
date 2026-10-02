@@ -13,10 +13,10 @@ How to add Mobbin MCP to your tool: **[mobbin.com/mcp](https://mobbin.com/mcp)**
 
 ## Before the session (5 minutes)
 
-0. **Get Mobbin Pro.** Mobbin MCP needs a Pro plan, and code **DESIGNEDMINDS** gets you
-   3 months of it. Go to [mobbin.com/pricing](https://mobbin.com/pricing), switch the toggle to
-   **Quarterly**, click **Get Pro** on the Pro card, and create a free account or log in. At
-   checkout, enter DESIGNEDMINDS as the promotion code.
+0. **Join the Designed Minds team on Mobbin.** Open the
+   [team link](https://mobbin.com/team/join/0fba9939-3fe3-4f87-adfe-c29ee0211caf), then log in or create a free account. The page should say "join team,
+   Designed Minds". An admin approves you, and from then on Mobbin MCP works on your account.
+   Is your work account on Mobbin Enterprise? Join with a personal or test account instead.
 1. **Get the kit.** You're reading this, so you probably have it. If not:
    [download kit.zip](https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/download/seoul-2026-10-24/kit.zip)
    and unzip it.
@@ -79,7 +79,8 @@ Follow the board. We run the five prompts in `prompts.md` together, one step at 
 
 ## If something breaks
 
-- **Mobbin says "Upgrade".** MCP needs Pro. Use code DESIGNEDMINDS for 3 months of Mobbin Pro.
+- **Mobbin says "Upgrade".** You're not on the team yet, or the admin hasn't approved you. Open
+  the [team link](https://mobbin.com/team/join/0fba9939-3fe3-4f87-adfe-c29ee0211caf) with the same Mobbin account, then ask a host to approve you.
 - **Mobbin times out, or says "Failed to execute search".** Wait a few seconds and run it
   again. If it keeps failing, reconnect Mobbin (Cursor: Authenticate again; Claude Code: `/mcp`).
 - **Mobbin is blocked (enterprise account).** Switch to a personal account. If you can't, use
