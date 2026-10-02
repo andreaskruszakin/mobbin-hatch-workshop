@@ -13,7 +13,7 @@ Replace `[CALL LINK]` before sending. The other links are final:
 - Kit: https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/download/designed-minds-2026-10/kit.zip
 - Board: https://www.figma.com/board/uQdulniCnQzptKeFiGs1Vg (sharing set to "anyone with the link can edit")
 - Mobbin MCP setup: https://mobbin.com/mcp
-- Mobbin Pro: https://mobbin.com/pricing, code DESIGNEDMINDS
+- Mobbin team link: https://mobbin.com/team/join/0fba9939-3fe3-4f87-adfe-c29ee0211caf
 
 ---
 
@@ -31,9 +31,10 @@ Thursday 8 October, 3:00 PM PT / Friday 9 October, 7:00 KST.
 
 **Please do the setup today. It takes five minutes and saves the first ten of the session.**
 
-1. **Get Mobbin Pro.** Mobbin MCP needs Pro, and with code **DESIGNEDMINDS** you get 3 months of
-   it. Go to https://mobbin.com/pricing, switch to Quarterly, click Get Pro, and enter
-   DESIGNEDMINDS as the promotion code at checkout.
+1. **Join the Designed Minds team on Mobbin:** https://mobbin.com/team/join/0fba9939-3fe3-4f87-adfe-c29ee0211caf
+   Log in or create a free account. An admin approves you, and from then on Mobbin MCP works on
+   your account. Do this today so the approval is done before we start. If your work account is
+   on Mobbin Enterprise, join with a personal or test account instead.
 2. **Use a personal account if you can.** Company (enterprise) Cursor or Claude accounts
    often block MCP servers, and you can't fix that during the call.
 3. **Download the kit:** https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/download/designed-minds-2026-10/kit.zip
@@ -66,7 +67,7 @@ it: https://www.figma.com/board/uQdulniCnQzptKeFiGs1Vg
 
 Not set up yet? You have time:
 
-1. Mobbin Pro: https://mobbin.com/pricing, Quarterly, code DESIGNEDMINDS for 3 months of Pro.
+1. Join the Mobbin team: https://mobbin.com/team/join/0fba9939-3fe3-4f87-adfe-c29ee0211caf. Log in or sign up, then a host approves you.
 2. Kit: https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/download/designed-minds-2026-10/kit.zip. Unzip it.
 3. Add Mobbin MCP to Cursor, Claude Desktop, Claude Code or Codex: mobbin.com/mcp
 4. Open the kit folder and run step 1 from `prompts.md`. Three links back means you're ready.

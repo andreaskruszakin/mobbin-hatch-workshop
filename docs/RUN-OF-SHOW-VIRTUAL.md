@@ -21,7 +21,7 @@ Each change answers something the Hatch retro recorded, or a comment from Inès 
 | Three baselines | One template | "Three baselines was too many" |
 | "Baseline", "regions", "morphological" | "Template", "parts of the page" | People asked what a baseline was |
 | Deck on a projector | The board is the slides, with a screenshot for every setup step | Blown-out projector, no shared link, "what are we supposed to do?" |
-| Nobody had Pro | Setup step 1 is the DESIGNEDMINDS code: 3 months of Mobbin Pro | MCP needs Pro |
+| Nobody had Pro | Setup step 1 is the Designed Minds team link; an admin approves each join | MCP needs a paid seat |
 | Claude users left to guess | Claude Desktop has its own setup column, with the connector listing | Inès: Claude Desktop needs its own explanation |
 | MCP explained in passing | A 15-minute station: the three tools, the website next to the MCP result, deep versus standard | Inès: show every tool, not only screen search |
 | Model picks the swaps | The attendee picks 1 to 3 Mobbin references | Keeps people deciding instead of accepting |
@@ -35,7 +35,10 @@ Each change answers something the Hatch retro recorded, or a comment from Inès 
   `gh release upload designed-minds-2026-10 dist/amtrak/kit.zip --clobber`.
 - Board sharing: "anyone with the link can edit". People paste into their lanes.
 - Ask Dali and Inès for photos. Their host cards show initials until then.
-- If signups pass 40, duplicate a row of lanes (select two lanes, Cmd+D, renumber).
+- The board has 100 lanes, four columns of 25. Past 100 signups, duplicate a lane (Cmd+D) and renumber it.
+- Approve Mobbin team requests as they arrive from the day-before email onwards. The join link is
+  https://mobbin.com/team/join/0fba9939-3fe3-4f87-adfe-c29ee0211caf. Nobody gets Mobbin MCP until an admin approves them, so give one host the approval job
+  during setup.
 - Rename the FigJam file if it still has an em dash in the name. The API can't rename it.
 - Run step 1 of `prompts.md` on your own machine that morning so the demo connection is warm.
   If Mobbin answers "Failed to execute search", reconnect it (Cursor: Authenticate) and retry.
@@ -44,8 +47,8 @@ Each change answers something the Hatch retro recorded, or a comment from Inès 
 
 | Time | Station | What happens |
 | --- | --- | --- |
-| 0 to 5 | Welcome and hosts | Title, the four hosts, "follow on your laptop", the DESIGNEDMINDS code |
-| 5 to 15 | Setup, five steps | Mobbin Pro, download, unzip, add Mobbin MCP, warm up |
+| 0 to 5 | Welcome and hosts | Title, the four hosts, "follow on your laptop", the Mobbin team link |
+| 5 to 15 | Setup, five steps | Join the Mobbin team, download, unzip, add Mobbin MCP, warm up |
 | 15 to 30 | How Mobbin MCP works | The three tools, website versus MCP, deep versus standard |
 | 30 to 35 | The template | Walk the five weak spots on the Amtrak page |
 | 35 to 75 | Hands-on, four steps | Search, pick, redesign, share into the lanes |
@@ -63,8 +66,8 @@ open on your laptop. I move left to right, and every station has a timer." Intro
 hosts from their cards. Say the goal once: by the end you'll have your own version of the Amtrak
 booking page on this board, built from references Mobbin found, and you'll be able to say why.
 
-Point at the yellow badge: with code DESIGNEDMINDS you get 3 months of Mobbin Pro. Say it plainly
-and move on. No redemption counts, no expiry date.
+Paste the Mobbin team link in the chat right after the board link, and tell people to open it now:
+the admin approval takes a moment, and it should be done by the time they reach step 4.
 
 ### 5 to 15, Setup, five steps
 
@@ -72,8 +75,10 @@ Walk the cards top to bottom, one card per screen, following the arrows. Each ha
 what people should see, and every command and prompt sits in a code block people can copy:
 double-click it, select the text, copy.
 
-1. **Get Mobbin Pro.** mobbin.com/pricing, switch to Quarterly, Get Pro, create a free account or
-   log in, then enter DESIGNEDMINDS at checkout.
+1. **Join the Designed Minds team.** The team link is in a code block. Log in or create a free
+   account; the screenshot shows the page they should see, with "Designed Minds" in the top bar.
+   A host approves the request. People on a Mobbin Enterprise work account join with a personal
+   or test account instead.
 2. **Download the kit** from the release page. Point at kit.zip under Assets.
 3. **Unzip and open the folder.** The Finder and Cursor screenshots show what to expect.
 4. **Add Mobbin MCP.** Card 4a covers mobbin.com/mcp, Cursor (Marketplace plugin, or Tools &
@@ -93,7 +98,7 @@ comes where it does. Give the room 30 seconds on it before the MCP station.
 The two fixes on the step 5 card cover most trouble:
 - **Timed out, or "Failed to execute search":** wait a few seconds and run it again. Still failing?
   Reconnect Mobbin in the tool.
-- **Mobbin says "Upgrade":** back to step 1 and the code.
+- **Mobbin says "Upgrade":** not on the team yet, or not approved. Same account, team link again, and ping the approving host.
 - **Enterprise account blocks MCP:** switch to a personal account. If they can't, the backup links
   at the bottom of `prompts.md` still let them pick references by hand.
 
@@ -124,7 +129,8 @@ If there's time, run one live search on screen share and open the `mobbin_url` o
 
 ### 30 to 35, The template
 
-Open `template/index.html` on screen share and walk the five numbered notes. Amtrak isn't ugly. It
+Open `template/index.html` on screen share and walk the five numbered notes. The board circles each
+spot on the screenshot with a question next to it; let people answer before you do. Amtrak isn't ugly. It
 accumulated things: a dozen form controls, a pale Find Trains button, a promo bigger than the form,
 a credit card ad inside the train deals, and Track-A-Train at the very bottom. "This is the only
 screen we redesign today."
@@ -174,7 +180,7 @@ heard at Hatch. Present them as ideas, not a roadmap.
 ### 88 to 90, Keep building
 
 Everyone drops one sticky: what will you try at work this week? Point at mobbin.com/mcp and the
-DESIGNEDMINDS code, say the board and kit stay open, and tease Seoul on 24 October.
+team link, say the board and kit stay open, and tease Seoul on 24 October.
 
 ## After
 
