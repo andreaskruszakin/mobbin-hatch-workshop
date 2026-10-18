@@ -1,17 +1,19 @@
 # Mobbin x Hatch — Workshop Lab
 
-## Next runs: Designed Minds online, Thursday 8 October 2026, 3:00 to 4:30 PM PT, and Seoul in person, Saturday 24 October
+## Next run: Designed Minds Seoul, in person, Saturday 24 October 2026, 12:00 to 2:00 PM
 
-One template, five prompts, one FigJam board that doubles as the slides. The online session is
-international and mostly US, so it redesigns the Amtrak booking home page. Seoul redesigns the
-KORAIL ticket booking page. Participants join the Designed Minds team on Mobbin through https://mobbin.com/team/join/0fba9939-3fe3-4f87-adfe-c29ee0211caf, and an admin approves them.
+One template, five prompts, one bilingual FigJam board that doubles as the slides. Seoul redesigns
+the home screen of SC제일은행's SC Mobile app (Standard Chartered Bank Korea), in Korean and English
+because the room has foreign attendees. The online run on 8 October used the Amtrak kit. Participants join the Designed Minds team on Mobbin through https://mobbin.com/team/join/0fba9939-3fe3-4f87-adfe-c29ee0211caf, and an admin approves them.
 
 | Path | What it is |
 | --- | --- |
 | `kits/amtrak/` | Online kit: `START-HERE.md`, `prompts.md` (five steps), MCP configs. Download from the [designed-minds-2026-10 release](https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/tag/designed-minds-2026-10) |
-| `kits/korail/` | Seoul kit, same format. Download from the [seoul-2026-10-24 release](https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/tag/seoul-2026-10-24) |
-| `kits/*/template/` | Scraped copies of amtrak.com and korail.com/ticket/main. Not in git (the site owners' markup and imagery); `scripts/build-kit.sh amtrak` (or `korail`) regenerates them and packs `dist/<name>/kit.zip` |
-| [FigJam board](https://www.figma.com/board/uQdulniCnQzptKeFiGs1Vg) | The online session: hosts, five visual setup steps, the three Mobbin MCP tools, the hands-on with 100 participant lanes, and an edge-case station |
+| `kits/scmobile/` | Seoul kit: bilingual `START-HERE.md` and `prompts.md`, MCP configs, and `template/index.html`, the SC Mobile home screen rebuilt in React with a 한국어 / English switch. Download from the [seoul-2026-10-24 release](https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/tag/seoul-2026-10-24) |
+| `kits/korail/` | Retired Seoul kit (KORAIL booking page), kept as the record |
+| `kits/*/template/` | Not in git, apart from `kits/scmobile/template/index.html`. Amtrak and KORAIL are scraped copies of the live sites; SC Mobile's images are cut from app screenshots by `scripts/crop-scmobile.py`. `scripts/build-kit.sh amtrak\|korail\|scmobile` regenerates a template and packs `dist/<name>/kit.zip` |
+| [Seoul FigJam board](https://www.figma.com/board/ta8xP6bThj8jAshgtjOIXE) | Seoul: bilingual setup steps, the three Mobbin MCP tools, the annotated SC Mobile screenshots, the hands-on lanes |
+| [Online FigJam board](https://www.figma.com/board/uQdulniCnQzptKeFiGs1Vg) | The 8 October online session, kept as the record |
 | `docs/RUN-OF-SHOW-VIRTUAL.md` | Minute-by-minute script for the 90 minutes |
 | `docs/EMAILS.md` | The two pre-session emails (one day before, two hours before) |
 
