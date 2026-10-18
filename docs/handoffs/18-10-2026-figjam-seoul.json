@@ -1,0 +1,19 @@
+{
+  "date": "18-10-2026",
+  "task": "Match the Seoul FigJam board (fileKey ta8xP6bThj8jAshgtjOIXE) to SC Mobile, bilingual, in person",
+  "done": [
+    "Korean appended to every English-only text: hero, Mobbin intro, hosts, tools vote, setup, MCP station, edge cases, hands-on, wrap-up, part banners, 464 lane labels",
+    "MCP station example: Klook trains swapped for Toss home (Mobbin screen d8af309c-6543-4750-9acc-77215f009c69), node 2:453 resized to 1042x2406, texts 2:454-2:461 rewritten",
+    "Edge cases rewritten for banking: 14:1808 (event banner, account card, 2x4 grid), 14:1813 (invented balances or rates), 14:1817/14:1818 (Easy Banking and labels), 14:1787 (raise your hand, no chat)",
+    "Retired DESIGNEDMINDS promo 14:1911 replaced with a team-link prompt",
+    "Edge-case overlap fixed: content under 14:1830 shifted down 659, list numbering removed from Korean lines in 14:1830-14:1832"
+  ],
+  "open": [
+    "Edge card 5 (section 14:1781) still shows Amtrak screenshots under 'Structure moved here'; swap for two banking homes from Mobbin (upload_assets with nodeIds)",
+    "Edge card 7 image still shows a train search form; swap for an SC Mobile crop or a banking form",
+    "Setup step 3 (section 14:80) image is the old 8 October release page; replace with a screenshot of https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/tag/seoul-2026-10-24",
+    "Setup step 3 title 69:417 looks clipped in screenshots; check its parent clipping",
+    "Optional repo follow-ups: docs/RUN-OF-SHOW-SEOUL.md and Seoul emails"
+  ],
+  "resume": "Read docs/handoffs/18-10-2026-figjam-seoul.json in mobbin-hatch-workshop and finish the open items on the Seoul FigJam board, verifying each with get_screenshot."
+}

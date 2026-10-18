@@ -1,5 +1,13 @@
 # Changelog
 
+## 18-10-2026
+
+- The Seoul FigJam board is bilingual end to end. Every station and all lane labels now carry
+  Korean under the English. The MCP station's Klook train example is now a Toss home screen.
+  The edge cases speak banking (the event banner, the account card, invented balances, the Easy
+  Banking switch), and the expired DESIGNEDMINDS promo is gone. Board only; open items are in
+  `docs/handoffs/18-10-2026-figjam-seoul.json`.
+
 ## 17-10-2026
 
 - Seoul redesigns the SC제일은행 SC Mobile home screen instead of the KORAIL booking page. In the
