@@ -1,5 +1,28 @@
 # Changelog
 
+## 17-10-2026
+
+- Seoul redesigns the SC제일은행 SC Mobile home screen instead of the KORAIL booking page. In the
+  planning call the team agreed on one mobile screen, the home screen only, for personal
+  customers, in Korean and English. New kit `kits/scmobile/`: `START-HERE.md` and `prompts.md`
+  carry both languages, and the prompts include the problems customers named (the Liverpool FC
+  ad first, eight equal account rows, the 글로벌시황 shortcut, no cards of their own, the
+  로그아웃 button, the raised tab bar circle, twelve event cards). Searches use platform `ios`.
+  Backup links are Toss, SoFi, Lloyds, N26 and Quicken home screens.
+- `kits/scmobile/template/index.html` rebuilds the home screen in React, measured against five
+  iPhone screenshots at 393 x 852 pt, with photos, characters and colour icons cropped from them.
+  `copy.ko` and `copy.en` hold the content and a 한국어 / English switch sits outside the phone,
+  so international attendees can follow the same screen. React and Babel ship in
+  `template/vendor/`, so the file still opens by double-click with no build step.
+- `scripts/crop-scmobile.py` cuts the assets, removes the copy from the banner photo and replaces
+  the customer's name with 홍길동 before anything is packed. `scripts/build-kit.sh scmobile` runs
+  it, fetches the vendor files and renders `template/preview.png`. `.gitignore` now ignores
+  `kits/*/template/*` and keeps only `kits/scmobile/template/index.html`, because the screenshots
+  and crops are the bank's imagery and the repo is public.
+- README and `AGENTS.md` point at the Seoul board (https://www.figma.com/board/ta8xP6bThj8jAshgtjOIXE),
+  give the date and time (24 October, 12:00 to 2:00 PM) and mark `kits/korail/` retired. The
+  `seoul-2026-10-24` release carries the new kit.zip.
+
 ## 02-10-2026
 
 - Mobbin access moves from the DESIGNEDMINDS promo code to the Designed Minds team link

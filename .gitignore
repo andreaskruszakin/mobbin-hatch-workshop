@@ -5,7 +5,8 @@ node_modules/
 *.log
 variants/
 mobbin-hatch-workshop-kit.zip
-kits/*/template/
+kits/*/template/*
+!kits/scmobile/template/index.html
 dist/
 kit*.zip
 mobbin-hatch-workshop-kit-revised/
