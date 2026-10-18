@@ -2,6 +2,18 @@
 
 ## 18-10-2026
 
+- The SC Mobile template is plain HTML and CSS now, because editing and compiling React was too
+  hard for participants: they redesign by editing one `index.html` with their AI.
+  `kits/scmobile/template/index.html` drops React 18, Babel and the `copy`/`art` objects; every
+  text is a `<span lang="ko">` / `<span lang="en">` pair, CSS hides the language that `<html lang>`
+  does not name, and one small script runs the 한국어 / English switch (`setLanguage`, `?lang=en`),
+  the 편한뱅킹 switch and the scrolled top bar. It renders pixel for pixel like the React version
+  at 393 x 852 in both languages. `scripts/build-kit.sh` no longer downloads `template/vendor/`
+  and keeps the existing assets when the source screenshots are gone. `kits/scmobile/prompts.md`
+  (blocks 1, 4 and 5), `kits/scmobile/START-HERE.md`, `README.md` and `AGENTS.md` describe the
+  plain HTML file; block 5 copies only images before a deploy. kit.zip and the
+  `seoul-2026-10-24` release are rebuilt.
+
 - Seoul participants join the Designed Minds Seoul space on Mobbin
   (https://mobbin.com/team/join/67144285-4777-4891-a02c-730d5f99fb88) instead of the online
   team. The new link is in `README.md`, `AGENTS.md`, `kits/scmobile/START-HERE.md`, the rebuilt

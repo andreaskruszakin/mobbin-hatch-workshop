@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Rebuilds kits/<name>/template/ and packs kits/<name>/ into dist/<name>/kit.zip.
 # amtrak and korail scrape the live page; their template is the site owner's markup and imagery, so it
-# stays out of git. scmobile is our React rebuild (template/index.html is in git); its images are cut
-# from the app screenshots in $SCMOBILE_SHOTS (default ~/Downloads/SCMobile) by crop-scmobile.py.
+# stays out of git. scmobile is our plain HTML rebuild (template/index.html is in git, no scripts to
+# download); its images are cut from the app screenshots in $SCMOBILE_SHOTS (default
+# ~/Downloads/SCMobile) by crop-scmobile.py.
 # Needs Google Chrome and Node. Usage: scripts/build-kit.sh amtrak|korail|scmobile [--skip-scrape]
 set -euo pipefail
 
@@ -27,11 +28,12 @@ work="$(mktemp -d)"
 trap 'rm -rf "$work"' EXIT
 
 if [[ "$name" == "scmobile" && "${2:-}" != "--skip-scrape" ]]; then
-  python3 "$repo/scripts/crop-scmobile.py" "${SCMOBILE_SHOTS:-$HOME/Downloads/SCMobile}"
-  mkdir -p "$kit/template/vendor"
-  curl -fsSL -o "$kit/template/vendor/react.production.min.js" https://unpkg.com/react@18.3.1/umd/react.production.min.js
-  curl -fsSL -o "$kit/template/vendor/react-dom.production.min.js" https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js
-  curl -fsSL -o "$kit/template/vendor/babel.min.js" https://unpkg.com/@babel/standalone@7.26.4/babel.min.js
+  shots="${SCMOBILE_SHOTS:-$HOME/Downloads/SCMobile}"
+  if [[ -d "$shots" ]]; then
+    python3 "$repo/scripts/crop-scmobile.py" "$shots"
+  else
+    echo "no screenshots in $shots, keeping the assets already in template/assets"
+  fi
   npx -y playwright screenshot --channel chrome \
     --viewport-size=900,900 --wait-for-timeout=1500 \
     "file://$kit/template/index.html" "$kit/template/preview.png"
