@@ -2,6 +2,10 @@
 
 ## 18-10-2026
 
+- Board synced with the plain HTML template. Code blocks 1, 4 and 5 now carry the new prompts,
+  unwrapped so they wrap to the block width, and the hands-on cards and lanes moved to fit them.
+  Lane 1's Before and After show the SC Mobile template and an example redesign instead of
+  Amtrak. Every lane got a one-line live link hint and a shorter picks title, so nothing overlaps.
 - The SC Mobile template is plain HTML and CSS now, because editing and compiling React was too
   hard for participants: they redesign by editing one `index.html` with their AI.
   `kits/scmobile/template/index.html` drops React 18, Babel and the `copy`/`art` objects; every
