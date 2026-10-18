@@ -2,6 +2,12 @@
 
 ## 18-10-2026
 
+- Board follow-up. The seven problem circles on the template station now read 1 to 7, left to
+  right and top to bottom, and the problem rows are reordered to match. Setup step 3 shows the
+  Seoul release page, with the "Click kit.zip" callout on kit.zip. The hands-on cards grew to
+  hold their code blocks, and the lanes below moved down by the same amount. Dali Kim and Inès
+  Gruhier replace the two duplicate host cards, with their slide bios and LinkedIn links.
+
 - The Seoul FigJam board is bilingual end to end. Every station and all lane labels now carry
   Korean under the English. The MCP station's Klook train example is now a Toss home screen.
   The edge cases speak banking (the event banner, the account card, invented balances, the Easy
