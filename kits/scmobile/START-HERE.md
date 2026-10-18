@@ -113,15 +113,17 @@ many banking home screens.
 
 | File | What it is / 설명 |
 | --- | --- |
-| `template/index.html` | The screen you redesign, rebuilt in React. Double-click to open. Top left switches 한국어 / English. / 다시 디자인할 화면(React). 더블클릭으로 열고, 왼쪽 위에서 언어를 바꿉니다. |
+| `template/index.html` | The screen you redesign, one plain HTML and CSS file. Double-click to open. Top left switches 한국어 / English. / 다시 디자인할 화면(HTML 파일 하나). 더블클릭으로 열고, 왼쪽 위에서 언어를 바꿉니다. |
 | `template/screens/` | Five screenshots of the real app, top to bottom. / 실제 앱 스크린샷 다섯 장. |
 | `template/assets/` | Photos, illustrations and icons cropped from those screenshots. / 스크린샷에서 잘라 낸 이미지. |
 | `prompts.md` | Five prompts, English and Korean. Paste one at a time. / 프롬프트 다섯 개(영어, 한국어). |
 
 The screenshots were taken on 17 October 2026. The customer's name is replaced with 홍길동, the
-Korean placeholder name. `template/index.html` works offline: React sits in `template/vendor/`.
-스크린샷은 2026년 10월 17일에 찍었고, 고객 이름은 홍길동으로 바꿨습니다. React가
-`template/vendor/`에 들어 있어 오프라인에서도 열립니다.
+Korean placeholder name. `template/index.html` is plain HTML and CSS with every text in both
+languages, so your AI edits one file and nothing needs installing. It works offline.
+스크린샷은 2026년 10월 17일에 찍었고, 고객 이름은 홍길동으로 바꿨습니다. `template/index.html`은
+모든 문구가 두 언어로 들어 있는 HTML과 CSS 파일 하나라서, AI가 파일 하나만 고치면 되고 설치할 것이
+없습니다. 오프라인에서도 열립니다.
 
 ## In the session / 워크숍 진행
 

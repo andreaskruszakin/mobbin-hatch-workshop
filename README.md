@@ -9,7 +9,7 @@ because the room has foreign attendees. The online run on 8 October used the Amt
 | Path | What it is |
 | --- | --- |
 | `kits/amtrak/` | Online kit: `START-HERE.md`, `prompts.md` (five steps), MCP configs. Download from the [designed-minds-2026-10 release](https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/tag/designed-minds-2026-10) |
-| `kits/scmobile/` | Seoul kit: bilingual `START-HERE.md` and `prompts.md`, MCP configs, and `template/index.html`, the SC Mobile home screen rebuilt in React with a 한국어 / English switch. Download from the [seoul-2026-10-24 release](https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/tag/seoul-2026-10-24) |
+| `kits/scmobile/` | Seoul kit: bilingual `START-HERE.md` and `prompts.md`, MCP configs, and `template/index.html`, the SC Mobile home screen rebuilt as one plain HTML and CSS file with a 한국어 / English switch. Download from the [seoul-2026-10-24 release](https://github.com/andreaskruszakin/mobbin-hatch-workshop/releases/tag/seoul-2026-10-24) |
 | `kits/korail/` | Retired Seoul kit (KORAIL booking page), kept as the record |
 | `kits/*/template/` | Not in git, apart from `kits/scmobile/template/index.html`. Amtrak and KORAIL are scraped copies of the live sites; SC Mobile's images are cut from app screenshots by `scripts/crop-scmobile.py`. `scripts/build-kit.sh amtrak\|korail\|scmobile` regenerates a template and packs `dist/<name>/kit.zip` |
 | [Seoul FigJam board](https://www.figma.com/board/ta8xP6bThj8jAshgtjOIXE) | Seoul: bilingual setup steps, the three Mobbin MCP tools, the annotated SC Mobile screenshots, the hands-on lanes |

@@ -32,9 +32,9 @@ Customers who use the app every day told us this. Block 1 hands it to your AI.
 
 ```
 This folder is the Mobbin MCP workshop. template/index.html is the home screen of SC제일은행's
-SC Mobile app (Standard Chartered Bank Korea), rebuilt in React from the screenshots in
-template/screens/ (01.png is the top of the screen, 05.png the bottom). It has Korean and English
-copy; the 한국어 / English switch is at the top left. It is the only screen we redesign today,
+SC Mobile app (Standard Chartered Bank Korea), rebuilt as one plain HTML and CSS file from the
+screenshots in template/screens/ (01.png is the top of the screen, 05.png the bottom). Every text
+is in Korean and English; the 한국어 / English switch is at the top left. It is the only screen we redesign today,
 for personal banking customers.
 
 Customers told us what is wrong with it:
@@ -57,8 +57,8 @@ Stop after that.
 
 ```
 이 폴더는 Mobbin MCP 워크숍 자료입니다. template/index.html은 SC제일은행 SC Mobile 앱의 홈 화면을
-template/screens/의 스크린샷(01.png가 화면 맨 위, 05.png가 맨 아래)을 보고 React로 다시 만든
-것입니다. 한국어와 영어 문구가 있고, 왼쪽 위의 한국어 / English 버튼으로 바꿉니다. 오늘은 개인
+template/screens/의 스크린샷(01.png가 화면 맨 위, 05.png가 맨 아래)을 보고 HTML과 CSS 파일 하나로
+다시 만든 것입니다. 모든 문구가 한국어와 영어로 있고, 왼쪽 위의 한국어 / English 버튼으로 바꿉니다. 오늘은 개인
 뱅킹 고객을 위해 이 화면 하나만 다시 디자인합니다.
 
 고객들이 말한 문제:
@@ -156,14 +156,16 @@ Build mine/index.html from template/index.html using my picks and the search res
 Every part you move should fix one of the five problems.
 
 Rules:
-- Keep the React structure: the copy object with ko and en, the art object, one component per part.
+- Start from a copy of template/index.html and edit it as plain HTML and CSS. No React, no
+  framework, no build step. Keep the small script at the bottom: it runs the 한국어 / English switch.
+- Keep both languages. Every text stays a pair: <span lang="ko">이체</span><span lang="en">Transfer</span>.
 - Keep SC Mobile's content: every label, balance, count, date and event title, in both languages.
   You may remove or demote parts (an ad, a shortcut), but do not invent balances, cards,
   transactions or events the template does not have. The customer holds no cards (현대카드 0개),
   so a cards slot needs an empty state with one clear action.
 - Change how the screen is arranged, not only the colours and fonts.
-- Reuse images and React with relative paths (../template/assets/..., ../template/vendor/...).
-- One HTML file, no build step, it must open by double-click, and the 한국어 / English switch must work.
+- Reuse images with relative paths (../template/assets/...).
+- One HTML file that opens by double-click, and the 한국어 / English switch must work.
 - Put my picks as mobbin_url links in an HTML comment at the top.
 
 When you are done, list which parts of the screen moved and which parts you removed.
@@ -174,14 +176,16 @@ When you are done, list which parts of the screen moved and which parts you remo
 옮기는 부분마다 다섯 가지 문제 중 하나를 해결해야 합니다.
 
 규칙:
-- React 구조를 유지하세요: ko와 en이 있는 copy 객체, art 객체, 부분마다 컴포넌트 하나.
+- template/index.html을 복사해서 HTML과 CSS로만 고치세요. React, 프레임워크, 빌드 없이.
+  맨 아래의 작은 스크립트는 남겨 두세요. 한국어 / English 전환을 담당합니다.
+- 두 언어를 모두 유지하세요. 모든 문구는 한 쌍입니다: <span lang="ko">이체</span><span lang="en">Transfer</span>.
 - SC Mobile의 내용을 유지하세요: 모든 라벨, 잔액, 개수, 날짜, 이벤트 제목을 두 언어 모두.
   광고나 바로가기 같은 부분은 빼거나 아래로 내려도 되지만, 템플릿에 없는 잔액, 카드, 거래, 이벤트는
   지어내지 마세요. 고객은 카드가 없으니(현대카드 0개), 카드 영역에는 분명한 행동 하나가 있는
   빈 상태가 필요합니다.
 - 색과 폰트만이 아니라 화면의 배치를 바꾸세요.
-- 이미지와 React는 상대 경로로 다시 쓰세요 (../template/assets/..., ../template/vendor/...).
-- HTML 파일 하나, 빌드 없이 더블클릭으로 열려야 하고, 한국어 / English 전환이 작동해야 합니다.
+- 이미지는 상대 경로로 다시 쓰세요 (../template/assets/...).
+- HTML 파일 하나, 더블클릭으로 열려야 하고, 한국어 / English 전환이 작동해야 합니다.
 - 제가 고른 mobbin_url 링크를 맨 위 HTML 주석에 넣어 주세요.
 
 다 만들면 화면에서 무엇을 옮겼고 무엇을 뺐는지 알려 주세요.
@@ -204,14 +208,14 @@ Win+Shift+S) 보드의 내 레인에 붙여 넣으세요. 왼쪽이 Before, 오�
 **Extra points: put it online. / 추가 점수: 온라인에 올리기.**
 
 ```
-Deploy the mine/ folder to Vercel as a static site. It needs ../template/assets/ and
-../template/vendor/, so first copy the files it uses into mine/ and update the paths. Then run
+Deploy the mine/ folder to Vercel as a static site. Its images live in ../template/assets/, so
+first copy the images it uses into mine/assets/ and update the paths. Then run
 npx vercel deploy mine --prod and give me the live URL.
 ```
 
 ```
-mine/ 폴더를 Vercel에 정적 사이트로 배포해 주세요. ../template/assets/와 ../template/vendor/가
-필요하니 먼저 쓰는 파일을 mine/ 안으로 복사하고 경로를 고쳐 주세요. 그다음
+mine/ 폴더를 Vercel에 정적 사이트로 배포해 주세요. 이미지가 ../template/assets/에 있으니
+먼저 쓰는 이미지를 mine/assets/ 안으로 복사하고 경로를 고쳐 주세요. 그다음
 npx vercel deploy mine --prod를 실행하고 주소를 알려 주세요.
 ```
 

@@ -1,18 +1,19 @@
 <!doctype html>
 <!--
-  SC제일은행 SC Mobile home screen, rebuilt in React as the workshop base.
-  SC Mobile 홈 화면을 React로 다시 만든 워크숍 기본 화면입니다.
+  SC제일은행 SC Mobile home screen, rebuilt as one plain HTML file for the workshop.
+  SC Mobile 홈 화면을 HTML 파일 하나로 다시 만든 워크숍 기본 화면입니다.
 
-  Measured 1:1 off five iPhone screenshots (393 x 852 pt, screens/01.png to 05.png).
+  Measured 1:1 off five iPhone screenshots (393 x 852 pt, screens/01.png to 05.png). 1 CSS px = 1 pt.
   Photos, illustrations and colour icons are crops from those screenshots, in assets/.
-  Everything else (type, cards, borders, line icons) is code, so it can be rearranged.
+  Everything else (type, cards, borders, line icons) is HTML and CSS, so it can be rearranged.
 
   Korean is the app as shipped. English is a translation for the international audience.
+  Every piece of text is written twice, side by side: <span lang="ko">홈</span><span lang="en">Home</span>.
+  The page shows the language set on <html lang="...">; CSS hides the other one.
   Switch with the 한국어 / English control at the top left, or open index.html?lang=en.
-  한국어는 실제 앱 그대로, 영어는 번역입니다. 왼쪽 위 버튼이나 ?lang=en 으로 바꿉니다.
+  모든 글자는 두 번 씁니다: lang="ko" 한 번, lang="en" 한 번. 왼쪽 위 버튼이나 ?lang=en 으로 바꿉니다.
 
-  Content lives in `copy` at the top of the script, one set per language with the same shape.
-  Open this file by double-clicking it. No install, no build: React and Babel are in vendor/.
+  Open this file by double-clicking it. No install, no build. 설치도 빌드도 필요 없습니다.
 -->
 <html lang="ko">
 <head>
@@ -44,6 +45,10 @@
   }
   button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; text-align: inherit; }
   img { display: block; }
+
+  /* Two languages: show the one on <html lang>, hide the other. 언어 전환. */
+  html[lang="ko"] [lang="en"], html[lang="en"] [lang="ko"] { display: none; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
   /* Workshop control, not part of the app: sits outside the phone column. */
   .lang { position: fixed; top: 16px; left: 16px; z-index: 20; display: flex; padding: 3px; border-radius: 10px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .15); font-size: 13px; }
@@ -83,13 +88,14 @@
 
   .quick { display: flex; justify-content: space-between; padding: 14px 0 0; width: 234px; margin: 0 0 0 77px; }
   .quick-item { width: 54px; display: flex; flex-direction: column; align-items: center; }
-  .quick-item span { margin-top: 7px; font-size: 13px; color: var(--brand-blue); white-space: nowrap; }
+  .quick-label { margin-top: 7px; font-size: 13px; color: var(--brand-blue); white-space: nowrap; }
 
   /* 전체계좌: every account type in one card, with the decorative gradient fin behind its right edge. */
   .accounts { position: relative; margin: 19px 13px 0 13px; padding: 5px 2px 2px 4px; border: 1px solid #a3edf5; border-radius: 14px; }
   .accounts-fin { position: absolute; right: -13px; top: 70px; width: 56px; height: 400px; border-radius: 60px 0 0 60px; background: linear-gradient(180deg, #4b8ef2 0%, #18b8fd 38%, #2ccfdb 68%, #77ef8a 100%); -webkit-mask-image: linear-gradient(90deg, transparent, #000 75%); mask-image: linear-gradient(90deg, transparent, #000 75%); transform: skewY(-12deg); }
   .accounts-card { position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 3px rgba(0, 0, 0, .12); }
   .accounts-head { height: 36px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px 0 13px; background: #f7f7f7; font-size: 15px; }
+  .accounts-hide { width: 28px; height: 28px; color: var(--brand-blue); }
   .accounts-group { border-left: 2px solid var(--sc-green); }
   .accounts-group + .accounts-group { border-left-color: var(--sc-blue); }
   .account-row { width: 100%; height: 68px; display: flex; align-items: center; padding: 0 14px 0 16px; border-top: 1px solid var(--divider); background: linear-gradient(90deg, #fff 78%, rgba(255, 255, 255, .72)); font-size: 17px; }
@@ -99,8 +105,8 @@
 
   .products { margin: 29px 15px 0; height: 98px; display: grid; grid-template-columns: repeat(5, 1fr); padding: 0 6px; border: 1.5px solid transparent; border-radius: 12px; background: linear-gradient(#fff, #fff) padding-box, linear-gradient(180deg, #6ef3ff, #8af7a0) border-box; box-shadow: 0 3px 4px -2px rgba(120, 240, 120, .5); }
   .product { display: flex; flex-direction: column; align-items: center; padding-top: 9px; font-size: 14px; }
-  .product span { margin-top: -2px; color: #1b1b1b; white-space: nowrap; }
-  :lang(en) .product span { max-width: 52px; white-space: normal; text-align: center; font-size: 13px; line-height: 14px; }
+  .product-label { margin-top: -2px; color: #1b1b1b; white-space: nowrap; }
+  html[lang="en"] .product-label { max-width: 52px; white-space: normal; text-align: center; font-size: 13px; line-height: 14px; }
 
   .feed { display: flex; flex-direction: column; gap: 13px; margin: 27px 15px 0; padding-bottom: 145px; }
   .feed-card { position: relative; display: flex; align-items: center; gap: 12px; min-height: 110px; padding: 0 21px; border-radius: 10px; }
@@ -116,311 +122,321 @@
   .feed-art { flex-shrink: 0; margin-right: -2px; }
   .feed-thumb { flex-shrink: 0; width: 80px; height: 80px; border-radius: 10px; object-fit: cover; }
 
-  /* Bottom tab bar with the raised SC logo. The arc around the logo is part of nav-home.png. */
+  /* Bottom tab bar with the raised SC logo. The arc around the logo is part of nav-home.png.
+     Each tab sits on its measured centre (style="left: ..."). */
   .nav { position: sticky; bottom: 0; z-index: 10; height: 105px; margin-top: -105px; background: #fff; border-top: 2px solid var(--lime); }
   .nav-home { position: absolute; left: 23.33px; top: -24px; }
   .nav-item { position: absolute; top: 0; width: 70px; height: 70px; margin-left: -35px; font-size: 14px; text-align: center; }
   .nav-item svg { position: absolute; top: 11px; left: 20px; width: 30px; height: 30px; }
-  .nav-item span { position: absolute; top: 46px; left: -10px; right: -10px; white-space: nowrap; }
+  .nav-label { position: absolute; top: 46px; left: -10px; right: -10px; white-space: nowrap; }
 
   :focus-visible { outline: 2px solid var(--sc-blue); outline-offset: 2px; }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
 <body>
-<div id="root"></div>
 
-<script src="vendor/react.production.min.js"></script>
-<script src="vendor/react-dom.production.min.js"></script>
-<script src="vendor/babel.min.js"></script>
-<script type="text/babel" data-presets="react">
-const { useState, useEffect } = React;
+<!-- Workshop control, not part of the app. 워크숍용 언어 버튼 (앱에는 없음). -->
+<div class="lang" role="group" aria-label="Language / 언어">
+  <button data-set-lang="ko" aria-pressed="true">한국어</button>
+  <button data-set-lang="en" aria-pressed="false">English</button>
+</div>
 
-/* ---------- Images, shared by both languages. 이미지는 두 언어 공통입니다. ---------- */
+<div class="app">
 
-const art = {
-  banner: "assets/banner-lfc.jpg",
-  quick: ["assets/quick-benefit.png", "assets/quick-mydata.png", "assets/quick-market.png"],
-  products: ["assets/product-deposit.png", "assets/product-savings.png", "assets/product-credit.png", "assets/product-check.png", "assets/product-loan.png"],
-  // Feed images in feed order. Characters are cropped at 3x, so each carries its size in points.
-  feed: [
-    { src: "assets/char-book.png", width: 68, height: 85 },
-    { src: "assets/thumb-pb.jpg", thumb: true },
-    { src: "assets/char-horse.png", width: 76, height: 82 },
-    { src: "assets/char-rabbit.png", width: 76, height: 85 },
-    { src: "assets/thumb-air.jpg", thumb: true },
-    { src: "assets/thumb-lfc.jpg", thumb: true },
-    { src: "assets/thumb-autumn.jpg", thumb: true },
-    { src: "assets/thumb-lotte.jpg", thumb: true },
-    { src: "assets/char-news.png", width: 82, height: 82 },
-    { src: "assets/thumb-random.jpg", thumb: true },
-    { src: "assets/thumb-first.jpg", thumb: true },
-    { src: "assets/thumb-kit.jpg", thumb: true },
-  ],
-};
-
-/* ---------- Content. Korean is 1:1 with the app; English translates it line for line. ----------
-   The customer's name is replaced with the placeholder 홍길동 (Hong Gildong). */
-
-const copy = {
-  ko: {
-    easyBanking: "편한뱅킹", notifications: "알림", search: "검색", logout: "로그아웃",
-    banner: { title: ["리버풀FC 코치진과", "축구 레슨을!"], sub: ["리버풀FC", "싸커스쿨 이벤트"], cta: "바로가기" },
-    quick: ["혜택", "마이데이터", "글로벌시황"],
-    accountsTitle: "전체계좌", hideBalances: "금액 숨기기",
-    // Two groups, as in the app: a green rule marks the first five rows, a blue rule the last three.
-    accounts: [
-      [["입출금", "99,749원"], ["다른은행", "0개"], ["예적금", "0원"], ["외화예금", "0개"], ["투자상품", "확인하기"]],
-      [["보험", "확인하기"], ["대출", "0개"], ["현대카드", "0개"]],
-    ],
-    products: ["입출금", "예적금", "신용카드", "체크카드", "대출"],
-    feed: [
-      { tone: "cyan", eyebrow: "2026.10.17", title: ["홍길동님, 이번 달", "자산관리 일정을 챙겨보세요"] },
-      { tone: "event", eyebrow: "이벤트", title: ["PB스타트 조건 충족 시", "경품 증정!"], period: "2026.08.10 - 12.31" },
-      { tone: "yellow", eyebrow: "2026.10.17", title: ["홍길동님~", "운세가 도착했어요!"] },
-      { tone: "cyan", eyebrow: "SC제일은행 X 굴리굴리", title: ["10월 배경화면", "받아 가세요!"] },
-      { tone: "event", eyebrow: "이벤트", title: ["대한항공 마일리지", "예금 출시 이벤트"], period: "2026.08.03 - 10.31" },
-      { tone: "event", eyebrow: "이벤트", title: ["리버풀FC 싸커스쿨 2026", "참여 방법 알아보기"], period: "2026.10.12 - 11.06" },
-      { tone: "event", eyebrow: "이벤트", title: ["스마트박스와 함께,", "반가워 가을!"], period: "2026.09.01 - 10.30" },
-      { tone: "event", eyebrow: "이벤트", title: ["롯데모바일교환권 최대 3만원", "받는 방법 알아보기"], period: "2026.10.01 - 10.31" },
-      { tone: "yellow", eyebrow: "오늘의 경제뉴스", title: ["경제용 Pick", "하루1분 경제뉴스"] },
-      { tone: "event", eyebrow: "이벤트", title: ["랜덤박스 Open! 100%", "드리는 경품 이벤트"], period: "2026.09.07 - 10.30" },
-      { tone: "event", eyebrow: "이벤트", title: ["Hi! 첫 거래 고객에게만 드리는", "특별한 금리 혜택"], period: "2026.09.14 - 12.31" },
-      { tone: "event", eyebrow: "이벤트", title: ["리버풀FC 홈 유니폼", "받는 방법 알아보기"], period: "2026.09.21 - 11.30" },
-    ],
-    tabs: ["홈", "이체", "투자", "상품", "전체"],
-  },
-  en: {
-    easyBanking: "Easy mode", notifications: "Notifications", search: "Search", logout: "Log out",
-    banner: { title: ["Football lessons", "with LFC coaches!"], sub: ["Liverpool FC", "Soccer School event"], cta: "Go" },
-    quick: ["Benefits", "MyData", "Markets"],
-    accountsTitle: "All accounts", hideBalances: "Hide balances",
-    accounts: [
-      [["Checking", "₩99,749"], ["Other banks", "0 linked"], ["Deposits & savings", "₩0"], ["Foreign currency", "0 accounts"], ["Investments", "View"]],
-      [["Insurance", "View"], ["Loans", "0 loans"], ["Hyundai Card", "0 cards"]],
-    ],
-    products: ["Checking", "Savings", "Credit card", "Debit card", "Loans"],
-    feed: [
-      { tone: "cyan", eyebrow: "2026.10.17", title: ["Hong Gildong, plan this", "month's wealth schedule"] },
-      { tone: "event", eyebrow: "Event", title: ["Meet the PB Start terms", "and win a prize!"], period: "2026.08.10 - 12.31" },
-      { tone: "yellow", eyebrow: "2026.10.17", title: ["Hong Gildong~", "your fortune is here!"] },
-      { tone: "cyan", eyebrow: "SC Bank Korea X Gooligooli", title: ["Get your October", "wallpaper!"] },
-      { tone: "event", eyebrow: "Event", title: ["Korean Air mileage", "deposit launch event"], period: "2026.08.03 - 10.31" },
-      { tone: "event", eyebrow: "Event", title: ["Liverpool FC Soccer School", "2026: how to join"], period: "2026.10.12 - 11.06" },
-      { tone: "event", eyebrow: "Event", title: ["Hello autumn,", "with Smart Box!"], period: "2026.09.01 - 10.30" },
-      { tone: "event", eyebrow: "Event", title: ["Get up to ₩30,000 in", "Lotte mobile vouchers"], period: "2026.10.01 - 10.31" },
-      { tone: "yellow", eyebrow: "Today's economy news", title: ["Economy Pick:", "one-minute daily news"] },
-      { tone: "event", eyebrow: "Event", title: ["Random box open!", "Everyone wins a prize"], period: "2026.09.07 - 10.30" },
-      { tone: "event", eyebrow: "Event", title: ["Hi! A special rate for", "first-time customers"], period: "2026.09.14 - 12.31" },
-      { tone: "event", eyebrow: "Event", title: ["How to get a", "Liverpool FC home kit"], period: "2026.09.21 - 11.30" },
-    ],
-    tabs: ["Home", "Transfer", "Invest", "Products", "All"],
-  },
-};
-
-/* ---------- Line icons, drawn to match the app's 2pt strokes. ---------- */
-
-const stroke = { fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" };
-
-const icons = {
-  bell: <svg width="26" height="26" viewBox="0 0 24 24" {...stroke}><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 1.5h-15L6 17Z" /><path d="M10 21h4" /></svg>,
-  search: <svg width="26" height="26" viewBox="0 0 24 24" {...stroke}><circle cx="11" cy="11" r="7.5" /><path d="m21 21-4.5-4.5" /></svg>,
-  eyeOff: <svg width="22" height="22" viewBox="0 0 24 24" {...stroke} strokeWidth="1.8"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12Z" /><circle cx="12" cy="12" r="3" /><path d="M4 20 20 4" /></svg>,
-  chevron: <svg width="10" height="10" viewBox="0 0 10 10" {...stroke} strokeWidth="1.6"><path d="m2.5 3.8 2.5 2.5 2.5-2.5" /></svg>,
-  tabs: [
-    null,
-    <svg viewBox="0 0 30 30" {...stroke}><path d="M9 11h14l-4-4M21 19H7l4 4" /><path d="M17 13v3M13 17v-3" /></svg>,
-    <svg viewBox="0 0 30 30" {...stroke}><rect x="4" y="16" width="4" height="8" rx="2" /><rect x="11" y="12" width="4" height="12" rx="2" /><rect x="18" y="6" width="4" height="18" rx="2" /><path d="M26 7v17" /></svg>,
-    <svg viewBox="0 0 30 30" {...stroke}><path d="M3 5h3.5l3 13h13l2.5-9H8" /><circle cx="11" cy="23" r="1.8" /><circle cx="21" cy="23" r="1.8" /></svg>,
-    <svg viewBox="0 0 30 30" {...stroke}><rect x="5" y="5" width="8" height="8" rx="1" /><rect x="17" y="5" width="8" height="8" rx="1" /><rect x="5" y="17" width="8" height="8" rx="1" /><rect x="17" y="17" width="8" height="8" rx="1" /></svg>,
-  ],
-};
-
-// Horizontal centre of each tab, in points, measured off the app.
-const tabCentres = [62, 135, 201, 268, 336];
-
-/* ---------- Components, top of the screen to the bottom. ---------- */
-
-function StatusBar() {
-  return (
-    <div className="status" aria-hidden="true">
-      <span className="status-time">9:41
+  <!-- Top bar: status bar, 편한뱅킹 switch, notifications, search, log out. -->
+  <header class="top">
+    <div class="status" aria-hidden="true">
+      <span class="status-time">9:41
         <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="3.5" r="2.6" /><path d="M1 11.5a5 4 0 0 1 10 0Z" /></svg>
       </span>
-      <span className="status-icons">
+      <span class="status-icons">
         <svg width="19" height="12" viewBox="0 0 19 12"><rect x="0" y="8" width="3" height="4" rx="1" /><rect x="5" y="5.5" width="3" height="6.5" rx="1" /><rect x="10" y="3" width="3" height="9" rx="1" /><rect x="15" y="0" width="3" height="12" rx="1" /></svg>
         <svg width="17" height="12" viewBox="0 0 17 12"><path d="M8.5 2.2c2.4 0 4.6.9 6.3 2.5l1.3-1.4A11 11 0 0 0 8.5.2 11 11 0 0 0 .9 3.3l1.3 1.4a9 9 0 0 1 6.3-2.5Zm0 3.8c1.4 0 2.6.5 3.6 1.4l1.3-1.4a7 7 0 0 0-9.8 0l1.3 1.4c1-.9 2.2-1.4 3.6-1.4Zm0 3.7L10.4 8a2.8 2.8 0 0 0-3.8 0Z" /></svg>
         <svg width="28" height="13" viewBox="0 0 28 13"><rect x="0.5" y="0.5" width="24" height="12" rx="3.5" fill="none" stroke="currentColor" opacity=".4" /><rect x="2" y="2" width="21" height="9" rx="2" /><rect x="25.5" y="4" width="2" height="5" rx="1" opacity=".4" /></svg>
       </span>
     </div>
-  );
-}
-
-function TopBar({ t, scrolled }) {
-  const [easyMode, setEasyMode] = useState(false);
-  return (
-    <header className={`top${scrolled ? " is-scrolled" : ""}`}>
-      <StatusBar />
-      <div className="toolbar">
-        <div className="easy">
-          {t.easyBanking}
-          <button className="switch" role="switch" aria-checked={easyMode} aria-label={t.easyBanking} onClick={() => setEasyMode(!easyMode)} />
-        </div>
-        <div className="toolbar-actions">
-          <button className="icon-button" aria-label={t.notifications}>{icons.bell}</button>
-          <button className="icon-button" aria-label={t.search}>{icons.search}</button>
-          <button className="logout">{t.logout}</button>
-        </div>
+    <div class="toolbar">
+      <div class="easy">
+        <span id="easy-label"><span lang="ko">편한뱅킹</span><span lang="en">Easy mode</span></span>
+        <button class="switch" role="switch" aria-checked="false" aria-labelledby="easy-label"></button>
       </div>
-    </header>
-  );
-}
+      <div class="toolbar-actions">
+        <button class="icon-button">
+          <span class="sr-only"><span lang="ko">알림</span><span lang="en">Notifications</span></span>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 1.5h-15L6 17Z" /><path d="M10 21h4" /></svg>
+        </button>
+        <button class="icon-button">
+          <span class="sr-only"><span lang="ko">검색</span><span lang="en">Search</span></span>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7.5" /><path d="m21 21-4.5-4.5" /></svg>
+        </button>
+        <button class="logout"><span lang="ko">로그아웃</span><span lang="en">Log out</span></button>
+      </div>
+    </div>
+  </header>
 
-function Lines({ lines }) {
-  return lines.map((line) => <span key={line}>{line}<br /></span>);
-}
+  <main>
 
-function BannerCarousel({ t }) {
-  return (
-    <section className="banners">
-      <article className="banner">
-        <img src={art.banner} alt="" />
-        <div className="banner-copy">
-          <h2 className="banner-title"><Lines lines={t.banner.title} /></h2>
-          <p className="banner-sub"><Lines lines={t.banner.sub} /></p>
-          <button className="banner-cta">{t.banner.cta}</button>
+    <!-- Banner carousel: the LFC ad, with the next slide peeking in. -->
+    <section class="banners">
+      <article class="banner">
+        <img src="assets/banner-lfc.jpg" alt="">
+        <div class="banner-copy">
+          <h2 class="banner-title"><span lang="ko">리버풀FC 코치진과<br>축구 레슨을!</span><span lang="en">Football lessons<br>with LFC coaches!</span></h2>
+          <p class="banner-sub"><span lang="ko">리버풀FC<br>싸커스쿨 이벤트</span><span lang="en">Liverpool FC<br>Soccer School event</span></p>
+          <button class="banner-cta"><span lang="ko">바로가기</span><span lang="en">Go</span></button>
         </div>
       </article>
-      <div className="banner is-peek" aria-hidden="true" />
+      <div class="banner is-peek" aria-hidden="true"></div>
     </section>
-  );
-}
 
-function QuickLinks({ t }) {
-  return (
-    <nav className="quick">
-      {t.quick.map((label, index) => (
-        <button className="quick-item" key={label}>
-          <img src={art.quick[index]} width="54" height="54" alt="" />
-          <span>{label}</span>
-        </button>
-      ))}
+    <!-- Quick links under the banner. -->
+    <nav class="quick">
+      <button class="quick-item">
+        <img src="assets/quick-benefit.png" width="54" height="54" alt="">
+        <span class="quick-label"><span lang="ko">혜택</span><span lang="en">Benefits</span></span>
+      </button>
+      <button class="quick-item">
+        <img src="assets/quick-mydata.png" width="54" height="54" alt="">
+        <span class="quick-label"><span lang="ko">마이데이터</span><span lang="en">MyData</span></span>
+      </button>
+      <button class="quick-item">
+        <img src="assets/quick-market.png" width="54" height="54" alt="">
+        <span class="quick-label"><span lang="ko">글로벌시황</span><span lang="en">Markets</span></span>
+      </button>
     </nav>
-  );
-}
 
-function AccountsCard({ t }) {
-  return (
-    <section className="accounts" aria-label={t.accountsTitle}>
-      <div className="accounts-fin" aria-hidden="true" />
-      <div className="accounts-card">
-        <div className="accounts-head">
-          {t.accountsTitle}
-          <button className="icon-button" style={{ width: 28, height: 28, color: "var(--brand-blue)" }} aria-label={t.hideBalances}>{icons.eyeOff}</button>
+    <!-- 전체계좌 / All accounts. Two groups, as in the app: a green rule marks the first five rows, a blue rule the last three. -->
+    <section class="accounts" aria-labelledby="accounts-title">
+      <div class="accounts-fin" aria-hidden="true"></div>
+      <div class="accounts-card">
+        <div class="accounts-head">
+          <span id="accounts-title"><span lang="ko">전체계좌</span><span lang="en">All accounts</span></span>
+          <button class="icon-button accounts-hide">
+            <span class="sr-only"><span lang="ko">금액 숨기기</span><span lang="en">Hide balances</span></span>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12Z" /><circle cx="12" cy="12" r="3" /><path d="M4 20 20 4" /></svg>
+          </button>
         </div>
-        {t.accounts.map((rows, index) => (
-          <div className="accounts-group" key={index}>
-            {rows.map(([label, value]) => (
-              <button className="account-row" key={label}>
-                {label}
-                <span className="account-value">{value}</span>
-                <span className="chevron">{icons.chevron}</span>
-              </button>
-            ))}
-          </div>
-        ))}
+        <div class="accounts-group">
+          <button class="account-row"><span lang="ko">입출금</span><span lang="en">Checking</span>
+            <span class="account-value"><span lang="ko">99,749원</span><span lang="en">₩99,749</span></span>
+            <span class="chevron"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 3.8 2.5 2.5 2.5-2.5" /></svg></span>
+          </button>
+          <button class="account-row"><span lang="ko">다른은행</span><span lang="en">Other banks</span>
+            <span class="account-value"><span lang="ko">0개</span><span lang="en">0 linked</span></span>
+            <span class="chevron"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 3.8 2.5 2.5 2.5-2.5" /></svg></span>
+          </button>
+          <button class="account-row"><span lang="ko">예적금</span><span lang="en">Deposits &amp; savings</span>
+            <span class="account-value"><span lang="ko">0원</span><span lang="en">₩0</span></span>
+            <span class="chevron"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 3.8 2.5 2.5 2.5-2.5" /></svg></span>
+          </button>
+          <button class="account-row"><span lang="ko">외화예금</span><span lang="en">Foreign currency</span>
+            <span class="account-value"><span lang="ko">0개</span><span lang="en">0 accounts</span></span>
+            <span class="chevron"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 3.8 2.5 2.5 2.5-2.5" /></svg></span>
+          </button>
+          <button class="account-row"><span lang="ko">투자상품</span><span lang="en">Investments</span>
+            <span class="account-value"><span lang="ko">확인하기</span><span lang="en">View</span></span>
+            <span class="chevron"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 3.8 2.5 2.5 2.5-2.5" /></svg></span>
+          </button>
+        </div>
+        <div class="accounts-group">
+          <button class="account-row"><span lang="ko">보험</span><span lang="en">Insurance</span>
+            <span class="account-value"><span lang="ko">확인하기</span><span lang="en">View</span></span>
+            <span class="chevron"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 3.8 2.5 2.5 2.5-2.5" /></svg></span>
+          </button>
+          <button class="account-row"><span lang="ko">대출</span><span lang="en">Loans</span>
+            <span class="account-value"><span lang="ko">0개</span><span lang="en">0 loans</span></span>
+            <span class="chevron"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 3.8 2.5 2.5 2.5-2.5" /></svg></span>
+          </button>
+          <button class="account-row"><span lang="ko">현대카드</span><span lang="en">Hyundai Card</span>
+            <span class="account-value"><span lang="ko">0개</span><span lang="en">0 cards</span></span>
+            <span class="chevron"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 3.8 2.5 2.5 2.5-2.5" /></svg></span>
+          </button>
+        </div>
       </div>
     </section>
-  );
-}
 
-function ProductShortcuts({ t }) {
-  return (
-    <nav className="products">
-      {t.products.map((label, index) => (
-        <button className="product" key={label}>
-          <img src={art.products[index]} width="54" height="54" alt="" />
-          <span>{label}</span>
-        </button>
-      ))}
+    <!-- Product shortcuts. -->
+    <nav class="products">
+      <button class="product">
+        <img src="assets/product-deposit.png" width="54" height="54" alt="">
+        <span class="product-label"><span lang="ko">입출금</span><span lang="en">Checking</span></span>
+      </button>
+      <button class="product">
+        <img src="assets/product-savings.png" width="54" height="54" alt="">
+        <span class="product-label"><span lang="ko">예적금</span><span lang="en">Savings</span></span>
+      </button>
+      <button class="product">
+        <img src="assets/product-credit.png" width="54" height="54" alt="">
+        <span class="product-label"><span lang="ko">신용카드</span><span lang="en">Credit card</span></span>
+      </button>
+      <button class="product">
+        <img src="assets/product-check.png" width="54" height="54" alt="">
+        <span class="product-label"><span lang="ko">체크카드</span><span lang="en">Debit card</span></span>
+      </button>
+      <button class="product">
+        <img src="assets/product-loan.png" width="54" height="54" alt="">
+        <span class="product-label"><span lang="ko">대출</span><span lang="en">Loans</span></span>
+      </button>
     </nav>
-  );
-}
 
-function FeedCard({ tone, eyebrow, title, period, image }) {
-  return (
-    <button className={`feed-card is-${tone}`}>
-      <div className="feed-text">
-        <p className="feed-eyebrow">{eyebrow}</p>
-        <p className="feed-title"><Lines lines={title} /></p>
-        {period && <p className="feed-period">{period}</p>}
-      </div>
-      {image.thumb
-        ? <img className="feed-thumb" src={image.src} alt="" />
-        : <img className="feed-art" src={image.src} width={image.width} height={image.height} alt="" />}
+    <!-- Feed: 12 cards in app order. Tones: is-cyan, is-yellow, is-event (white with a border).
+         Characters are cropped at 3x, so each carries its size in points. The name is the placeholder 홍길동 (Hong Gildong). -->
+    <section class="feed">
+      <button class="feed-card is-cyan">
+        <div class="feed-text">
+          <p class="feed-eyebrow">2026.10.17</p>
+          <p class="feed-title"><span lang="ko">홍길동님, 이번 달<br>자산관리 일정을 챙겨보세요</span><span lang="en">Hong Gildong, plan this<br>month's wealth schedule</span></p>
+        </div>
+        <img class="feed-art" src="assets/char-book.png" width="68" height="85" alt="">
+      </button>
+
+      <button class="feed-card is-event">
+        <div class="feed-text">
+          <p class="feed-eyebrow"><span lang="ko">이벤트</span><span lang="en">Event</span></p>
+          <p class="feed-title"><span lang="ko">PB스타트 조건 충족 시<br>경품 증정!</span><span lang="en">Meet the PB Start terms<br>and win a prize!</span></p>
+          <p class="feed-period">2026.08.10 - 12.31</p>
+        </div>
+        <img class="feed-thumb" src="assets/thumb-pb.jpg" alt="">
+      </button>
+
+      <button class="feed-card is-yellow">
+        <div class="feed-text">
+          <p class="feed-eyebrow">2026.10.17</p>
+          <p class="feed-title"><span lang="ko">홍길동님~<br>운세가 도착했어요!</span><span lang="en">Hong Gildong~<br>your fortune is here!</span></p>
+        </div>
+        <img class="feed-art" src="assets/char-horse.png" width="76" height="82" alt="">
+      </button>
+
+      <button class="feed-card is-cyan">
+        <div class="feed-text">
+          <p class="feed-eyebrow"><span lang="ko">SC제일은행 X 굴리굴리</span><span lang="en">SC Bank Korea X Gooligooli</span></p>
+          <p class="feed-title"><span lang="ko">10월 배경화면<br>받아 가세요!</span><span lang="en">Get your October<br>wallpaper!</span></p>
+        </div>
+        <img class="feed-art" src="assets/char-rabbit.png" width="76" height="85" alt="">
+      </button>
+
+      <button class="feed-card is-event">
+        <div class="feed-text">
+          <p class="feed-eyebrow"><span lang="ko">이벤트</span><span lang="en">Event</span></p>
+          <p class="feed-title"><span lang="ko">대한항공 마일리지<br>예금 출시 이벤트</span><span lang="en">Korean Air mileage<br>deposit launch event</span></p>
+          <p class="feed-period">2026.08.03 - 10.31</p>
+        </div>
+        <img class="feed-thumb" src="assets/thumb-air.jpg" alt="">
+      </button>
+
+      <button class="feed-card is-event">
+        <div class="feed-text">
+          <p class="feed-eyebrow"><span lang="ko">이벤트</span><span lang="en">Event</span></p>
+          <p class="feed-title"><span lang="ko">리버풀FC 싸커스쿨 2026<br>참여 방법 알아보기</span><span lang="en">Liverpool FC Soccer School<br>2026: how to join</span></p>
+          <p class="feed-period">2026.10.12 - 11.06</p>
+        </div>
+        <img class="feed-thumb" src="assets/thumb-lfc.jpg" alt="">
+      </button>
+
+      <button class="feed-card is-event">
+        <div class="feed-text">
+          <p class="feed-eyebrow"><span lang="ko">이벤트</span><span lang="en">Event</span></p>
+          <p class="feed-title"><span lang="ko">스마트박스와 함께,<br>반가워 가을!</span><span lang="en">Hello autumn,<br>with Smart Box!</span></p>
+          <p class="feed-period">2026.09.01 - 10.30</p>
+        </div>
+        <img class="feed-thumb" src="assets/thumb-autumn.jpg" alt="">
+      </button>
+
+      <button class="feed-card is-event">
+        <div class="feed-text">
+          <p class="feed-eyebrow"><span lang="ko">이벤트</span><span lang="en">Event</span></p>
+          <p class="feed-title"><span lang="ko">롯데모바일교환권 최대 3만원<br>받는 방법 알아보기</span><span lang="en">Get up to ₩30,000 in<br>Lotte mobile vouchers</span></p>
+          <p class="feed-period">2026.10.01 - 10.31</p>
+        </div>
+        <img class="feed-thumb" src="assets/thumb-lotte.jpg" alt="">
+      </button>
+
+      <button class="feed-card is-yellow">
+        <div class="feed-text">
+          <p class="feed-eyebrow"><span lang="ko">오늘의 경제뉴스</span><span lang="en">Today's economy news</span></p>
+          <p class="feed-title"><span lang="ko">경제용 Pick<br>하루1분 경제뉴스</span><span lang="en">Economy Pick:<br>one-minute daily news</span></p>
+        </div>
+        <img class="feed-art" src="assets/char-news.png" width="82" height="82" alt="">
+      </button>
+
+      <button class="feed-card is-event">
+        <div class="feed-text">
+          <p class="feed-eyebrow"><span lang="ko">이벤트</span><span lang="en">Event</span></p>
+          <p class="feed-title"><span lang="ko">랜덤박스 Open! 100%<br>드리는 경품 이벤트</span><span lang="en">Random box open!<br>Everyone wins a prize</span></p>
+          <p class="feed-period">2026.09.07 - 10.30</p>
+        </div>
+        <img class="feed-thumb" src="assets/thumb-random.jpg" alt="">
+      </button>
+
+      <button class="feed-card is-event">
+        <div class="feed-text">
+          <p class="feed-eyebrow"><span lang="ko">이벤트</span><span lang="en">Event</span></p>
+          <p class="feed-title"><span lang="ko">Hi! 첫 거래 고객에게만 드리는<br>특별한 금리 혜택</span><span lang="en">Hi! A special rate for<br>first-time customers</span></p>
+          <p class="feed-period">2026.09.14 - 12.31</p>
+        </div>
+        <img class="feed-thumb" src="assets/thumb-first.jpg" alt="">
+      </button>
+
+      <button class="feed-card is-event">
+        <div class="feed-text">
+          <p class="feed-eyebrow"><span lang="ko">이벤트</span><span lang="en">Event</span></p>
+          <p class="feed-title"><span lang="ko">리버풀FC 홈 유니폼<br>받는 방법 알아보기</span><span lang="en">How to get a<br>Liverpool FC home kit</span></p>
+          <p class="feed-period">2026.09.21 - 11.30</p>
+        </div>
+        <img class="feed-thumb" src="assets/thumb-kit.jpg" alt="">
+      </button>
+    </section>
+
+  </main>
+
+  <!-- Bottom tab bar: 홈 is raised on the SC logo, the others sit on their measured centres. -->
+  <nav class="nav">
+    <img class="nav-home" src="assets/nav-home.png" width="78" height="70" alt="">
+    <button class="nav-item" style="left: 62px" aria-current="page">
+      <span class="nav-label"><span lang="ko">홈</span><span lang="en">Home</span></span>
     </button>
-  );
-}
+    <button class="nav-item" style="left: 135px">
+      <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11h14l-4-4M21 19H7l4 4" /><path d="M17 13v3M13 17v-3" /></svg>
+      <span class="nav-label"><span lang="ko">이체</span><span lang="en">Transfer</span></span>
+    </button>
+    <button class="nav-item" style="left: 201px">
+      <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="16" width="4" height="8" rx="2" /><rect x="11" y="12" width="4" height="12" rx="2" /><rect x="18" y="6" width="4" height="18" rx="2" /><path d="M26 7v17" /></svg>
+      <span class="nav-label"><span lang="ko">투자</span><span lang="en">Invest</span></span>
+    </button>
+    <button class="nav-item" style="left: 268px">
+      <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h3.5l3 13h13l2.5-9H8" /><circle cx="11" cy="23" r="1.8" /><circle cx="21" cy="23" r="1.8" /></svg>
+      <span class="nav-label"><span lang="ko">상품</span><span lang="en">Products</span></span>
+    </button>
+    <button class="nav-item" style="left: 336px">
+      <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="8" height="8" rx="1" /><rect x="17" y="5" width="8" height="8" rx="1" /><rect x="5" y="17" width="8" height="8" rx="1" /><rect x="17" y="17" width="8" height="8" rx="1" /></svg>
+      <span class="nav-label"><span lang="ko">전체</span><span lang="en">All</span></span>
+    </button>
+  </nav>
 
-function BottomNav({ t }) {
-  return (
-    <nav className="nav">
-      <img className="nav-home" src="assets/nav-home.png" width="78" height="70" alt="" />
-      {t.tabs.map((tab, index) => (
-        <button className="nav-item" key={tab} style={{ left: tabCentres[index] }} aria-current={index === 0 ? "page" : undefined}>
-          {icons.tabs[index]}
-          <span>{tab}</span>
-        </button>
-      ))}
-    </nav>
-  );
-}
+</div>
 
-function LanguageSwitch({ lang, onChange }) {
-  return (
-    <div className="lang" role="group" aria-label="Language / 언어">
-      <button aria-pressed={lang === "ko"} onClick={() => onChange("ko")}>한국어</button>
-      <button aria-pressed={lang === "en"} onClick={() => onChange("en")}>English</button>
-    </div>
-  );
-}
-
-function App() {
-  const [lang, setLang] = useState(() => (new URLSearchParams(location.search).get("lang") === "en" ? "en" : "ko"));
-  const [scrolled, setScrolled] = useState(false);
-  const t = copy[lang];
-
-  useEffect(() => {
+<!-- The only script: language switch, 편한뱅킹 switch, and the top bar shadow on scroll. -->
+<script>
+  function setLanguage(lang) {
     document.documentElement.lang = lang;
-  }, [lang]);
+    document.querySelectorAll("[data-set-lang]").forEach((button) => {
+      button.setAttribute("aria-pressed", button.dataset.setLang === lang);
+    });
+  }
+  document.querySelectorAll("[data-set-lang]").forEach((button) => {
+    button.addEventListener("click", () => setLanguage(button.dataset.setLang));
+  });
+  setLanguage(new URLSearchParams(location.search).get("lang") === "en" ? "en" : "ko");
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 4);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  document.querySelectorAll('[role="switch"]').forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      toggle.setAttribute("aria-checked", toggle.getAttribute("aria-checked") !== "true");
+    });
+  });
 
-  return (
-    <>
-      <LanguageSwitch lang={lang} onChange={setLang} />
-      <div className="app">
-        <TopBar t={t} scrolled={scrolled} />
-        <main>
-          <BannerCarousel t={t} />
-          <QuickLinks t={t} />
-          <AccountsCard t={t} />
-          <ProductShortcuts t={t} />
-          <section className="feed">
-            {t.feed.map((card, index) => <FeedCard key={index} {...card} image={art.feed[index]} />)}
-          </section>
-        </main>
-        <BottomNav t={t} />
-      </div>
-    </>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  const topBar = document.querySelector(".top");
+  window.addEventListener("scroll", () => topBar.classList.toggle("is-scrolled", window.scrollY > 4), { passive: true });
 </script>
 </body>
 </html>
