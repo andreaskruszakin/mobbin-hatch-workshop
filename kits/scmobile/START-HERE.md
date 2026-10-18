@@ -21,11 +21,11 @@ Mobbin MCP setup / 설정: **[mobbin.com/mcp](https://mobbin.com/mcp)**.
 ## Before the session (5 minutes) / 워크숍 전에 (5분)
 
 0. **Join the Designed Minds team on Mobbin.** Open the
-   [team link](https://mobbin.com/team/join/0fba9939-3fe3-4f87-adfe-c29ee0211caf), then log in or
+   [team link](https://mobbin.com/team/join/67144285-4777-4891-a02c-730d5f99fb88), then log in or
    create a free account. The page should say "join team, Designed Minds". An admin approves you,
    and from then on Mobbin MCP works on your account. Is your work account on Mobbin Enterprise?
    Join with a personal or test account instead.
-   **Mobbin에서 Designed Minds 팀에 가입하세요.** [팀 링크](https://mobbin.com/team/join/0fba9939-3fe3-4f87-adfe-c29ee0211caf)를
+   **Mobbin에서 Designed Minds 팀에 가입하세요.** [팀 링크](https://mobbin.com/team/join/67144285-4777-4891-a02c-730d5f99fb88)를
    열고 로그인하거나 무료 계정을 만드세요. 화면에 "join team, Designed Minds"가 보이면 맞습니다.
    관리자가 승인하면 그때부터 Mobbin MCP를 쓸 수 있습니다. 회사 계정이 Mobbin Enterprise라면
    개인 계정이나 테스트 계정으로 가입하세요.
@@ -74,7 +74,7 @@ The first Mobbin search is often slow or times out. Run it again. The second try
 Raise your hand. Eunji and Luany walk the room and help. / 손을 들어 주세요. Eunji와 Luany가 도와드립니다.
 
 - **Mobbin says "Upgrade".** You're not on the team yet, or the admin hasn't approved you. Open the
-  [team link](https://mobbin.com/team/join/0fba9939-3fe3-4f87-adfe-c29ee0211caf) with the same
+  [team link](https://mobbin.com/team/join/67144285-4777-4891-a02c-730d5f99fb88) with the same
   Mobbin account, then ask a host to approve you.
   **Mobbin에 "Upgrade"가 뜨면** 아직 팀에 가입하지 않았거나 승인 전입니다. 같은 계정으로 팀 링크를
   열고 호스트에게 승인을 요청하세요.

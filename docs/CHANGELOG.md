@@ -2,6 +2,13 @@
 
 ## 18-10-2026
 
+- Seoul participants join the Designed Minds Seoul space on Mobbin
+  (https://mobbin.com/team/join/67144285-4777-4891-a02c-730d5f99fb88) instead of the online
+  team. The new link is in `README.md`, `AGENTS.md`, `kits/scmobile/START-HERE.md`, the rebuilt
+  kit.zip, the `seoul-2026-10-24` release notes and the board (setup step 1, the hero banner and
+  the release screenshot). The online-run files keep the old link as history. Andreas's host card
+  now uses his slide bio.
+
 - Board follow-up. The seven problem circles on the template station now read 1 to 7, left to
   right and top to bottom, and the problem rows are reordered to match. Setup step 3 shows the
   Seoul release page, with the "Click kit.zip" callout on kit.zip. The hands-on cards grew to

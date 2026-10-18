@@ -4,7 +4,7 @@
 
 One template, five prompts, one bilingual FigJam board that doubles as the slides. Seoul redesigns
 the home screen of SC제일은행's SC Mobile app (Standard Chartered Bank Korea), in Korean and English
-because the room has foreign attendees. The online run on 8 October used the Amtrak kit. Participants join the Designed Minds team on Mobbin through https://mobbin.com/team/join/0fba9939-3fe3-4f87-adfe-c29ee0211caf, and an admin approves them.
+because the room has foreign attendees. The online run on 8 October used the Amtrak kit. Participants join the Designed Minds team on Mobbin through https://mobbin.com/team/join/67144285-4777-4891-a02c-730d5f99fb88, and an admin approves them.
 
 | Path | What it is |
 | --- | --- |
